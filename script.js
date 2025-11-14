@@ -1,5 +1,10 @@
 // Grab the globe container
 const globeEl = document.getElementById('globe');
+if (!globeEl) {
+    console.error('Globe container not found!');
+    return;
+}
+
 // Create the Globe
 const globe = Globe()
   (globeEl)
@@ -14,9 +19,17 @@ const globe = Globe()
   .pointAltitude(0.01)
   .pointColor(d => d.color)
   .pointRadius(0.7);
-// Rotate globe automatically
-let rotationSpeed = 0.001; // adjust speed here
-(function animate() {
-    globe.rotation.y += rotationSpeed; // spin globe along Y-axis
-    requestAnimationFrame(animate);
-})();
+
+// Ensure the globe is rendered before starting animation
+globe.onGlobeReady(() => {
+    let rotationSpeed = 0.001; // adjust speed here
+    (function animate() {
+        globe.rotation.y += rotationSpeed; // spin globe along Y-axis
+        requestAnimationFrame(animate);
+    })();
+});
+
+// Error handling for texture loading
+globe.onError((err) => {
+    console.error('Globe error:', err);
+});
