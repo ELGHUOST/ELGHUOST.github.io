@@ -1,12 +1,12 @@
 /* General page styles */
 body {
     margin: 0;
-    background-color: #0b1220;
+    background-color: #0b1220; /* page background */
     color: #e6e6e6;
     font-family: 'VT323', monospace;
 }
 
-/* Header / Navbar */
+/* Navbar */
 .navbar {
     width: 100%;
     background-color: #27ff79;
@@ -32,25 +32,25 @@ body {
     text-decoration: underline;
 }
 
-/* Hero Section */
+/* HERO SECTION */
 .hero {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     padding: 50px 40px;
+    gap: 20px; /* spacing between globe and text */
 }
 
-.hero > div:first-child {
-    flex: 1 1 400px; /* text section */
+.hero-text-container {
+    flex: 1 1 450px; /* text section flex */
     min-width: 300px;
 }
 
 .hero-title {
     font-size: 60px;
-    color: white;
-    margin-bottom: 20px;
     line-height: 1.1;
+    color: white;
 }
 
 .highlight {
@@ -60,6 +60,7 @@ body {
 .hero-text {
     font-size: 20px;
     max-width: 500px;
+    margin-top: 20px;
 }
 
 .btn {
@@ -81,10 +82,11 @@ body {
 
 /* Globe container */
 .globe-container {
-    width: 350px;
-    height: 350px;
-    flex-shrink: 0;
-    margin-top: 20px;
+    flex: 1 1 350px;       /* allow globe to grow/shrink */
+    width: 100%;
+    max-width: 450px;      /* max size */
+    height: 450px;
+    background-color: transparent; /* remove blocky background */
 }
 
 /* Sections */
@@ -117,19 +119,19 @@ h2 {
 @media screen and (max-width: 900px) {
     .hero {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
     }
-    
+
     .globe-container {
         width: 300px;
         height: 300px;
-        margin-top: 30px;
+        margin-top: 20px;
     }
 
     .hero-title {
         font-size: 50px;
     }
-    
+
     .hero-text {
         font-size: 18px;
     }
@@ -152,6 +154,5 @@ h2 {
     .globe-container {
         width: 250px;
         height: 250px;
-        margin-top: 20px;
     }
 }
