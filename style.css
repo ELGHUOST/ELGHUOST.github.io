@@ -86,6 +86,8 @@ body {
     left: 50%;
     transform: translateX(-50%);
     z-index: 2;
+    overflow: hidden; /* Prevent blue box overflow */
+    background: none; /* Ensure no default background */
 }
 /* Add a wave background effect */
 .background-container::before {
