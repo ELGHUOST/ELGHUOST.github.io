@@ -219,7 +219,7 @@ h2::after {
 @media screen and (max-width: 500px) {
     .hero-title { font-size: 38px; }
     .hero-text { font-size: 16px; }
-    .btn, .cv-view, .cv-download {
+    .btn, .cv-view {
         font-size: 17px;
         padding: 10px 18px;
         display: block;
