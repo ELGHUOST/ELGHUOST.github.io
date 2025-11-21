@@ -37,7 +37,7 @@ body {
     text-decoration: underline;
 }
 
-/* ===== HERO SECTION ===== */
+/* ===== HERO ===== */
 .hero {
     padding: 60px 40px;
     position: relative;
@@ -52,23 +52,24 @@ body {
     flex: 1 1 400px;
     min-width: 300px;
     position: relative;
-    z-index: 10; /* texte devant le globe */
+    z-index: 10;
 }
 .hero-title {
-    font-size: 87px;
+    font-size: 56px;
     color: #ffffff;
     margin-bottom: 16px;
     line-height: 1.1;
 }
 .highlight { color: #a8e6cf; }
 .hero-text {
-    font-size: 29px;
-    max-width: 750px;
+    font-size: 19px;
+    max-width: 520px;
     color: #b0b0b0;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
-/* Boutons classiques */
+/* Boutons */
+.btn-group { margin: 15px 0; }
 .btn {
     padding: 11px 24px;
     border: 1px solid #a8e6cf;
@@ -78,7 +79,6 @@ body {
     font-size: 18px;
     margin-right: 14px;
     display: inline-block;
-    margin-top: 10px;
     transition: all 0.3s ease;
 }
 .btn:hover {
@@ -95,27 +95,33 @@ body {
     flex-wrap: wrap;
     margin-top: 20px;
 }
+.cv-view, .cv-download {
+    padding: 11px 24px;
+    font-size: 18px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
 .cv-view {
-    background-color: transparent !important;
-    border: 1px solid #a8e6cf !important;
-    color: #a8e6cf !important;
+    background: transparent;
+    border: 1px solid #a8e6cf;
+    color: #a8e6cf;
 }
 .cv-view:hover {
-    background-color: rgba(168, 230, 207, 0.15) !important;
-    color: #d0f4e0 !important;
-    border-color: #d0f4e0 !important;
+    background: rgba(168, 230, 207, 0.15);
+    color: #d0f4e0;
+    border-color: #d0f4e0;
 }
 .cv-download {
-    background-color: #a8e6cf !important;
-    color: #0f0f0f !important;
+    background: #a8e6cf;
+    color: #0f0f0f;
     font-weight: bold;
 }
 .cv-download:hover {
-    background-color: #d0f4e0 !important;
+    background: #d0f4e0;
     box-shadow: 0 0 12px rgba(168, 230, 207, 0.3);
 }
 
-/* ===== GLOBE EN ARRIÈRE-PLAN (discret + ne bloque rien) ===== */
+/* GLOBE EN ARRIÈRE-PLAN DISCRET */
 .globe-container {
     position: absolute !important;
     top: 50%;
@@ -129,42 +135,121 @@ body {
     filter: blur(1.5px) grayscale(60%);
 }
 
-/* ===== SECTIONS ===== */
-.section {
-    padding: 50px  40px;
-    position: relative;
-    z-index: 10;
+/* ABOUT court */
+.about-short {
+    font-size: 19px;
+    max-width: 800px;
+    margin: 30px auto 60px;
+    color: #b8b8b8;
+    text-align: center;
 }
+
+/* EDUCATION ROADMAP */
+.education-roadmap h2 {
+    font-size: 40px;
+    margin-bottom: 60px;
+    text-align: center;
+}
+.education-roadmap h2::after {
+    content: '';
+    width: 70px;
+    height: 3px;
+    background: #a8e6cf;
+    display: block;
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+.timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+}
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: #333;
+    top: 0; bottom: 0;
+    left: 50%;
+    margin-left: -2px;
+    z-index: 1;
+}
+
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    width: 50%;
+    margin-bottom: 70px;
+}
+.timeline-item:nth-child(odd) { left: 0; }
+.timeline-item:nth-child(even) { left: 50%; }
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 22px; height: 22px;
+    background: #a8e6cf;
+    border: 4px solid #0f0f0f;
+    top: 22px;
+    border-radius: 50%;
+    z-index: 2;
+}
+.timeline-item:nth-child(odd)::after { right: -11px; }
+.timeline-item:nth-child(even)::after { left: -11px; }
+
+.timeline-date {
+    font-size: 21px;
+    color: #a8e6cf;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+.timeline-content {
+    background: #1a1a1a;
+    padding: 22px 28px;
+    border-radius: 12px;
+    border: 1px solid #333;
+}
+.timeline-content h3 {
+    color: #fff;
+    margin-bottom: 8px;
+    font-size: 24px;
+}
+.timeline-content p {
+    color: #b8b8b8;
+    line-height: 1.5;
+}
+
+/* Sections & Cards */
+.section { padding: 80px 40px; position: relative; z-index: 10; }
 h2 {
-    color: #ffffff;
     font-size: 38px;
+    color: #fff;
     margin-bottom: 24px;
+    text-align: center;
     position: relative;
 }
 h2::after {
     content: '';
-    display: block;
     width: 60px;
     height: 2px;
     background: #a8e6cf;
-    margin-top: 10px;
+    display: block;
+    margin: 12px auto 0;
     border-radius: 1px;
 }
-
-/* ===== CARDS ===== */
 .card {
+    background: #1a1a1a;
     border: 1px solid #333;
     border-radius: 12px;
-    padding: 22px;
-    margin-bottom: 20px;
-    font-size: 18px;
-    background-color: #1a1a1a;
-    transition: all 0.3s ease;
+    padding: 24px;
+    margin-bottom: 24px;
+    transition: all 0.3s;
 }
 .card:hover {
     border-color: #555;
-    background-color: #1f1f1f;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    background: #1f1f1f;
+    box-shadow: 0 8px24px rgba(0,0,0,0.4);
 }
 .card-title {
     color: #a8e6cf;
@@ -172,37 +257,26 @@ h2::after {
     margin-bottom: 10px;
 }
 
-/* ===== CONTACT LINKS ===== */
-#contact a {
-    color: #a8e6cf;
-    text-decoration: none;
-}
-#contact a:hover {
-    color: #d0f4e0;
-    text-decoration: underline;
-}
+/* Contact */
+#contact a { color: #a8e6cf; text-decoration: none; }
+#contact a:hover { color: #d0f4e0; text-decoration: underline; }
 
-/* ===== RESPONSIVE ===== */
-@media screen and (max-width: 1100px) {
+/* RESPONSIVE */
+@media (max-width: 1100px) {
     .globe-container { width: 550px !important; height: 550px !important; }
 }
-@media screen and (max-width: 900px) {
-    .hero {
-        padding: 40px 20px;
-        flex-direction: column;
-        text-align: center;
-    }
+@media (max-width: 900px) {
+    .hero { flex-direction: column; text-align: center; padding: 50px 20px; }
     .globe-container { width: 450px !important; height: 450px !important; }
-    .hero-title { font-size: 48px; }
-    .hero-text { font-size: 18px; }
-    .cv-buttons { justify-content: center; }
 }
-@media screen and (max-width: 500px) {
+@media (max-width: 768px) {
+    .timeline::after { left: 31px; }
+    .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; left: 0 !important; }
+    .timeline-item::after { left: 20px !important; }
+}
+@media (max-width: 500px) {
     .hero-title { font-size: 38px; }
-    .hero-text { font-size: 16px; }
-    .btn, .cv-view { font-size: 17px; padding: 10px 18px; display: block; width: fit-content; margin: 10px auto; }
+    .btn, .cv-view, .cv-download { display: block; width: 100%; max-width: 300px; margin: 12px auto; }
     .globe-container { width: 320px !important; height: 320px !important; }
-    .navbar { font-size: 22px; padding: 14px 20px; flex-direction: column; text-align: center; }
-    .navbar-right { margin-top: 10px; }
-    .navbar-right a { margin: 0 10px; }
+    .navbar { flex-direction: column; text-align: center; padding: 14px 20px; }
 }
