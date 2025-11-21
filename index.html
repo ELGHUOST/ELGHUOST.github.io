@@ -9,6 +9,8 @@
     <script src="https://unpkg.com/globe.gl"></script>
 </head>
 <body>
+
+    <!-- Navbar -->
     <div class="navbar">
         <div>Mohamed Salem — Network & Cybersecurity</div>
         <div class="navbar-right">
@@ -18,6 +20,7 @@
         </div>
     </div>
 
+    <!-- Hero -->
     <div class="hero">
         <div>
             <div class="hero-title">
@@ -27,30 +30,64 @@
             </div>
             <div class="hero-text">
                 I design and build reliable infrastructures — virtualization, routing, VLAN segmentation,
-                core network architecture, and secure deployments.
+                core network architecture, and secure deployments.<br>
                 Passionate about cybersecurity, CTFs, and always learning new technologies.
             </div>
-            <br>
-            <a class="btn" href="#projects">View Projects</a>
-            <a class="btn" href="#contact">Contact Me</a>
-            <a href="assets/cv.pdf" target="_blank" class="btn cv-view">Voir mon CV</a>
+
+            <div class="btn-group">
+                <a class="btn" href="#projects">View Projects</a>
+                <a class="btn" href="#contact">Contact Me</a>
+            </div>
+
+            <div class="cv-buttons">
+                <a href="assets/cv.pdf" target="_blank" class="btn cv-view">Voir mon CV</a>
+                <a href="assets/cv.pdf" download="CV_Mohamed_Salem.pdf" class="btn cv-download">Télécharger</a>
+            </div>
         </div>
         <div class="globe-container" id="globe"></div>
     </div>
 
+    <!-- ABOUT (court) + EDUCATION ROADMAP -->
     <div class="section" id="about">
         <h2>ABOUT ME</h2>
-        <p>
-        I'm a network administrator passionate about building scalable infrastructures.
-        I work with Linux systems, routing protocols (OSPF, RIP, BGP basics), VLANs, VPNs,
-        firewalling and server deployment.
-        <br><br>
-        I’m also deeply involved in offensive cybersecurity — I lead my own CTF team and love solving cyber challenges.
-        <br><br>
-        I also enjoy learning new languages and I'm currently learning Chinese.
+        <p class="about-short">
+            I design and secure network infrastructures — Linux, routing (OSPF, BGP), VLANs, VPNs, firewalls.<br>
+            Offensive security enthusiast, CTF team leader, and always learning.
         </p>
+
+        <div class="education-roadmap">
+            <h2>EDUCATION</h2>
+            <div class="timeline">
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2025 – présent</div>
+                    <div class="timeline-content">
+                        <h3>Université de Franche-Comté</h3>
+                        <p>BUT – Réseaux et Télécommunications<br><strong>Parcours Cybersécurité</strong></p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2023 – 2025</div>
+                    <div class="timeline-content">
+                        <h3>IUT Montbéliard</h3>
+                        <p>BUT – Réseaux et Télécommunications<br><strong>Parcours Cybersécurité</strong></p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2021 – 2022</div>
+                    <div class="timeline-content">
+                        <h3>Académie de Strasbourg</h3>
+                        <p>Baccalauréat Général – Spécialités NSI et Mathématiques</p>
+                    </div>
+                    </div>
+
+            </div>
+        </div>
     </div>
 
+    <!-- Projects -->
     <div class="section" id="projects">
         <h2>PROJECTS</h2>
         <div class="card">
@@ -67,11 +104,12 @@
         </div>
     </div>
 
+    <!-- Contact -->
     <div class="section" id="contact">
         <h2>CONTACT</h2>
         <p>
             Email: mohamedsalemfadili@proton.me<br>
-            GitHub: <a href="https://github.com/ELGHUOST" target="_blank">github.com/ELGHUOST</a><br>
+            GitHub: <a href="https://github.com/ELGHUOST" target="_blank">github.com/ELGHUOST</a>
         </p>
     </div>
 
