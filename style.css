@@ -1,15 +1,13 @@
 /* ===== GENERAL ===== */
-* {
-    box-sizing: border-box;
-}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
 body {
     margin: 0;
     background-color: #0f0f0f;
     color: #e0e0e0;
     font-family: 'VT323', monospace;
-    position: relative;
-    overflow-x: hidden;
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 /* ===== NAVBAR ===== */
@@ -48,10 +46,13 @@ body {
     gap: 40px;
     align-items: center;
     min-height: 80vh;
+    overflow: hidden;
 }
 .hero > div:first-child {
     flex: 1 1 400px;
     min-width: 300px;
+    position: relative;
+    z-index: 10; /* texte devant le globe */
 }
 .hero-title {
     font-size: 56px;
@@ -59,15 +60,15 @@ body {
     margin-bottom: 16px;
     line-height: 1.1;
 }
-.highlight {
-    color: #a8e6cf;
-}
+.highlight { color: #a8e6cf; }
 .hero-text {
     font-size: 19px;
     max-width: 520px;
     color: #b0b0b0;
     margin-bottom: 10px;
 }
+
+/* Boutons classiques */
 .btn {
     padding: 11px 24px;
     border: 1px solid #a8e6cf;
@@ -87,7 +88,7 @@ body {
     box-shadow: 0 0 12px rgba(168, 230, 207, 0.2);
 }
 
-/* ===== CV BUTTONS ===== */
+/* CV Buttons */
 .cv-buttons {
     display: flex;
     gap: 14px;
@@ -114,42 +115,23 @@ body {
     box-shadow: 0 0 12px rgba(168, 230, 207, 0.3);
 }
 
-/* ===== GLOBE BACKGROUND ===== */
-.background-container {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    z-index: 1;
-    opacity: 0.3;
-}
+/* ===== GLOBE EN ARRIÈRE-PLAN (discret + ne bloque rien) ===== */
 .globe-container {
-    width: 460px;
-    height: 460px;
-    position: absolute;
-    top: 12%;
+    position: absolute !important;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
-    z-index: 2;
-    filter: grayscale(80%) brightness(1.1);
-}
-.background-container::before {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0;
-    width: 100%;
-    height: 180px;
-    background: url('https://www.transparenttextures.com/patterns/wave.png');
-    background-color: rgba(15, 15, 15, 0.6);
-    background-size: cover;
-    opacity: 0.4;
+    transform: translate(-50%, -50%);
+    width: 700px !important;
+    height: 700px !important;
+    opacity: 0.35;
+    pointer-events: none !important;
     z-index: 1;
+    filter: blur(1.5px) grayscale(60%);
 }
 
 /* ===== SECTIONS ===== */
 .section {
-    padding: 50px 40px;
+    padding: 50px  40px;
     position: relative;
     z-index: 10;
 }
@@ -201,17 +183,16 @@ h2::after {
 }
 
 /* ===== RESPONSIVE ===== */
+@media screen and (max-width: 1100px) {
+    .globe-container { width: 550px !important; height: 550px !important; }
+}
 @media screen and (max-width: 900px) {
     .hero {
         padding: 40px 20px;
         flex-direction: column;
         text-align: center;
     }
-    .globe-container {
-        width: 380px;
-        height: 380px;
-        top: 18%;
-    }
+    .globe-container { width: 450px !important; height: 450px !important; }
     .hero-title { font-size: 48px; }
     .hero-text { font-size: 18px; }
     .cv-buttons { justify-content: center; }
@@ -219,24 +200,9 @@ h2::after {
 @media screen and (max-width: 500px) {
     .hero-title { font-size: 38px; }
     .hero-text { font-size: 16px; }
-    .btn, .cv-view {
-        font-size: 17px;
-        padding: 10px 18px;
-        display: block;
-        width: fit-content;
-        margin: 10px auto;
-    }
-    .globe-container {
-        width: 280px;
-        height: 280px;
-        top: 22%;
-    }
-    .navbar {
-        font-size: 22px;
-        padding: 14px 20px;
-        flex-direction: column;
-        text-align: center;
-    }
+    .btn, .cv-view { font-size: 17px; padding: 10px 18px; display: block; width: fit-content; margin: 10px auto; }
+    .globe-container { width: 320px !important; height: 320px !important; }
+    .navbar { font-size: 22px; padding: 14px 20px; flex-direction: column; text-align: center; }
     .navbar-right { margin-top: 10px; }
     .navbar-right a { margin: 0 10px; }
 }
