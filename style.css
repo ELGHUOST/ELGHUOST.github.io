@@ -13,7 +13,7 @@ body {
 /* ===== NAVBAR ===== */
 .navbar {
     width: 100%;
-    background-color: #1a1a1a;
+    background: #1a1a1a;
     padding: 16px 40px;
     font-size: 24px;
     font-weight: bold;
@@ -25,12 +25,13 @@ body {
     top: 0;
     z-index: 1000;
     border-bottom: 1px solid #333;
+    backdrop-filter: blur(8px);
 }
 .navbar-right a {
-    margin-left: 25px;
+    margin-left: 28px;
     color: #a8e6cf;
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
 }
 .navbar-right a:hover {
     color: #d0f4e0;
@@ -39,168 +40,117 @@ body {
 
 /* ===== HERO ===== */
 .hero {
-    padding: 60px 40px;
+    padding: 80px 40px 60px;
     position: relative;
     z-index: 10;
     display: flex;
-    gap: 40px;
+    flex-wrap: wrap;
+    gap: 50px;
     align-items: center;
-    min-height: 80vh;
-    overflow: hidden;
+    min-height: 90vh;
 }
 .hero > div:first-child {
-    flex: 1 1 400px;
+    flex: 1 1 420px;
     min-width: 300px;
-    position: relative;
-    z-index: 10;
 }
 .hero-title {
-    font-size: 56px;
+    font-size: 58px;
     color: #ffffff;
-    margin-bottom: 16px;
+    margin-bottom: 18px;
     line-height: 1.1;
 }
 .highlight { color: #a8e6cf; }
 .hero-text {
     font-size: 19px;
-    max-width: 520px;
-    color: #b0b0b0;
+    max-width: 560px;
+    color: #b8b8b8;
     margin-bottom: 20px;
 }
-.btn-group { margin: 15px 0; }
+
+/* Boutons */
+.btn-group { margin: 20px 0; }
 .btn {
-    padding: 11px 24px;
+    padding: 12px 28px;
     border: 1px solid #a8e6cf;
     border-radius: 8px;
     color: #a8e6cf;
     text-decoration: none;
     font-size: 18px;
-    margin-right: 14px;
     display: inline-block;
+    margin: 8px 12px 8px 0;
     transition: all 0.3s ease;
 }
 .btn:hover {
-    background-color: rgba(168, 230, 207, 0.1);
+    background: rgba(168, 230, 207, 0.12);
     color: #d0f4e0;
     border-color: #d0f4e0;
-    box-shadow: 0 0 12px rgba(168, 230, 207, 0.2);
+    box-shadow: 0 0 14px rgba(168, 230, 207, 0.25);
 }
+
+/* CV Buttons */
 .cv-buttons {
     display: flex;
-    gap: 14px;
     flex-wrap: wrap;
-    margin-top: 20px;
+    gap: 16px;
+    margin-top: 28px;
 }
 .cv-view, .cv-download {
-    padding: 11px 24px;
+    padding: 12px 30px;
     font-size: 18px;
     border-radius: 8px;
+    text-align: center;
+    min-width: 160px;
     transition: all 0.3s ease;
 }
-.cv-view { background: transparent; border: 1px solid #a8e6cf; color: #a8e6cf; }
-.cv-view:hover { background: rgba(168,230,207,0.15); color: #d0f4e0; border-color: #d0f4e0; }
-.cv-download { background: #a8e6cf; color: #0f0f0f; font-weight: bold; }
-.cv-download:hover { background: #d0f4e0; box-shadow: 0 0 12px rgba(168,230,207,0.3); }
-
-/* GLOBE DISCRET EN ARRIÈRE-PLAN */
-.globe-container {
-    position: absolute !important;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: 700px !important;
-    height: 700px !important;
-    opacity: 0.35;
-    pointer-events: none !important;
-    z-index: 1;
-    filter: blur(1.5px) grayscale(60%);
-}
-
-/* ABOUT + EDUCATION GRID */
-.about-education-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    max-width: 1200px;
-    margin: 60px auto 0;
-    align-items: start;
-}
-.about-left { text-align: left; }
-.about-short {
-    font-size: 19px;
-    color: #b8b8b8;
-    line-height: 1.7;
-}
-
-/* EDUCATION TIMELINE DROITE */
-.about-right h2 {
-    font-size: 40px;
-    margin-bottom: 50px;
-    text-align: left;
-}
-.timeline-side {
-    position: relative;
-    padding-left: 30px;
-}
-.timeline-side::before {
-    content: '';
-    position: absolute;
-    left: 8px;
-    top: 0; bottom: 0;
-    width: 3px;
-    background: linear-gradient(to bottom, #a8e6cf, #333);
-    border-radius: 2px;
-}
-.timeline-side-item {
-    position: relative;
-    margin-bottom: 60px;
-}
-.timeline-side-item:last-child { margin-bottom: 0; }
-.timeline-side-dot {
-    position: absolute;
-    left: -22px;
-    top: 8px;
-    width: 18px;
-    height: 18px;
-    background: #a8e6cf;
-    border: 4px solid #0f0f0f;
-    border-radius: 50%;
-    z-index: 2;
-    box-shadow: 0 0 12px rgba(168, 230, 207, 0.6);
-}
-.timeline-side-date {
-    font-size: 19px;
+.cv-view {
+    background: transparent;
+    border: 1px solid #a8e6cf;
     color: #a8e6cf;
-    margin-bottom: 8px;
+}
+.cv-view:hover {
+    background: rgba(168, 230, 207, 0.15);
+    color: #d0f4e0;
+    border-color: #d0f4e0;
+}
+.cv-download {
+    background: #a8e6cf;
+    color: #0f0f0f;
     font-weight: bold;
 }
-.timeline-side-content h3 {
-    color: #fff;
-    margin: 0 0 6px 0;
-    font-size: 23px;
-}
-.timeline-side-content p {
-    color: #b8b8b8;
-    margin: 0;
-    line-height: 1.5;
+.cv-download:hover {
+    background: #d0f4e0;
+    box-shadow: 0 0 16px rgba(168, 230, 207, 0.4);
 }
 
-/* SECTIONS GÉNÉRALES */
-.section { padding: 80px 40px; position: relative; z-index: 10; }
+/* Globe */
+.globe-container {
+    width: 500px;
+    height: 500px;
+    flex-shrink: 0;
+}
+@media (max-width: 900px) {
+    .globe-container { width: 380px; height: 380px; }
+}
+@media (max-width: 600px) {
+    .globe-container { width: 300px; height: 300px; }
+}
+
+/* Sections & Cards */
+.section { padding: 70px 40px; position: relative; z-index: 10; }
 h2 {
-    font-size: 38px;
+    font-size: 40px;
     color: #fff;
-    margin-bottom: 24px;
-    text-align: center;
+    margin-bottom: 30px;
     position: relative;
 }
 h2::after {
     content: '';
-    width: 60px;
-    height: 2px;
+    width: 70px;
+    height: 3px;
     background: #a8e6cf;
     display: block;
-    margin: 12px auto 0;
-    border-radius: 1px;
+    margin-top: 12px;
+    border-radius: 2px;
 }
 .card {
     background: #1a1a1a;
@@ -208,31 +158,29 @@ h2::after {
     border-radius: 12px;
     padding: 24px;
     margin-bottom: 24px;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
 }
 .card:hover {
     border-color: #555;
     background: #1f1f1f;
     box-shadow: 0 8px 24px rgba(0,0,0,0.4);
 }
-.card-title { color: #a8e6cf; font-size: 24px; margin-bottom: 10px; }
-#contact a { color: #a8e6cf; text-decoration: none; }
-#contact a:hover { color: #d0f4e0; text-decoration: underline; }
+.card-title {
+    color: #a8e6cf;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
 
-/* RESPONSIVE */
-@media (max-width: 1100px) { .globe-container { width: 550px !important; height: 550px !important; } }
+/* Responsive */
 @media (max-width: 900px) {
-    .hero { flex-direction: column; text-align: center; padding: 50px 20px; }
-    .about-education-grid { grid-template-columns: 1fr; gap: 60px; }
-    .about-left, .about-right h2 { text-align: center; }
-    .timeline-side { padding-left: 0; margin: 0 auto; max-width: 400px; }
-    .timeline-side::before { left: 50%; transform: translateX(-50%); }
-    .timeline-side-dot { left: 50%; transform: translateX(-50%); }
-    .timeline-side-date, .timeline-side-content { text-align: center; }
+    .hero { flex-direction: column; text-align: center; padding: 60px 20px; }
+    .hero-title { font-size: 48px; }
+    .btn-group, .cv-buttons { justify-content: center; }
 }
 @media (max-width: 500px) {
     .hero-title { font-size: 38px; }
-    .btn, .cv-view, .cv-download { display: block; width: 100%; max-width: 300px; margin: 12px auto; }
-    .globe-container { width: 320px !important; height: 320px !important; }
-    .navbar { flex-direction: column; text-align: center; padding: 14px 20px; }
+    .btn, .cv-view, .cv-download { display: block; width: 100%; max-width: 280px; margin: 10px auto; }
+    .navbar { flex-direction: column; padding: 14px 20px; font-size: 22px; text-align: center; }
+    .navbar-right { margin-top: 10px; }
+    .navbar-right a { margin: 0 12px; }
 }
