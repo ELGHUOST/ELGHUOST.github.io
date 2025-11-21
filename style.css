@@ -55,15 +55,15 @@ body {
     z-index: 10; /* texte devant le globe */
 }
 .hero-title {
-    font-size: 56px;
+    font-size: 87px;
     color: #ffffff;
     margin-bottom: 16px;
     line-height: 1.1;
 }
 .highlight { color: #a8e6cf; }
 .hero-text {
-    font-size: 19px;
-    max-width: 520px;
+    font-size: 29px;
+    max-width: 750px;
     color: #b0b0b0;
     margin-bottom: 10px;
 }
