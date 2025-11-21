@@ -54,17 +54,17 @@ body {
     min-width: 300px;
 }
 .hero-title {
-    font-size: 58px;
+    font-size: 90px;
     color: #ffffff;
     margin-bottom: 18px;
     line-height: 1.1;
 }
 .highlight { color: #a8e6cf; }
 .hero-text {
-    font-size: 19px;
-    max-width: 560px;
+    font-size: 30px;
+    max-width: 900px;
     color: #b8b8b8;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 /* Boutons */
@@ -138,7 +138,7 @@ body {
 /* Sections & Cards */
 .section { padding: 70px 40px; position: relative; z-index: 10; }
 h2 {
-    font-size: 40px;
+    font-size: 50px;
     color: #fff;
     margin-bottom: 30px;
     position: relative;
