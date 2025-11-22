@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <title>Mohamed Salem — Network & Cybersecurity</title>
@@ -15,28 +15,29 @@
         <div>Mohamed Salem — Network & Cybersecurity</div>
         <div class="navbar-right">
             <a href="#about">About</a>
+            <a href="#education">Education</a>
             <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>
         </div>
     </div>
 
-    <!-- Hero + Globe en fond -->
+    <!-- HERO : tout à gauche + globe à droite en fond -->
     <div class="hero">
-        <div class="hero-content">
-            <div class="hero-title">
+        <div class="hero-left">
+            <h1 class="hero-title">
                 HI, I'M <span class="highlight">MOHAMED SALEM</span><br>
                 NETWORK ADMIN<br>
                 & CYBERSECURITY ENTHUSIAST
-            </div>
-            <div class="hero-text">
+            </h1>
+            <p class="hero-text">
                 I design and build reliable infrastructures — virtualization, routing, VLAN segmentation,
                 core network architecture, and secure deployments.<br>
                 Passionate about cybersecurity, CTFs, and always learning new technologies.
-            </div>
+            </p>
 
             <div class="btn-group">
-                <a class="btn" href="#projects">View Projects</a>
-                <a class="btn" href="#contact">Contact Me</a>
+                <a href="#projects" class="btn">View Projects</a>
+                <a href="#contact" class="btn">Contact Me</a>
             </div>
 
             <div class="cv-buttons">
@@ -44,82 +45,94 @@
                 <a href="assets/cv.pdf" download="CV_Mohamed_Salem.pdf" class="btn cv-download">Télécharger</a>
             </div>
         </div>
+
+        <!-- Globe en fond à droite -->
         <div class="globe-container" id="globe"></div>
     </div>
 
-    <!-- ABOUT + EDUCATION (gauche / droite) -->
-    <div class="section" id="about">
-        <h2>ABOUT ME & EDUCATION</h2>
-
-        <div class="about-education-grid">
-
-            <!-- Gauche : About court -->
-            <div class="about-left">
-                <p class="about-short">
-                    I design and secure network infrastructures — Linux, routing (OSPF, BGP), VLANs, VPNs, firewalls.<br><br>
-                    Offensive security enthusiast, CTF team leader, and always learning.
+    <!-- ABOUT ME — bloc à gauche -->
+    <section class="section" id="about">
+        <div class="container-left">
+            <h2>ABOUT ME</h2>
+            <div class="about-box">
+                <p>
+                    I'm a network administrator passionate about building scalable infrastructures.<br><br>
+                    I work with Linux systems, routing protocols (OSPF, RIP, BGP basics), VLANs, VPNs, firewalling and server deployment.
+                    <br><br>
+                    I’m also deeply involved in offensive cybersecurity — I lead my own CTF team and love solving cyber challenges.
+                    <br><br>
+                    I also enjoy learning new languages and I'm currently learning Chinese.
                 </p>
             </div>
+        </div>
+    </section>
 
-            <!-- Droite : Education avec ligne + points -->
-            <div class="about-right">
-                <div class="timeline-side">
-                    <div class="timeline-side-item">
-                        <div class="timeline-side-dot"></div>
-                        <div class="timeline-side-date">2025 – présent</div>
-                        <div class="timeline-side-content">
-                            <h3>Université de Franche-Comté</h3>
-                            <p>BUT Réseaux et Télécommunications<br><strong>Parcours Cybersécurité</strong></p>
-                        </div>
-                    </div>
+    <!-- EDUCATION — bloc à droite (seul truc à droite avec le globe) -->
+    <section class="section education-right" id="education">
+        <div class="container-right">
+            <h2>EDUCATION</h2>
+            <div class="timeline">
 
-                    <div class="timeline-side-item">
-                        <div class="timeline-side-dot"></div>
-                        <div class="timeline-side-date">2023 – 2025</div>
-                        <div class="timeline-side-content">
-                            <h3>IUT Montbéliard</h3>
-                            <p>BUT Réseaux et Télécommunications<br><strong>Parcours Cybersécurité</strong></p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-side-item">
-                        <div class="timeline-side-dot"></div>
-                        <div class="timeline-side-date">2021 – 2022</div>
-                        <div class="timeline-side-content">
-                            <h3>Académie de Strasbourg</h3>
-                            <p>Baccalauréat Général<br>Spécialités NSI et Mathématiques</p>
-                        </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2025 – présent</div>
+                    <div class="timeline-content">
+                        <h3>Université de Franche-Comté</h3>
+                        <p>BUT – Réseaux et Télécommunications<br><strong>Parcours Cybersécurité</strong></p>
                     </div>
                 </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2023 – 2025</div>
+                    <div class="timeline-content">
+                        <h3>IUT Montbéliard</h3>
+                        <p>BUT – Réseaux et Télécommunications<br><strong>Parcours Cybersécurité</strong></p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2021 – 2022</div>
+                    <div class="timeline-content">
+                        <h3>Académie de Strasbourg</h3>
+                        <p>Baccalauréat Général – Spécialités NSI et Mathématiques</p>
+                    </div>
+                </div>
+
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Projects -->
-    <div class="section" id="projects">
-        <h2>PROJECTS</h2>
-        <div class="card">
-            <div class="card-title">Network Lab Architecture</div>
-            Full virtualized routing environment with OSPF, VLANs, DHCP, firewalling and monitoring.
+    <!-- PROJECTS — à gauche -->
+    <section class="section" id="projects">
+        <div class="container-left">
+            <h2>PROJECTS</h2>
+            <div class="card">
+                <div class="card-title">Network Lab Architecture</div>
+                Full virtualized routing environment with OSPF, VLANs, DHCP, firewalling and monitoring.
+            </div>
+            <div class="card">
+                <div class="card-title">CTF Challenges & Writeups</div>
+                Web, crypto, forensics, reverse engineering challenges.
+            </div>
+            <div class="card">
+                <div class="card-title">Home Server & Proxmox Setup</div>
+                Containers, VM orchestration and secure services.
+            </div>
         </div>
-        <div class="card">
-            <div class="card-title">CTF Challenges & Writeups</div>
-            Web, crypto, forensics, reverse engineering challenges.
-        </div>
-        <div class="card">
-            <div class="card-title">Home Server & Proxmox Setup</div>
-            Containers, VM orchestration and secure services.
-        </div>
-    </div>
+    </section>
 
-    <!-- Contact -->
-    <div class="section" id="contact">
-        <h2>CONTACT</h2>
-        <p>
-            Email: mohamedsalemfadili@proton.me<br>
-            GitHub: <a href="https://github.com/ELGHUOST" target="_blank">github.com/ELGHUOST</a>
-        </p>
-    </div>
+    <!-- CONTACT — à gauche -->
+    <section class="section" id="contact">
+        <div class="container-left">
+            <h2>CONTACT</h2>
+            <p>
+                Email: mohamedsalemfadili@proton.me<br>
+                GitHub: <a href="https://github.com/ELGHUOST" target="_blank">github.com/ELGHUOST</a>
+            </p>
+        </div>
+    </section>
 
     <script src="script.js"></script>
 </body>
