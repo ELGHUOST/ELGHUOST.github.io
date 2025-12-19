@@ -17,6 +17,7 @@
             <a href="#about">About</a>
             <a href="#about">Education</a>
             <a href="#projects">Projects</a>
+            <a href="#internship">Internship</a>
             <a href="#contact">Contact</a>
         </div>
     </div>
@@ -34,67 +35,58 @@
                 core network architecture, and secure deployments.<br>
                 Passionate about cybersecurity, CTFs, and always learning new technologies.
             </p>
-
-            <div class="btn-group">
-                <a href="#projects" class="btn">View Projects</a>
-                <a href="#contact" class="btn">Contact Me</a>
-            </div>
-
-            <div class="cv-buttons">
-                <a href="assets/cv.pdf" target="_blank" class="btn cv-view">Voir mon CV</a>
-                <a href="assets/cv.pdf" download="CV_Mohamed_Salem.pdf" class="btn cv-download">Télécharger</a>
-            </div>
         </div>
-        <div class="globe-container" id="globe"></div>
+
+        <div class="globe-container">
+            <div id="globe"></div>
+        </div>
     </div>
 
-    <!-- ABOUT + EDUCATION côte à côte avec ligne entre -->
-    <section class="section about-education-section" id="about">
+    <!-- ABOUT + EDUCATION -->
+    <section class="about-education-section" id="about">
         <div class="about-education-grid">
 
-            <!-- ABOUT ME à gauche -->
-            <div class="about-column">
+            <!-- ABOUT -->
+            <div class="about-col">
                 <h2>ABOUT ME</h2>
-                <div class="about-box">
-                    <ul class="about-bullets">
-                        <li>Network administrator passionate about building scalable and secure infrastructures</li>
-                        <li>Mastery of Linux systems, routing protocols (OSPF, RIP, BGP), VLANs, VPNs, firewalls and server deployment</li>
-                        <li>Deeply involved in offensive cybersecurity — I lead my own CTF team</li>
-                        <li>Currently learning Chinese</li>
-                    </ul>
-                </div>
+                <p class="about-text">
+                    I'm a Network & Cybersecurity student (BUT R&T) with a strong interest in secure infrastructure design,
+                    networking, and practical security. I enjoy building labs, learning through challenges, and improving through real scenarios.
+                </p>
+                <ul class="about-bullets">
+                    <li>Linux, Windows, virtualization (Proxmox/VM)</li>
+                    <li>Routing, VLANs, DHCP, DNS, firewalling</li>
+                    <li>CTF learning (web/crypto/forensics basics)</li>
+                    <li>Documentation and troubleshooting mindset</li>
+                </ul>
             </div>
 
-            <!-- EDUCATION à droite -->
-            <div class="education-column">
+            <!-- EDUCATION -->
+            <div class="education-col">
                 <h2>EDUCATION</h2>
+
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
-                        <div class="timeline-date">2025 – présent</div>
+                        <div class="timeline-date">2024 - 2026</div>
                         <div class="timeline-content">
-                            <h3>Université de Franche-Comté</h3>
-                            <p>BUT Réseaux et Télécommunications<br><strong>Parcours Cybersécurité</strong></p>
+                            <h3>BUT Réseaux & Télécommunications</h3>
+                            <p>Parcours Cybersécurité — Networking fundamentals, systems, and security.</p>
                         </div>
                     </div>
+
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
-                        <div class="timeline-date">2023 – 2025</div>
+                        <div class="timeline-date">2023 - 2024</div>
                         <div class="timeline-content">
-                            <h3>IUT Montbéliard</h3>
-                            <p>BUT Réseaux et Télécommunications<br><strong>Parcours Cybersécurité</strong></p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date">2021 – 2022</div>
-                        <div class="timeline-content">
-                            <h3>Académie de Bordeaux</h3>
-                            <p>Baccalauréat Général – Spécialités NSI et Mathématiques</p>
+                            <h3>Technical Projects</h3>
+                            <p>Lab infrastructure, routing, segmentation, VPN, and security practice through challenges.</p>
                         </div>
                     </div>
                 </div>
+
             </div>
+
         </div>
     </section>
 
@@ -113,6 +105,106 @@
             <div class="card">
                 <div class="card-title">Home Server & Proxmox Setup</div>
                 Containers, VM orchestration and secure services.
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERNSHIP / PORTFOLIO -->
+    <section class="section" id="internship">
+        <h2>INTERNSHIP SEARCH</h2>
+
+        <div class="projects-wrapper">
+            <div class="card">
+                <div class="card-title">Context & Problem Statement</div>
+                <p>
+                    When I started looking for an internship, I realized how much the “informal channel” matters:
+                    many opportunities get unlocked through recommendations, family, or someone already inside a company.
+                    For students without that advantage — which is common when you are new in a city/country (including many international students) —
+                    the process becomes more uncertain: fewer replies, longer delays, and less visibility.
+                </p>
+                <p>
+                    Instead of taking it personally, I decided to treat it like a project: define a target, apply consistently,
+                    track results, and improve based on measurable feedback.
+                </p>
+                <p class="muted">
+                    Aside: these notes are meant for people in the same situation — how to search seriously, without relying on a “network”.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Aside — Practical Method (repeatable)</div>
+
+                <details class="tip">
+                    <summary>1) Define a clear target</summary>
+                    <div class="tip-body">
+                        <ul class="soft-list">
+                            <li>Role: pick 1–2 tracks max (Network / Sysadmin / Cybersecurity)</li>
+                            <li>Duration & dates: write exact dates</li>
+                            <li>Area: city + radius</li>
+                            <li>What you can do: 3–5 concrete tasks (support, monitoring, documentation, basic hardening, diagnostics)</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="tip">
+                    <summary>2) Track everything (so you can improve)</summary>
+                    <div class="tip-body">
+                        <p>
+                            Create a simple table: company, date, channel, follow-ups, status, notes.
+                            Without data, you can’t identify what works and adjust your strategy.
+                        </p>
+                    </div>
+                </details>
+
+                <details class="tip">
+                    <summary>3) Use follow-ups (professional, not pressure)</summary>
+                    <div class="tip-body">
+                        <ul class="soft-list">
+                            <li>Follow-up #1: 3–5 days after sending</li>
+                            <li>Follow-up #2: 7–10 days after follow-up #1</li>
+                            <li>Then archive + move on (and re-contact later if needed)</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="tip">
+                    <summary>4) Reduce uncertainty with a technical proof</summary>
+                    <div class="tip-body">
+                        <p>
+                            A small, clean project helps: a lab (DNS/VPN/VLAN/pfSense/AD), a short report (1 page),
+                            or a GitHub README that shows: objective → steps → tests → results.
+                        </p>
+                    </div>
+                </details>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Evidence (screenshots)</div>
+                <p class="muted">
+                    The goal is not to expose private data, but to prove methodology: organization, consistency, and technical clarity.
+                </p>
+
+                <div class="figure-grid">
+                    <figure class="figure">
+                        <img src="assets/screenshots/applications-tracker.webp" alt="Anonymized excerpt of an internship applications tracking table">
+                        <figcaption><strong>Figure 1</strong> — Tracking table excerpt (anonymized): company, dates, follow-ups, status.</figcaption>
+                    </figure>
+
+                    <figure class="figure">
+                        <img src="assets/screenshots/email-template.webp" alt="Internship email or LinkedIn message template">
+                        <figcaption><strong>Figure 2</strong> — Short targeted message template (email / LinkedIn DM).</figcaption>
+                    </figure>
+
+                    <figure class="figure">
+                        <img src="assets/screenshots/tech-proof-readme.webp" alt="GitHub README used as technical proof">
+                        <figcaption><strong>Figure 3</strong> — Technical proof (GitHub README / mini-report): objective, steps, tests, results.</figcaption>
+                    </figure>
+                </div>
+
+                <p class="muted">
+                    Tip: insert screenshots right after the paragraph they support (tracking, message template, technical proof).
+                    Keep them anonymized and add a caption to show what the evidence proves.
+                </p>
             </div>
         </div>
     </section>
