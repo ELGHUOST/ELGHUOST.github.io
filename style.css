@@ -206,3 +206,19 @@ body {
     .timeline-dot { left: 50%; transform: translateX(-50%); }
     .timeline-date, .timeline-content { text-align: center; }
 }
+
+.lang-select{
+    margin-left: 18px;
+    background: #1a1a1a;
+    color: #a8e6cf;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-family: 'VT323', monospace;
+    font-size: 18px;
+    outline: none;
+}
+.lang-select:hover{
+    border-color: #555;
+    color: #d0f4e0;
+}
