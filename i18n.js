@@ -31,6 +31,9 @@ Passionate about cybersecurity, CTFs, and always learning new technologies.`,
     proj2_desc: "Web, crypto, forensics, reverse engineering challenges.",
     proj3_title: "Home Server & Proxmox Setup",
     proj3_desc: "Containers, VM orchestration and secure services.",
+    proj4_title: "Raha (R-A-7-A) — Clothing brand",
+    proj4_desc: "Personal project: clothing brand in development.<br>Co-founded with Marwan Boulahdit.",
+
 
     contact_email: "Email:",
     contact_github: "GitHub:"
@@ -68,6 +71,9 @@ Passionné par la cybersécurité, les CTF, et l’apprentissage continu.`,
     proj2_desc: "Défis web, crypto, forensique, reverse.",
     proj3_title: "Home Server & Proxmox",
     proj3_desc: "Conteneurs, orchestration VM et services sécurisés.",
+    proj4_title: "Raha (R-A-7-A) — Marque de vêtements",
+    proj4_desc: "Projet personnel : marque de vêtements en cours de développement.<br>Co-fondée avec Marwan Boulahdit.",
+
 
     contact_email: "Email :",
     contact_github: "GitHub :"
@@ -105,6 +111,9 @@ Apasionado por la ciberseguridad, los CTF y aprender nuevas tecnologías.`,
     proj2_desc: "Retos de web, cripto, forense y reverse engineering.",
     proj3_title: "Home Server & Proxmox",
     proj3_desc: "Contenedores, orquestación de VM y servicios seguros.",
+    proj4_title: "Raha (R-A-7-A) — Marca de ropa",
+    proj4_desc: "Proyecto personal: marca de ropa en desarrollo.<br>Cofundada con Marwan Boulahdit.",
+
 
     contact_email: "Email:",
     contact_github: "GitHub:"
@@ -142,6 +151,9 @@ Apasionado por la ciberseguridad, los CTF y aprender nuevas tecnologías.`,
     proj2_desc: "Web、密码学、取证、逆向等方向。",
     proj3_title: "家庭服务器 & Proxmox",
     proj3_desc: "容器、虚拟机编排与安全服务。",
+    proj4_title: "Raha (R-A-7-A) — 服装品牌",
+    proj4_desc: "个人项目：正在开发中的服装品牌。<br>与 Marwan Boulahdit 共同创立。",
+
 
     contact_email: "mohamedsalemfadili@proton.me：",
     contact_github: "GitHub："
