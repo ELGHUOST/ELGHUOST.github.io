@@ -10,138 +10,116 @@
 
 <body class="ctf-page">
 
-  <!-- Topbar -->
   <header class="ctf-topbar">
     <a class="ctf-back" href="../index.html#projects">⟵ Retour</a>
 
-    <div class="ctf-title">
-      <span class="ctf-title-main">CTF & WRITEUPS</span>
-      <span class="ctf-title-sub">Challenges • Notes • Solutions • Progress</span>
+    <div class="ctf-brand">
+      <div class="ctf-brand-title">CTF & WRITEUPS</div>
+      <div class="ctf-brand-sub">Portfolio • Méthode • Résolution • Notes</div>
     </div>
 
-    <div class="ctf-tag">CYBERSECURITY</div>
+    <div class="ctf-right">
+      <span class="ctf-pill">CYBERSECURITY</span>
+    </div>
   </header>
 
-  <!-- HERO -->
   <section class="ctf-hero">
-    <div class="ctf-hero-bg" aria-hidden="true"></div>
-
     <div class="ctf-hero-left">
-      <h1 class="ctf-h1">
-        CTF / WRITEUPS<br>
-        <span>Mes challenges & mes résolutions</span>
-      </h1>
+      <h1 class="ctf-h1">Writeups & progression</h1>
 
       <p class="ctf-desc">
-        Ici, je regroupe mes CTF, mes writeups, et mes notes techniques.<br>
-        Objectif : progresser et garder une trace claire de mes méthodes.
+        Ici je regroupe mes writeups (explications + étapes + preuves).<br>
+        Le but : montrer une méthode propre, et garder des notes réutilisables.
       </p>
 
-      <div class="ctf-cta">
-        <a class="ctf-btn" href="#writeups">Voir les writeups</a>
-        <a class="ctf-btn ctf-btn-ghost" href="#tools">Outils & workflow</a>
-      </div>
-
-      <div class="ctf-badges">
-        <span>WEB</span>
-        <span>CRYPTO</span>
-        <span>FORENSICS</span>
-        <span>REVERSE</span>
-        <span>PWN</span>
+      <div class="ctf-meta">
+        <span><b>Format :</b> Contexte → Analyse → Étapes → Résultat → Leçon</span>
+        <span><b>Catégories :</b> Web • Forensics • Steganalysis</span>
       </div>
     </div>
 
     <div class="ctf-hero-right">
       <div class="ctf-panel">
-        <div class="ctf-panel-title">Ce que tu peux mettre ici</div>
+        <div class="ctf-panel-title">Workflow (simple)</div>
         <ul>
-          <li>Liste de plateformes (Root-Me, HTB, TryHackMe, etc.)</li>
-          <li>Writeups classés par catégorie</li>
-          <li>Docs / cheatsheets perso</li>
-          <li>Progression / objectifs</li>
+          <li>Lire l’énoncé + repérer les indices</li>
+          <li>Tester rapidement (sans partir trop loin)</li>
+          <li>Isoler la preuve (flag / password / artefact)</li>
+          <li>Documenter clairement (commandes + captures)</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- Marquee -->
-  <div class="ctf-marquee" aria-hidden="true">
-    <div class="ctf-marquee-track">
-      <span>CTF — WRITEUPS — WEB — CRYPTO — FORENSICS — REVERSE — PWN —</span>
-      <span>CTF — WRITEUPS — WEB — CRYPTO — FORENSICS — REVERSE — PWN —</span>
-      <span>CTF — WRITEUPS — WEB — CRYPTO — FORENSICS — REVERSE — PWN —</span>
-    </div>
-  </div>
-
-  <!-- WRITEUPS -->
   <section class="ctf-section" id="writeups">
     <div class="ctf-section-head">
       <h2 class="ctf-h2">WRITEUPS</h2>
-      <p class="ctf-sub">Tu peux ajouter tes writeups ici, en cartes. Plus tard tu pourras lier vers des pages dédiées.</p>
+      <p class="ctf-sub">3 exemples (cliquables). Tu peux en ajouter ensuite comme des templates.</p>
     </div>
 
     <div class="ctf-grid">
-      <article class="ctf-card">
-        <div class="ctf-card-top">
-          <span class="ctf-pill">WEB</span>
-          <span class="ctf-date">2026</span>
-        </div>
-        <div class="ctf-card-title">[Titre du challenge]</div>
-        <div class="ctf-card-desc">
-          Résumé rapide : vulnérabilité / technique utilisée / ce que tu as appris.
-        </div>
-        <div class="ctf-card-meta">Plateforme: [Root-Me / HTB / THM] • Difficulté: [Easy/Med/Hard]</div>
-      </article>
 
-      <article class="ctf-card">
+      <a class="ctf-card" href="writeups/web-html-source.html">
         <div class="ctf-card-top">
-          <span class="ctf-pill">CRYPTO</span>
-          <span class="ctf-date">2026</span>
+          <span class="ctf-tag web">WEB</span>
+          <span class="ctf-date">Beginner</span>
         </div>
-        <div class="ctf-card-title">[Titre du challenge]</div>
+        <div class="ctf-card-title">HTML Source Code — Hidden Password</div>
         <div class="ctf-card-desc">
-          Résumé rapide : algo, faille, méthode, outils.
+          Trouver une info cachée dans le code source (commentaire / input hidden).
         </div>
-        <div class="ctf-card-meta">Plateforme: [...] • Difficulté: [...]</div>
-      </article>
+        <div class="ctf-card-meta">Compétences : inspection • lecture HTML</div>
+      </a>
 
-      <article class="ctf-card ctf-card-wide">
+      <a class="ctf-card" href="writeups/forensics-shark-on-wire.html">
         <div class="ctf-card-top">
-          <span class="ctf-pill">FORENSICS</span>
-          <span class="ctf-date">2026</span>
+          <span class="ctf-tag forensics">FORENSICS</span>
+          <span class="ctf-date">Beginner</span>
         </div>
-        <div class="ctf-card-title">[Titre du challenge]</div>
+        <div class="ctf-card-title">PCAP — Flag in UDP payload</div>
         <div class="ctf-card-desc">
-          Résumé rapide : extraction, analyse, timeline, artefacts, etc.
+          Ouvrir un PCAP et repérer un message contenant le flag via filtres + streams.
         </div>
-        <div class="ctf-card-meta">Plateforme: [...] • Difficulté: [...]</div>
-      </article>
+        <div class="ctf-card-meta">Compétences : Wireshark • filtres</div>
+      </a>
+
+      <a class="ctf-card ctf-card-wide" href="writeups/stega-information.html">
+        <div class="ctf-card-top">
+          <span class="ctf-tag stega">STEGANALYSIS</span>
+          <span class="ctf-date">Beginner</span>
+        </div>
+        <div class="ctf-card-title">Image Metadata — Base64 in EXIF</div>
+        <div class="ctf-card-desc">
+          Extraire un indice dans les métadonnées (EXIF), puis décoder une chaîne (Base64).
+        </div>
+        <div class="ctf-card-meta">Compétences : exiftool • base64</div>
+      </a>
+
     </div>
   </section>
 
-  <!-- TOOLS -->
   <section class="ctf-section" id="tools">
     <div class="ctf-section-head">
-      <h2 class="ctf-h2">OUTILS & WORKFLOW</h2>
-      <p class="ctf-sub">Checklist simple pour garder une méthode propre (inspirée de ta pratique).</p>
+      <h2 class="ctf-h2">OUTILS</h2>
+      <p class="ctf-sub">Liste courte et réaliste, facile à justifier sur un portfolio.</p>
     </div>
 
     <div class="ctf-two">
       <div class="ctf-box">
-        <h3>Workflow</h3>
+        <h3>Web</h3>
         <ul>
-          <li>Recon → hypothèses → exploitation → preuve → clean writeup</li>
-          <li>Notes courtes pendant le challenge (commandes, endpoints, idées)</li>
-          <li>Après : writeup structuré + fix des erreurs</li>
+          <li>DevTools (F12) : Source / Network / Storage</li>
+          <li>curl (headers, endpoints simples)</li>
+          <li>Notes : endpoints, paramètres, réponses</li>
         </ul>
       </div>
 
       <div class="ctf-box">
-        <h3>Outils fréquents</h3>
+        <h3>Forensics / Stega</h3>
         <ul>
-          <li>Linux, Burp Suite, nmap, ffuf/gobuster</li>
-          <li>CyberChef, Wireshark, Ghidra</li>
-          <li>Python scripts (decode, parse, bruteforce)</li>
+          <li>Wireshark (filters, streams)</li>
+          <li>strings / file / hexdump</li>
+          <li>exiftool / base64</li>
         </ul>
       </div>
     </div>
@@ -151,7 +129,7 @@
     <div class="ctf-footer-line"></div>
     <div class="ctf-footer-inner">
       <div>CTF & Writeups — Mohamed Salem</div>
-      <div class="ctf-footer-small">Page dédiée à la progression et aux writeups personnels.</div>
+      <div class="ctf-footer-small">Page portfolio (writeups simplifiés).</div>
     </div>
   </footer>
 
