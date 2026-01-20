@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>CTF & Writeups — Mohamed Salem</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="ctf.css">
+</head>
+
+<body class="ctf-page">
+
+  <!-- Topbar -->
+  <header class="ctf-topbar">
+    <a class="ctf-back" href="../index.html#projects">⟵ Retour</a>
+
+    <div class="ctf-title">
+      <span class="ctf-title-main">CTF & WRITEUPS</span>
+      <span class="ctf-title-sub">Challenges • Notes • Solutions • Progress</span>
+    </div>
+
+    <div class="ctf-tag">CYBERSECURITY</div>
+  </header>
+
+  <!-- HERO -->
+  <section class="ctf-hero">
+    <div class="ctf-hero-bg" aria-hidden="true"></div>
+
+    <div class="ctf-hero-left">
+      <h1 class="ctf-h1">
+        CTF / WRITEUPS<br>
+        <span>Mes challenges & mes résolutions</span>
+      </h1>
+
+      <p class="ctf-desc">
+        Ici, je regroupe mes CTF, mes writeups, et mes notes techniques.<br>
+        Objectif : progresser et garder une trace claire de mes méthodes.
+      </p>
+
+      <div class="ctf-cta">
+        <a class="ctf-btn" href="#writeups">Voir les writeups</a>
+        <a class="ctf-btn ctf-btn-ghost" href="#tools">Outils & workflow</a>
+      </div>
+
+      <div class="ctf-badges">
+        <span>WEB</span>
+        <span>CRYPTO</span>
+        <span>FORENSICS</span>
+        <span>REVERSE</span>
+        <span>PWN</span>
+      </div>
+    </div>
+
+    <div class="ctf-hero-right">
+      <div class="ctf-panel">
+        <div class="ctf-panel-title">Ce que tu peux mettre ici</div>
+        <ul>
+          <li>Liste de plateformes (Root-Me, HTB, TryHackMe, etc.)</li>
+          <li>Writeups classés par catégorie</li>
+          <li>Docs / cheatsheets perso</li>
+          <li>Progression / objectifs</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Marquee -->
+  <div class="ctf-marquee" aria-hidden="true">
+    <div class="ctf-marquee-track">
+      <span>CTF — WRITEUPS — WEB — CRYPTO — FORENSICS — REVERSE — PWN —</span>
+      <span>CTF — WRITEUPS — WEB — CRYPTO — FORENSICS — REVERSE — PWN —</span>
+      <span>CTF — WRITEUPS — WEB — CRYPTO — FORENSICS — REVERSE — PWN —</span>
+    </div>
+  </div>
+
+  <!-- WRITEUPS -->
+  <section class="ctf-section" id="writeups">
+    <div class="ctf-section-head">
+      <h2 class="ctf-h2">WRITEUPS</h2>
+      <p class="ctf-sub">Tu peux ajouter tes writeups ici, en cartes. Plus tard tu pourras lier vers des pages dédiées.</p>
+    </div>
+
+    <div class="ctf-grid">
+      <article class="ctf-card">
+        <div class="ctf-card-top">
+          <span class="ctf-pill">WEB</span>
+          <span class="ctf-date">2026</span>
+        </div>
+        <div class="ctf-card-title">[Titre du challenge]</div>
+        <div class="ctf-card-desc">
+          Résumé rapide : vulnérabilité / technique utilisée / ce que tu as appris.
+        </div>
+        <div class="ctf-card-meta">Plateforme: [Root-Me / HTB / THM] • Difficulté: [Easy/Med/Hard]</div>
+      </article>
+
+      <article class="ctf-card">
+        <div class="ctf-card-top">
+          <span class="ctf-pill">CRYPTO</span>
+          <span class="ctf-date">2026</span>
+        </div>
+        <div class="ctf-card-title">[Titre du challenge]</div>
+        <div class="ctf-card-desc">
+          Résumé rapide : algo, faille, méthode, outils.
+        </div>
+        <div class="ctf-card-meta">Plateforme: [...] • Difficulté: [...]</div>
+      </article>
+
+      <article class="ctf-card ctf-card-wide">
+        <div class="ctf-card-top">
+          <span class="ctf-pill">FORENSICS</span>
+          <span class="ctf-date">2026</span>
+        </div>
+        <div class="ctf-card-title">[Titre du challenge]</div>
+        <div class="ctf-card-desc">
+          Résumé rapide : extraction, analyse, timeline, artefacts, etc.
+        </div>
+        <div class="ctf-card-meta">Plateforme: [...] • Difficulté: [...]</div>
+      </article>
+    </div>
+  </section>
+
+  <!-- TOOLS -->
+  <section class="ctf-section" id="tools">
+    <div class="ctf-section-head">
+      <h2 class="ctf-h2">OUTILS & WORKFLOW</h2>
+      <p class="ctf-sub">Checklist simple pour garder une méthode propre (inspirée de ta pratique).</p>
+    </div>
+
+    <div class="ctf-two">
+      <div class="ctf-box">
+        <h3>Workflow</h3>
+        <ul>
+          <li>Recon → hypothèses → exploitation → preuve → clean writeup</li>
+          <li>Notes courtes pendant le challenge (commandes, endpoints, idées)</li>
+          <li>Après : writeup structuré + fix des erreurs</li>
+        </ul>
+      </div>
+
+      <div class="ctf-box">
+        <h3>Outils fréquents</h3>
+        <ul>
+          <li>Linux, Burp Suite, nmap, ffuf/gobuster</li>
+          <li>C
