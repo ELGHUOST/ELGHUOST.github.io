@@ -10,9 +10,9 @@ body {
 }
 
 /* Navbar */
-.navbar {
+.navbar{
     width: 100%;
-    background-color: #1a1a1a;
+    background-color: rgba(26,26,26,0.92); /* gris foncé visible */
     padding: 16px 60px;
     font-size: 26px;
     font-weight: bold;
@@ -20,11 +20,15 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 9999;              /* toujours au-dessus */
     border-bottom: 1px solid #333;
+
+    backdrop-filter: blur(10px); /* effet “verre” (optionnel mais stylé) */
 }
+
 .navbar-right a { margin-left: 30px; color: #a8e6cf; text-decoration: none; font-size: 20px; }
 .navbar-right a:hover { color: #d0f4e0; text-decoration: underline; }
 
