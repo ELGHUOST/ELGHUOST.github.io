@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Writeup — HTML Source Code</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../ctf.css">
+</head>
+
+<body class="ctf-page">
+  <header class="ctf-topbar">
+    <a class="ctf-back" href="../index.html">⟵ Retour</a>
+
+    <div class="ctf-brand">
+      <div class="ctf-brand-title">WRITEUP</div>
+      <div class="ctf-brand-sub">Web • HTML Source Code</div>
+    </div>
+
+    <div class="ctf-right">
+      <a class="ctf-back" href="../../index.html#projects">Portfolio</a>
+    </div>
+  </header>
+
+  <main class="ctf-section writeup">
+    <h1>HTML Source Code — Hidden Password</h1>
+    <div class="subtitle">Challenge débutant : retrouver un mot de passe caché dans le code source.</div>
+
+    <div class="kv">
+      <span>Catégorie : Web</span>
+      <span>Niveau : Beginner</span>
+      <span>Compétences : DevTools • lecture HTML</span>
+      <span>Livrable : password/flag</span>
+    </div>
+
+    <div class="block">
+      <h2>Contexte</h2>
+      <p>
+        Une page web affiche un formulaire de “login” très basique.
+        L’énoncé suggère qu’il faut “regarder autrement” la page.
+        Dans ce type de challenge, la solution est souvent cachée dans le code HTML (commentaire, champ hidden, etc.).
+      </p>
+      <div class="img-slot">
+        [IMAGE ICI : capture de la page du challenge]
+        <small>Ex: page avec un champ “password” + bouton</small>
+      </div>
+    </div>
+
+    <div class="block">
+      <h2>Approche</h2>
+      <ul>
+        <li>Ouvrir les DevTools (F12) et inspecter le DOM</li>
+        <li>Afficher le code source de la page</li>
+        <li>Chercher des mots-clés : <b>password</b>, <b>flag</b>, <b>secret</b>, <b>key</b></li>
+      </ul>
+      <div class="img-slot">
+        [IMAGE ICI : DevTools ouvert / Inspect Element]
+        <small>Ex: panneau “Elements” avec le HTML</small>
+      </div>
+    </div>
+
+    <div class="block">
+      <h2>Étapes (résolution)</h2>
+      <ul>
+        <li>Click droit → <b>Afficher le code source</b> (ou Ctrl+U selon navigateur)</li>
+        <li>Dans la page source, utiliser Ctrl+F et chercher “password” / “flag”</li>
+        <li>Repérer un commentaire HTML ou un input caché qui contient la valeur attendue</li>
+        <li>Revenir sur la page du challenge, entrer la valeur et valider</li>
+      </ul>
+
+      <div class="code"><pre>
+Exemple typique rencontré dans ce genre de challenge (illustratif) :
+
+<!-- password: [VALEUR_CACHEE] -->
+
+ou
+
+&lt;input type="hidden" name="secret" value="[VALEUR_CACHEE]" /&gt;
+      </pre></div>
+
+      <div class="img-slot">
+        [IMAGE ICI : la ligne du code source où on voit le secret]
+        <small>Important : entoure/fluote la zone sur ta capture</small>
+      </div>
+    </div>
+
+    <div class="block">
+      <h2>Résultat</h2>
+      <p>
+        Une fois la valeur repérée dans le source, il suffit de la soumettre dans le formulaire.
+        Pour ton portfolio, tu peux afficher un résultat du type :
+      </p>
+      <div class="code"><pre>
+FLAG{HTML_SOURCE_CODE_FOUND}
+      </pre></div>
+      <div class="img-slot">
+        [IMAGE ICI : page “success” / validation du challenge]
+        <small>Ex: message “Well done”</small>
+      </div>
+    </div>
+
+    <div class="block">
+      <h2>Ce que j’ai retenu</h2>
+      <ul>
+        <li>Ne jamais se limiter à ce qui est “visible” : inspecter le code et les ressources.</li>
+        <li>DevTools = réflexe de base en Web CTF.</li>
+        <li>Un bon writeup explique la logique, pas juste “où cliquer”.</li>
+      </ul>
+    </div>
+  </main>
+</body>
+</html>
