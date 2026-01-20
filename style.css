@@ -222,3 +222,14 @@ body {
     border-color: #555;
     color: #d0f4e0;
 }
+.navbar-right{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  margin-left:auto;
+  gap: 26px;
+}
+
+.navbar-right a{ 
+  margin-left: 0; 
+}
