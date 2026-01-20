@@ -11,38 +11,42 @@
 <body>
 
     <!-- Navbar -->
-    <div class="navbar">
-        <div>Mohamed Salem — Network & Cybersecurity</div>
-        <div class="navbar-right">
-            <a href="#about">About</a>
-            <a href="#about">Education</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-        </div>
+   <div class="navbar-right">
+        <a href="#about" data-i18n="nav_about">About</a>
+        <a href="#about" data-i18n="nav_education">Education</a>
+        <a href="#projects" data-i18n="nav_projects">Projects</a>
+        <a href="#contact" data-i18n="nav_contact">Contact</a>
+    
+        <select id="langSelect" class="lang-select" aria-label="Language">
+            <option value="en">EN</option>
+            <option value="fr">FR</option>
+            <option value="es">ES</option>
+            <option value="zh">中文</option>
+        </select>
     </div>
 
     <!-- HERO -->
     <div class="hero">
         <div class="hero-content">
-            <h1 class="hero-title">
+           <h1 class="hero-title" data-i18n="hero_title" data-i18n-html="true">
                 HI, I'M <span class="highlight">MOHAMED SALEM</span><br>
                 NETWORK ADMIN<br>
                 & CYBERSECURITY ENTHUSIAST
             </h1>
-            <p class="hero-text">
+            <p class="hero-text" data-i18n="hero_desc" data-i18n-html="true">
                 I design and build reliable infrastructures — virtualization, routing, VLAN segmentation,<br>
                 core network architecture, and secure deployments.<br>
                 Passionate about cybersecurity, CTFs, and always learning new technologies.
             </p>
 
             <div class="btn-group">
-                <a href="#projects" class="btn">View Projects</a>
-                <a href="#contact" class="btn">Contact Me</a>
+                <a href="#projects" class="btn" data-i18n="btn_view_projects">View Projects</a>
+                <a href="#contact" class="btn " data-i18n="btn_contact_me">Contact Me>Contact Me</a>
             </div>
 
             <div class="cv-buttons">
-                <a href="assets/cv.pdf" target="_blank" class="btn cv-view">Voir mon CV</a>
-                <a href="assets/cv.pdf" download="CV_Mohamed_Salem.pdf" class="btn cv-download">Télécharger</a>
+                <a href="assets/cv.pdf" target="_blank" class="btn cv-view" data-i18n="btn_cv_view">Voir mon CV</a>
+                <a href="assets/cv.pdf" download="CV_Mohamed_Salem.pdf" class="btn cv-download" data-i18n="btn_cv_download">Télécharger</a>
             </div>
         </div>
         <div class="globe-container" id="globe"></div>
@@ -54,20 +58,20 @@
 
             <!-- ABOUT ME à gauche -->
             <div class="about-column">
-                <h2>ABOUT ME</h2>
+                <h2 data-i18n="about_title">ABOUT ME</h2>
                 <div class="about-box">
                     <ul class="about-bullets">
-                        <li>Network administrator passionate about building scalable and secure infrastructures</li>
-                        <li>Mastery of Linux systems, routing protocols (OSPF, RIP, BGP), VLANs, VPNs, firewalls and server deployment</li>
-                        <li>Deeply involved in offensive cybersecurity — I lead my own CTF team</li>
-                        <li>Currently learning Chinese</li>
+                        <li data-i18n="about_li_1">Network administrator passionate about building scalable and secure infrastructures</li>
+                        <li data-i18n="about_li_2">Mastery of Linux systems, routing protocols (OSPF, RIP, BGP), VLANs, VPNs, firewalls and server deployment</li>
+                        <li data-i18n="about_li_3">Deeply involved in offensive cybersecurity — I lead my own CTF team</li>
+                        <li data-i18n="about_li_4">Currently learning Chinese</li>
                     </ul>
                 </div>
             </div>
 
             <!-- EDUCATION à droite -->
             <div class="education-column">
-                <h2>EDUCATION</h2>
+                <h2  data-i18n="edu_title">EDUCATION</h2>
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
@@ -100,19 +104,20 @@
 
     <!-- PROJECTS (pleine largeur) -->
     <section class="section" id="projects">
-        <h2>PROJECTS</h2>
+        <h2 data-i18n="projects_title">PROJECTS</h2>
         <div class="projects-wrapper">
             <div class="card">
-                <div class="card-title">Network Lab Architecture</div>
-                Full virtualized routing environment with OSPF, VLANs, DHCP, firewalling and monitoring.
+                <div class="card-title" data-i18n="proj1_title">Network Lab Architecture</div>
+                <span data-i18n="proj1_desc">Full virtualized routing environment with OSPF, VLANs, DHCP, firewalling and monitoring.</span>
             </div>
             <div class="card">
-                <div class="card-title">CTF Challenges & Writeups</div>
-                Web, crypto, forensics, reverse engineering challenges.
+                <div class="card-title" data-i18n="proj2_title">CTF Challenges & Writeups</div>
+                <span data-i18n="proj2_desc">Web, crypto, forensics, reverse engineering challenges.</span>
             </div>
+            
             <div class="card">
-                <div class="card-title">Home Server & Proxmox Setup</div>
-                Containers, VM orchestration and secure services.
+                <div class="card-title" data-i18n="proj3_title">Home Server & Proxmox Setup</div>
+                <span data-i18n="proj3_desc">Containers, VM orchestration and secure services.</span>
             </div>
             <a href="raha/index.html" class="card card-link">
             <div class="card-title">Raha (R-A-7-A) — Marque de vêtements</div>
@@ -124,15 +129,16 @@
 
     <!-- CONTACT -->
     <section class="section" id="contact">
-        <h2>CONTACT</h2>
+        <h2 data-i18n="contact_title" >CONTACT</h2>
         <div class="contact-content">
-            <p>
-                Email: mohamedsalemfadili@proton.me<br>
-                GitHub: <a href="https://github.com/ELGHUOST" target="_blank">github.com/ELGHUOST</a>
-            </p>
+        <p>
+            <span data-i18n="contact_email">Email:</span> mohamedsalemfadili@proton.me<br>
+            <span data-i18n="contact_github">GitHub:</span> <a href="https://github.com/ELGHUOST" target="_blank">github.com/ELGHUOST</a>
+        </p>
         </div>
     </section>
 
     <script src="script.js"></script>
+    <script src="i18n.js"></script>
 </body>
 </html>
