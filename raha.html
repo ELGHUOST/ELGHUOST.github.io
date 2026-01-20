@@ -1,30 +1,148 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Raha (R-A-7-A) — Marque de vêtements</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>Raha (R-A-7-A) — Marque de vêtements</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="raha.css">
 </head>
-<body>
 
-    <div class="navbar">
-        <div>Raha (R-A-7-A) — Marque de vêtements</div>
-        <div class="navbar-right">
-            <a href="index.html#projects">Retour aux projets</a>
-        </div>
+<body class="raha-page">
+
+  <!-- Top bar minimal / underground -->
+  <header class="raha-topbar">
+    <a class="raha-back" href="index.html#projects">⟵ Retour</a>
+
+    <div class="raha-brand">
+      <img class="raha-orbit" src="assets/raha/logo-orbit.png" alt="RAHA (RA7A) logo">
+      <span class="raha-brand-text">RAHA / R-A-7-A</span>
     </div>
 
-    <section class="section">
-        <h2>RAHA</h2>
-        <div class="projects-wrapper">
-            <div class="card">
-                <div class="card-title">Présentation</div>
-                Page en cours de construction. Ici, tu pourras parler de la marque, ajouter tes images, etc.
-            </div>
+    <div class="raha-tag">UNDERGROUND CLOTHING</div>
+  </header>
+
+  <!-- HERO -->
+  <section class="raha-hero">
+    <div class="raha-hero-bg" aria-hidden="true"></div>
+
+    <div class="raha-hero-left">
+      <h1 class="raha-title">
+        RAHA (R-A-7-A)<br>
+        <span>Clothing / Personal Project</span>
+      </h1>
+
+      <p class="raha-desc">
+        Marque de vêtements en cours de développement.<br>
+        Co-fondée par Mohamed Salem & Marwan Bouladit.
+      </p>
+
+      <div class="raha-cta">
+        <a class="raha-btn" href="#drop">Voir le drop</a>
+        <a class="raha-btn raha-btn-ghost" href="#gallery">Galerie</a>
+      </div>
+
+      <div class="raha-mini-logos">
+        <img src="assets/raha/logo-ra7a-gothic.jpg" alt="RA7A gothic logo">
+        <img src="assets/raha/logo-kata.jpg" alt="KATA logo">
+      </div>
+    </div>
+
+    <div class="raha-hero-right">
+      <!-- Ici: grande image stylée de fond -->
+      <img class="raha-hero-poster" src="assets/raha/hero-wallpaper.jpg" alt="Raha artwork">
+    </div>
+  </section>
+
+  <!-- Marquee (style “indie underground”) -->
+  <div class="raha-marquee" aria-hidden="true">
+    <div class="raha-marquee-track">
+      <span>RAHA — RA7A — KATA — LIMITED DROP — UNDERGROUND —</span>
+      <span>RAHA — RA7A — KATA — LIMITED DROP — UNDERGROUND —</span>
+      <span>RAHA — RA7A — KATA — LIMITED DROP — UNDERGROUND —</span>
+    </div>
+  </div>
+
+  <!-- DROP / LOOKBOOK -->
+  <section class="raha-section" id="drop">
+    <div class="raha-section-head">
+      <h2 class="raha-h2">DROP / LOOKBOOK</h2>
+      <p class="raha-sub">Place tes descriptions ici plus tard (matière, coupe, date, etc.).</p>
+    </div>
+
+    <div class="raha-grid">
+      <!-- 1 -->
+      <article class="raha-card">
+        <img src="assets/raha/drop-green.jpg" alt="T-shirt Raha vert">
+        <div class="raha-card-footer">
+          <div class="raha-card-title">RAHA — Green</div>
+          <div class="raha-card-meta">Front/Back — Concept graphics</div>
         </div>
-    </section>
+      </article>
+
+      <!-- 2 -->
+      <article class="raha-card">
+        <img src="assets/raha/drop-blue.jpg" alt="T-shirt Raha bleu">
+        <div class="raha-card-footer">
+          <div class="raha-card-title">RAHA — Blue</div>
+          <div class="raha-card-meta">Front/Back — Stars signature</div>
+        </div>
+      </article>
+
+      <!-- 3 -->
+      <article class="raha-card">
+        <img src="assets/raha/drop-lavender.jpg" alt="T-shirt Raha lavande">
+        <div class="raha-card-footer">
+          <div class="raha-card-title">RAHA — Lavender</div>
+          <div class="raha-card-meta">Butterfly / Logo</div>
+        </div>
+      </article>
+
+      <!-- 4 -->
+      <article class="raha-card">
+        <img src="assets/raha/drop-white.jpg" alt="T-shirt Raha blanc">
+        <div class="raha-card-footer">
+          <div class="raha-card-title">RAHA — White</div>
+          <div class="raha-card-meta">Camel artwork / Arabic call</div>
+        </div>
+      </article>
+
+      <!-- 5 -->
+      <article class="raha-card raha-card-wide">
+        <img src="assets/raha/drop-brown.jpg" alt="T-shirt Raha marron">
+        <div class="raha-card-footer">
+          <div class="raha-card-title">RAHA — Brown</div>
+          <div class="raha-card-meta">Camel artwork / Earth tones</div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- GALLERY / COLLAGE -->
+  <section class="raha-section" id="gallery">
+    <div class="raha-section-head">
+      <h2 class="raha-h2">GALLERY</h2>
+      <p class="raha-sub">Une zone collage pour tes visuels (underground vibe).</p>
+    </div>
+
+    <div class="raha-collage">
+      <div class="raha-collage-left">
+        <img src="assets/raha/logo-ra7a-gothic.jpg" alt="RA7A">
+        <img src="assets/raha/logo-kata.jpg" alt="KATA">
+      </div>
+      <div class="raha-collage-right">
+        <img src="assets/raha/hero-wallpaper.jpg" alt="Artwork Raha">
+      </div>
+    </div>
+  </section>
+
+  <footer class="raha-footer">
+    <div class="raha-footer-line"></div>
+    <div class="raha-footer-inner">
+      <div>RAHA (R-A-7-A)</div>
+      <div class="raha-footer-small">Co-founders: Mohamed Salem / Marwan Bouladit</div>
+    </div>
+  </footer>
 
 </body>
 </html>
