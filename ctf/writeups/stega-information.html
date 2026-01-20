@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Writeup — Stega (EXIF + Base64)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../ctf.css">
+</head>
+
+<body class="ctf-page">
+  <header class="ctf-topbar">
+    <a class="ctf-back" href="../index.html">⟵ Retour</a>
+
+    <div class="ctf-brand">
+      <div class="ctf-brand-title">WRITEUP</div>
+      <div class="ctf-brand-sub">Steganalysis • Metadata</div>
+    </div>
+
+    <div class="ctf-right">
+      <a class="ctf-back" href="../../index.html#projects">Portfolio</a>
+    </div>
+  </header>
+
+  <main class="ctf-section writeup">
+    <h1>Image Metadata — Base64 in EXIF</h1>
+    <div class="subtitle">Challenge débutant : fouiller les métadonnées puis décoder un indice.</div>
+
+    <div class="kv">
+      <span>Catégorie : Steganalysis</span>
+      <span>Niveau : Beginner</span>
+      <span>Outils : exiftool • base64</span>
+      <span>Technique : metadata inspection</span>
+    </div>
+
+    <div class="block">
+      <h2>Contexte</h2>
+      <p>
+        On reçoit une image (ex: <b>cat.jpg</b> ou équivalent). Visuellement elle a l’air normale.
+        L’indice typique : “les fichiers peuvent mentir” → on regarde la structure et les métadonnées.
+      </p>
+
+      <div class="img-slot">
+        [IMAGE ICI : l’image du challenge]
+        <small>Ex: une image “banale”</small>
+      </div>
+    </div>
+
+    <div class="block">
+      <h2>Approche</h2>
+      <ul>
+        <li>Vérifier le type de fichier (file)</li>
+        <li>Extraire les métadonnées (exiftool)</li>
+        <li>Repérer une chaîne suspecte (souvent Base64)</li>
+        <li>Décoder la chaîne (base64 -d)</li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <h2>Étapes (résolution)</h2>
+
+      <p><b>1) Identifier le fichier</b></p>
+      <div class="code"><pre>
+file cat.jpg
+      </pre></div>
+
+      <p><b>2) Lire les métadonnées</b></p>
+      <div class="code"><pre>
+exiftool cat.jpg
+      </pre></div>
+
+      <p>
+        On inspecte surtout les champs : <b>Comment</b>, <b>Description</b>, <b>Artist</b>, <b>Copyright</b>,
+        ou tout champ qui contient une chaîne “longue” (souvent Base64).
+      </p>
+
+      <div class="img-slot">
+        [IMAGE ICI : sortie exiftool avec la ligne suspecte]
+        <small>Entoure la ligne “Comment” / “Description”</small>
+      </div>
+
+      <p><b>3) Décoder l’indice</b> (si la chaîne ressemble à Base64)</p>
+      <div class="code"><pre>
+echo "VFlQRV9JQ0lfQkFTRTY0X0NPTU1FTlQ=" | base64 -d
+      </pre></div>
+
+      <p>
+        (Exemple illustratif : toi tu remplaceras la chaîne par celle que tu verras dans tes métadonnées.)
+      </p>
+
+      <div class="img-slot">
+        [IMAGE ICI : terminal montrant le décodage Base64]
+        <small>Preuve : commande + résultat</small>
+      </div>
+    </div>
+
+    <div class="block">
+      <h2>Résultat</h2>
+      <p>
+        Le décodage donne un texte lisible, souvent directement le flag, ou un chemin/indice final.
+        Pour ton portfolio, tu peux afficher :
+      </p>
+      <div class="code"><pre>
+FLAG{EXIF_METADATA_BASE64_DECODED}
+      </pre></div>
+
+      <div class="img-slot">
+        [IMAGE ICI : preuve finale (flag / message)]
+        <small>Capture du résultat final</small>
+      </div>
+    </div>
+
+    <div class="block">
+      <h2>Ce que j’ai retenu</h2>
+      <ul>
+        <li>Les métadonnées sont un réflexe simple et très rentable en CTF.</li>
+        <li>Base64 revient tout le temps : savoir reconnaître et décoder rapidement.</li>
+        <li>Un writeup pro = étapes + preuves (captures + commandes).</li>
+      </ul>
+    </div>
+  </main>
+</body>
+</html>
