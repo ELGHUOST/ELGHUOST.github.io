@@ -1,0 +1,131 @@
+/* CSS commun pour toutes les pages produit (drops) */
+
+:root{
+  --txt:#e9e9ee;
+  --muted:#b7b7c2;
+  --neon:#a8e6cf;
+  --vio:#b06cff;
+}
+
+.drop-page{
+  margin:0;
+  font-family:'VT323', monospace;
+  color:var(--txt);
+  background: radial-gradient(1200px 800px at 15% 10%, rgba(176,108,255,.18), transparent 60%),
+              radial-gradient(900px 700px at 90% 30%, rgba(168,230,207,.14), transparent 55%),
+              linear-gradient(180deg, #07070a 0%, #0a0a10 45%, #07070a 100%);
+  overflow-x:hidden;
+}
+
+/* Grain léger (même vibe que la page Raha) */
+.drop-page::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(255,255,255,.03) 0, rgba(255,255,255,.03) 1px, transparent 2px, transparent 6px),
+    repeating-linear-gradient(90deg, rgba(255,255,255,.02) 0, rgba(255,255,255,.02) 1px, transparent 2px, transparent 7px);
+  mix-blend-mode: overlay;
+  opacity:.14;
+  z-index:0;
+}
+
+/* Top bar */
+.drop-top{
+  position:sticky;
+  top:0;
+  z-index:50;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 18px;
+  background: rgba(10,10,16,.65);
+  backdrop-filter: blur(10px);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.drop-top a{
+  color:var(--txt);
+  text-decoration:none;
+  font-size:22px;
+  opacity:.9;
+}
+.drop-top a:hover{
+  opacity:1;
+  text-decoration:underline;
+}
+
+/* Layout */
+.drop-wrap{
+  position:relative;
+  z-index:1;
+  max-width:1100px;
+  margin:0 auto;
+  padding:28px 18px 40px;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:18px;
+}
+
+.drop-card{
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:18px;
+  overflow:hidden;
+  background: rgba(255,255,255,.02);
+  box-shadow: 0 18px 55px rgba(0,0,0,.45);
+}
+
+.drop-card img{
+  width:100%;
+  height:520px;
+  object-fit:cover;
+  display:block;
+  filter: contrast(1.02);
+}
+
+.drop-info{
+  padding:16px 16px 18px;
+}
+
+.drop-title{
+  margin:0 0 10px;
+  font-size:52px;
+  line-height:.95;
+  text-transform:uppercase;
+}
+
+.drop-sub{
+  margin:0 0 12px;
+  font-size:22px;
+  color:rgba(233,233,238,.78);
+}
+
+.drop-text{
+  margin:0;
+  font-size:22px;
+  color:rgba(233,233,238,.92);
+  line-height:1.35;
+}
+
+.drop-badges{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:14px;
+}
+
+.drop-badge{
+  border:1px solid rgba(168,230,207,.35);
+  border-radius:999px;
+  padding:8px 12px;
+  font-size:20px;
+  color:var(--neon);
+  background: rgba(168,230,207,.06);
+}
+
+/* Responsive */
+@media (max-width: 980px){
+  .drop-wrap{ grid-template-columns:1fr; }
+  .drop-card img{ height:420px; }
+}
