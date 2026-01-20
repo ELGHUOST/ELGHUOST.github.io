@@ -330,6 +330,14 @@
   text-align:right;
 }
 
+/* Cards cliquables (a) */
+.raha-card{
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 /* Responsive */
 @media (max-width: 980px){
   .raha-hero{ grid-template-columns: 1fr; }
