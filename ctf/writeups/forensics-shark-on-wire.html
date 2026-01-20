@@ -39,9 +39,10 @@
         On reçoit un fichier <b>.pcap</b> (capture réseau).
         L’objectif est de retrouver un message “flag-like” envoyé sur le réseau, souvent en clair.
       </p>
+
       <div class="img-slot">
-        [IMAGE ICI : fichier .pcap + ouverture dans Wireshark]
-        <small>Ex: écran d’accueil Wireshark</small>
+        <img src="../assets/forensics/forensics-open-pcap.png" alt="Wireshark ouvert avec le PCAP">
+        <small>Ouverture du fichier PCAP dans Wireshark</small>
       </div>
     </div>
 
@@ -57,34 +58,40 @@
 
     <div class="block">
       <h2>Étapes (résolution)</h2>
-      <p><b>1) Filtrer UDP</b> (si l’énoncé/hint mentionne des “streams” ou du trafic simple)</p>
+
+      <p><b>1) Filtrer UDP</b></p>
       <div class="code"><pre>
 udp
       </pre></div>
 
-      <p><b>2) Chercher une signature de flag</b> (ex: “flag{” ou “CTF{”)</p>
+      <div class="img-slot">
+        <img src="../assets/forensics/forensics-udp-filter.png" alt="Filtre UDP dans Wireshark">
+        <small>Filtre UDP appliqué (réduction du bruit)</small>
+      </div>
+
+      <p><b>2) Chercher une signature de flag</b> (ex: “flag{” / “CTF{” / mot clé)</p>
       <div class="code"><pre>
 udp contains "flag"
       </pre></div>
 
       <p>
-        Si quelque chose apparaît, on clique un paquet intéressant et on regarde le contenu :
-        <b>Packet Details</b> / <b>Packet Bytes</b> / ou directement le champ “Data”.
+        On clique un paquet intéressant et on regarde le contenu :
+        <b>Packet Details</b> / <b>Packet Bytes</b> / champ “Data”.
       </p>
 
       <div class="img-slot">
-        [IMAGE ICI : filtre Wireshark + paquet sélectionné]
-        <small>Ex: la zone où on voit le payload UDP</small>
+        <img src="../assets/forensics/forensics-payload-flag.png" alt="Payload contenant le flag">
+        <small>Paquet sélectionné : payload contenant le flag (zone surlignée)</small>
       </div>
 
-      <p><b>3) Suivre le flux si besoin</b> (si c’est réparti sur plusieurs paquets)</p>
+      <p><b>3) Suivre le flux si besoin</b> (si le message est réparti)</p>
       <div class="code"><pre>
 Right click → Follow → UDP Stream
       </pre></div>
 
       <div class="img-slot">
-        [IMAGE ICI : fenêtre “Follow UDP Stream”]
-        <small>Ex: le texte reconstruit</small>
+        <img src="../assets/forensics/forensics-follow-udp-stream.png" alt="Follow UDP Stream">
+        <small>Fenêtre “Follow UDP Stream” (reconstitution du message)</small>
       </div>
     </div>
 
@@ -94,23 +101,18 @@ Right click → Follow → UDP Stream
         Le flag est récupéré dans le contenu du stream / payload.
         Pour ton portfolio, tu peux afficher un résultat “propre” comme :
       </p>
+
       <div class="code"><pre>
 FLAG{PCAP_UDP_PAYLOAD_FOUND}
       </pre></div>
+
       <div class="img-slot">
-        [IMAGE ICI : preuve du flag dans Wireshark]
-        <small>Entoure la zone du flag sur ta capture</small>
+        <img src="../assets/forensics/forensics-payload-flag.png" alt="Preuve finale du flag dans Wireshark">
+        <small>Preuve finale : flag visible dans Wireshark</small>
       </div>
     </div>
 
     <div class="block">
       <h2>Ce que j’ai retenu</h2>
       <ul>
-        <li>La réussite vient surtout du <b>filtrage</b> : réduire vite le bruit.</li>
-        <li>Suivre un stream aide à reconstituer un message.</li>
-        <li>En CTF, beaucoup d’infos sont en clair : il faut savoir “lire” une capture.</li>
-      </ul>
-    </div>
-  </main>
-</body>
-</html>
+        <li>La réussite vient
