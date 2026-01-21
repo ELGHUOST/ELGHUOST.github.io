@@ -1,0 +1,254 @@
+:root{
+  --bg:#0f0f0f;
+  --panel:#1a1a1a;
+  --txt:#e0e0e0;
+  --muted:#b8b8b8;
+  --line:#333;
+  --accent:#a8e6cf;
+  --accent2:#d0f4e0;
+}
+
+*{ box-sizing:border-box; margin:0; padding:0; }
+html{ scroll-behavior:smooth; }
+
+.stage-page{
+  font-family:'VT323', monospace;
+  background: var(--bg);
+  color: var(--txt);
+  line-height:1.7;
+  overflow-x:hidden;
+}
+
+/* Topbar */
+.stage-topbar{
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 22px;
+  background: rgba(26,26,26,.92);
+  border-bottom:1px solid var(--line);
+  backdrop-filter: blur(10px);
+}
+
+.stage-back,
+.stage-link{
+  color: var(--accent);
+  text-decoration:none;
+  font-size:22px;
+}
+.stage-back:hover,
+.stage-link:hover{
+  color: var(--accent2);
+  text-decoration: underline;
+}
+
+.stage-brand{ text-align:center; }
+.stage-brand-title{ font-size:26px; color:#fff; letter-spacing:.5px; }
+.stage-brand-sub{ font-size:18px; color: var(--muted); }
+
+.stage-right{ display:flex; gap:14px; align-items:center; }
+
+/* Hero */
+.stage-hero{
+  max-width:1200px;
+  margin:0 auto;
+  padding:42px 22px 22px;
+  display:grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap:18px;
+}
+
+.stage-title{
+  font-size:64px;
+  line-height:1;
+  color:#fff;
+  margin-bottom:10px;
+}
+.stage-subtitle{
+  font-size:22px;
+  color: var(--muted);
+  margin-bottom:16px;
+}
+
+.stage-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px 18px;
+  font-size:20px;
+  color: var(--txt);
+  margin-bottom:18px;
+  opacity:.95;
+}
+.stage-meta span{ white-space:nowrap; }
+
+.stage-cta{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.stage-btn{
+  display:inline-block;
+  padding:12px 18px;
+  border:2px solid var(--accent);
+  border-radius:10px;
+  color: var(--accent);
+  text-decoration:none;
+  font-size:20px;
+  transition: all .2s;
+}
+.stage-btn:hover{
+  background: rgba(168,230,207,0.12);
+  border-color: var(--accent2);
+  color: var(--accent2);
+}
+.stage-btn-ghost{
+  border-color: #555;
+  color: #ddd;
+}
+.stage-btn-ghost:hover{
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(255,255,255,0.04);
+}
+
+/* Image blocks */
+.stage-figure{
+  background: var(--panel);
+  border:1px solid var(--line);
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow: 0 18px 55px rgba(0,0,0,.45);
+}
+.stage-figure img{
+  width:100%;
+  height:auto;
+  display:block;
+}
+.stage-figure figcaption{
+  padding:10px 12px 12px;
+  font-size:18px;
+  color: var(--muted);
+}
+
+/* Main sections */
+.stage-main{
+  max-width:1200px;
+  margin:0 auto;
+  padding:10px 22px 40px;
+}
+
+.stage-section{
+  padding:30px 0;
+  border-top:1px solid rgba(255,255,255,.06);
+}
+
+.stage-section h2{
+  font-size:42px;
+  color:#fff;
+  margin-bottom:12px;
+  position:relative;
+}
+.stage-section h2::after{
+  content:'';
+  display:block;
+  width:80px;
+  height:4px;
+  background: var(--accent);
+  border-radius:2px;
+  margin-top:10px;
+}
+
+.stage-section p{
+  font-size:22px;
+  color: var(--txt);
+  margin-top:10px;
+  max-width: 980px;
+}
+
+.stage-section ul,
+.stage-section ol{
+  margin-top:12px;
+  padding-left: 22px;
+  font-size:22px;
+  color: var(--muted);
+  max-width: 980px;
+}
+.stage-section li{ margin-bottom:8px; }
+
+.stage-note{
+  margin-top:10px;
+  font-size:20px;
+  color: var(--muted);
+}
+
+.stage-callout{
+  margin-top:16px;
+  background: var(--panel);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:16px;
+}
+.stage-callout h3{
+  font-size:28px;
+  color: var(--accent);
+  margin-bottom:8px;
+}
+
+.stage-grid-2{
+  margin-top:16px;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:16px;
+}
+
+.stage-card{
+  background: var(--panel);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:16px;
+  box-shadow: 0 18px 55px rgba(0,0,0,.28);
+}
+.stage-card h3{
+  font-size:30px;
+  color: var(--accent);
+  margin-bottom:8px;
+}
+.stage-card p{ font-size:22px; color: var(--txt); }
+.stage-card ul, .stage-card ol{
+  color: var(--muted);
+  font-size:22px;
+}
+
+/* Footer */
+.stage-footer{
+  max-width:1200px;
+  margin:0 auto;
+  padding:22px 22px 42px;
+}
+.stage-footer-line{
+  height:1px;
+  background: linear-gradient(90deg, transparent, rgba(168,230,207,.25), transparent);
+  margin-bottom:14px;
+}
+.stage-footer-inner{
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  font-size:20px;
+}
+.stage-footer-small{
+  color: var(--muted);
+  text-align:right;
+}
+
+/* Responsive */
+@media (max-width: 980px){
+  .stage-hero{ grid-template-columns: 1fr; }
+  .stage-grid-2{ grid-template-columns: 1fr; }
+  .stage-footer-inner{ flex-direction:column; }
+  .stage-footer-small{ text-align:left; }
+}
