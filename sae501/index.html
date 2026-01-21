@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>SAÉ 501 — Challenge AdminSys (WorldSkills)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="sae501.css">
+</head>
+
+<body class="sae-page">
+
+  <!-- Topbar -->
+  <header class="sae-topbar">
+    <a class="sae-back" href="../index.html#projects">⟵ Retour</a>
+
+    <div class="sae-brand">
+      <div class="sae-title">SAÉ 501</div>
+      <div class="sae-subtitle">Challenge AdminSys • Format WorldSkills • 1 semaine</div>
+    </div>
+
+    <a class="sae-cta" href="#livrables">Voir livrables</a>
+  </header>
+
+  <!-- HERO -->
+  <section class="sae-hero">
+    <div class="sae-hero-left">
+      <h1>Concevoir, réaliser et présenter une solution technologique</h1>
+      <p class="sae-lead">
+        Projet universitaire (SAÉ) inspiré d’un challenge type <b>WorldSkills</b>.
+        Le sujet était dense, très “terrain”, et il fallait avancer vite : en <b>une semaine</b>, en équipe,
+        avec une vraie logique de production (réseau + services + sécurité + automatisation).
+      </p>
+
+      <div class="sae-kpis">
+        <div class="kpi"><span>Durée</span><b>1 semaine</b></div>
+        <div class="kpi"><span>Équipe</span><b>5 personnes</b></div>
+        <div class="kpi"><span>Focus</span><b>Admin Sys / Réseau / Secu</b></div>
+        <div class="kpi"><span>Résultat</span><b>Majorité des services OK</b></div>
+      </div>
+
+      <div class="sae-note">
+        <b>Mon rôle :</b> équipe <b>Cybersécurité / Admin Sys</b> (mise en place, sécurisation, validation et dépannage).
+      </div>
+    </div>
+
+    <div class="sae-hero-right">
+      <!-- IMAGE ICI (couverture) -->
+      <div class="img-box">
+        <img src="assets/cover.png" alt="Couverture SAÉ 501 (à remplacer)">
+        <div class="img-caption">[IMAGE] Couverture / sujet / visuel de contexte (à remplacer)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="sae-section" id="equipe">
+    <h2>Organisation d’équipe</h2>
+
+    <div class="grid-2">
+      <div class="panel">
+        <h3>Cybersécurité / Admin Sys (3)</h3>
+        <ul>
+          <li><b>Mohamed Salem</b></li>
+          <li>Alas Sideri</li>
+          <li>Elias Hadadi</li>
+        </ul>
+        <p class="muted">
+          Mise en place des services, hardening, contrôle des accès, tests, corrections, et documentation technique.
+        </p>
+      </div>
+
+      <div class="panel">
+        <h3>Pilotage de projet (2)</h3>
+        <ul>
+          <li>Jassime Bouchéqua</li>
+          <li>Elmin Habibovic</li>
+        </ul>
+        <p class="muted">
+          Organisation, suivi des tâches, priorités, validation intermédiaire et coordination pour éviter les retards.
+        </p>
+      </div>
+    </div>
+
+    <div class="panel soft">
+      <h3>Pourquoi la gestion de projet a été indispensable</h3>
+      <p>
+        Le sujet contenait beaucoup d’exigences (réseau + services + sécurité). Sans une organisation claire,
+        on part vite dans tous les sens. On a donc fonctionné avec :
+      </p>
+      <ul>
+        <li>une <b>répartition des responsabilités</b> (qui fait quoi, qui valide quoi)</li>
+        <li>un <b>planning simple</b> (priorités “bloquantes” d’abord)</li>
+        <li>des <b>points rapides réguliers</b> (avancement, problèmes, décisions)</li>
+        <li>une logique de <b>tests</b> (on valide au fur et à mesure, pas à la fin)</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- TECH -->
+  <section class="sae-section" id="tech">
+    <h2>Ce qu’on devait construire</h2>
+
+    <div class="grid-2">
+      <div class="panel">
+        <h3>Infrastructure réseau</h3>
+        <ul>
+          <li>Segmentation (VLAN + règles de base)</li>
+          <li>Redondance de passerelle (FHRP)</li>
+          <li>Routage + interconnexion (OSPF / BGP selon zones)</li>
+          <li>Accès Internet + NAT/PAT</li>
+          <li>Gestion & supervision via réseau d’admin</li>
+        </ul>
+
+        <!-- IMAGE ICI -->
+        <div class="img-slot">
+          <div class="img-placeholder">[IMAGE] Schéma topo / VLAN / flux (assets/topology.png)</div>
+          <small>Place ici ton schéma réseau / capture du diagramme</small>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>Services IT (Admin Sys)</h3>
+        <ul>
+          <li>DHCP + options (DNS, NTP, domaine…)</li>
+          <li>VPN (OpenVPN) pour accès distant</li>
+          <li>Partage fichiers (Samba : public/privé + restrictions)</li>
+          <li>Messagerie (SMTP(S) / IMAP(S) + règles)</li>
+          <li>Webmail en HTTPS + redirection HTTP → HTTPS</li>
+          <li>Automatisation (Ansible : backup, inventaire, état interfaces…)</li>
+        </ul>
+
+        <!-- IMAGE ICI -->
+        <div class="img-slot">
+          <div class="img-placeholder">[IMAGE] Tableau des services / capture config (assets/services.png)</div>
+          <small>Place ici une capture “services OK” / check-list</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- METHOD -->
+  <section class="sae-section" id="methode">
+    <h2>Méthode de travail (semaine intense)</h2>
+
+    <div class="panel">
+      <h3>1) Prioriser</h3>
+      <p class="muted">
+        On a commencé par ce qui débloque tout : adressage, routage, accès inter-sites, DNS/DHCP.
+        Ensuite seulement on a monté les services “métier” (fichiers, mail, webmail, VPN, automatisation).
+      </p>
+    </div>
+
+    <div class="panel">
+      <h3>2) Avancer par lots + valider à chaque étape</h3>
+      <ul>
+        <li>On configure → on teste → on corrige → on documente</li>
+        <li>Chaque service avait une “preuve” : ping, résolution DNS, login, transfert, accès HTTPS, etc.</li>
+      </ul>
+    </div>
+
+    <div class="panel">
+      <h3>3) Communication</h3>
+      <p class="muted">
+        Le point le plus important : dès qu’un blocage apparaissait (route manquante, règle, accès),
+        on le remontait tout de suite. Ça évite les heures perdues à la fin.
+      </p>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="sae-section" id="livrables">
+    <h2>Résultats & livrables</h2>
+
+    <div class="grid-2">
+      <div class="panel">
+        <h3>Ce qui a fonctionné</h3>
+        <ul>
+          <li>Une grande partie des services déployés</li>
+          <li>Accès aux ressources internes + accès distant (selon contraintes)</li>
+          <li>Validation progressive (tests à chaque étape)</li>
+        </ul>
+      </div>
+
+      <div class="panel">
+        <h3>Ce qu’on a appris</h3>
+        <ul>
+          <li>Un projet “dense” demande une vraie gestion (planning + priorités)</li>
+          <li>La technique seule ne suffit pas : sans suivi, on se noie</li>
+          <li>Documenter et tester = gain de temps énorme</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- IMAGE ICI -->
+    <div class="img-slot big">
+      <div class="img-placeholder">[IMAGE] Capture “résultats / validation / scoreboard” (assets/results.png)</div>
+      <small>Ex: capture tests OK, tableau de validation, ou une preuve de services disponibles</small>
+    </div>
+
+    <div class="panel soft">
+      <h3>Compétences mises en pratique</h3>
+      <div class="tags">
+        <span>Admin Linux</span>
+        <span>Routage & VLAN</span>
+        <span>DNS/DHCP</span>
+        <span>VPN</span>
+        <span>Samba</span>
+        <span>Mail & HTTPS</span>
+        <span>Ansible</span>
+        <span>Organisation d’équipe</span>
+      </div>
+    </div>
+  </section>
+
+  <footer class="sae-footer">
+    <div class="footer-line"></div>
+    <div class="footer-inner">
+      <div>SAÉ 501 — Challenge AdminSys</div>
+      <div class="muted">Équipe : Mohamed Salem • Anas Idiri • Ilyas Hadaddi • Jasim Bouchekoa • Elmin Habiboviç </div>
+    </div>
+  </footer>
+
+</body>
+</html>
