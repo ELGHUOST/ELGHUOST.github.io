@@ -34,6 +34,7 @@ Passionate about cybersecurity, CTFs, and always learning new technologies.`,
     proj4_title: "Raha (R-A-7-A) — Clothing brand",
     proj4_desc: "Personal project: clothing brand in development.<br>Co-founded with Marwan Boulahdit.",
 
+
     contact_email: "Email:",
     contact_github: "GitHub:"
   },
@@ -59,19 +60,20 @@ Passionné par la cybersécurité, les CTF, et l’apprentissage continu.`,
     projects_title: "PROJETS",
     contact_title: "CONTACT",
 
-    about_li_1: "Network administrator passionate about building scalable and secure infrastructures",
+    about_li_1: "Administrateur réseau passionné par la conception d’infrastructures évolutives et sécurisées.",
     about_li_2: "Maîtrise des systèmes Linux, des protocoles de routage (OSPF, RIP, BGP), des VLAN, des VPN, des pare-feu et du déploiement de serveurs.",
     about_li_3: "Très impliqué en cybersécurité offensive — je gère ma propre équipe CTF",
     about_li_4: "J’apprends actuellement le chinois",
 
     proj1_title: "SAÉ 501 — Challenge AdminSys (WorldSkills)",
-    proj1_desc: "Projet universitaire intense (1 semaine) : infrastructure réseau + services + sécurité + automatisation, réalisé en équipe de 5.",
+    proj1_desc: "Projet universitaire intense (1 semaine) : infrastructure réseau + services + sécurité + automatisation, réalisé en équipe de 5.",,
     proj2_title: "CTF & Writeups",
     proj2_desc: "Défis web, crypto, forensique, reverse.",
     proj3_title: "En recherche de stage",
     proj3_desc: "Conseils concrets, méthode et organisation pour trouver un stage (même sans réseau).",
     proj4_title: "Raha (R-A-7-A) — Marque de vêtements",
     proj4_desc: "Projet personnel : marque de vêtements en cours de développement.<br>Co-fondée avec Marwan Boulahdit.",
+
 
     contact_email: "Email :",
     contact_github: "GitHub :"
@@ -112,6 +114,7 @@ Apasionado por la ciberseguridad, los CTF y aprender nuevas tecnologías.`,
     proj4_title: "Raha (R-A-7-A) — Marca de ropa",
     proj4_desc: "Proyecto personal: marca de ropa en desarrollo.<br>Cofundada con Marwan Boulahdit.",
 
+
     contact_email: "Email:",
     contact_github: "GitHub:"
   },
@@ -151,7 +154,8 @@ Apasionado por la ciberseguridad, los CTF y aprender nuevas tecnologías.`,
     proj4_title: "Raha (R-A-7-A) — 服装品牌",
     proj4_desc: "个人项目：正在开发中的服装品牌。<br>与 Marwan Boulahdit 共同创立。",
 
-    contact_email: "邮箱：",
+
+    contact_email: "mohamedsalemfadili@proton.me：",
     contact_github: "GitHub："
   }
 };
