@@ -357,3 +357,16 @@ body.sae-page{
   color: rgba(233,233,233,.75);
 }
 
+.pdf-peek-img{
+  width: 100%;
+  height: auto;
+  display: block;
+
+  /* effet "peek/leak" */
+  transform: translateY(-40px) scale(1.03);
+  transform-origin: top left;
+
+  filter: contrast(1.02);
+}
+
+
