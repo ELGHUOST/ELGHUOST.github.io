@@ -59,7 +59,7 @@ Passionné par la cybersécurité, les CTF, et l’apprentissage continu.`,
     projects_title: "PROJETS",
     contact_title: "CONTACT",
 
-    about_li_1: "Network administrator passionate about building scalable and secure infrastructures",
+    about_li_1: "Administrateur réseau passionné par la conception d’infrastructures évolutives et sécurisées",
     about_li_2: "Maîtrise des systèmes Linux, des protocoles de routage (OSPF, RIP, BGP), des VLAN, des VPN, des pare-feu et du déploiement de serveurs.",
     about_li_3: "Très impliqué en cybersécurité offensive — je gère ma propre équipe CTF",
     about_li_4: "J’apprends actuellement le chinois",
