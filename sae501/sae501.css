@@ -255,6 +255,14 @@ body.sae-page{
   gap: 16px;
   font-size: 20px;
 }
+.sae-img{
+  width:100%;
+  height:auto;
+  display:block;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(26,26,26,.35);
+}
 
 /* Responsive */
 @media (max-width: 980px){
