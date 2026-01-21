@@ -273,3 +273,87 @@ body.sae-page{
   .sae-subtitle{ font-size: 16px; }
   .sae-hero h1{ font-size: 46px; }
 }
+
+/* ==== PDF "leak/peek" ==== */
+.pdf-leak{
+  display:block;
+  text-decoration:none;
+  color: inherit;
+
+  border-radius: 14px;
+  border: 1px dashed rgba(168,230,207,.45);
+  background: rgba(15,15,15,.35);
+  overflow:hidden;
+
+  box-shadow: 0 18px 55px rgba(0,0,0,.35);
+  transition: transform .18s, border-color .18s, background .18s;
+}
+.pdf-leak:hover{
+  transform: translateY(-2px);
+  border-color: rgba(208,244,224,.65);
+  background: rgba(26,26,26,.55);
+}
+
+.pdf-leak-head{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding: 12px 12px 10px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.pdf-badge{
+  font-size: 18px;
+  color:#0f0f0f;
+  background: rgba(168,230,207,.95);
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-weight: bold;
+}
+
+.pdf-name{
+  font-size: 20px;
+  color: rgba(233,233,233,.92);
+}
+
+.pdf-hint{
+  margin-left:auto;
+  font-size: 18px;
+  color: rgba(168,230,207,.9);
+  opacity:.95;
+}
+
+/* la zone "peek" : on ne montre qu'un morceau */
+.pdf-peek{
+  height: 170px;          /* <-- hauteur du "leak" visible */
+  overflow: hidden;
+  position: relative;
+}
+
+/* on embed le PDF, mais on le "décale" pour ne voir qu'un bout */
+.pdf-peek object{
+  width: 100%;
+  height: 600px;          /* grand pour qu'il y ait de la matière à crop */
+  transform: translateY(-40px) scale(1.03);  /* <-- ajuste le crop ici */
+  transform-origin: top left;
+
+  pointer-events: none;   /* IMPORTANT : le clic passe au <a> */
+  filter: contrast(1.02) grayscale(10%);
+}
+
+/* effet "leak" : fade en bas */
+.pdf-peek::after{
+  content:"";
+  position:absolute;
+  left:0; right:0; bottom:0;
+  height: 55px;
+  background: linear-gradient(to bottom, transparent, rgba(0,0,0,.55));
+}
+
+/* fallback */
+.pdf-fallback{
+  padding: 18px 12px;
+  font-size: 18px;
+  color: rgba(233,233,233,.75);
+}
+
