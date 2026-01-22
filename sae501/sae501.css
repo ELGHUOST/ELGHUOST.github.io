@@ -21,7 +21,6 @@ body.sae-page{
   overflow-x: hidden;
 }
 
-/* TOPBAR */
 .sae-topbar{
   position: sticky;
   top: 0;
@@ -68,7 +67,6 @@ body.sae-page{
 }
 .sae-cta:hover{ background: #d0f4e0; }
 
-/* HERO */
 .sae-hero{
   max-width: 1200px;
   margin: 0 auto;
@@ -142,7 +140,6 @@ body.sae-page{
   border-top: 1px solid var(--line);
 }
 
-/* SECTIONS */
 .sae-section{
   max-width: 1200px;
   margin: 0 auto;
@@ -198,7 +195,6 @@ body.sae-page{
 
 .muted{ color: var(--muted); }
 
-/* Image slots (placeholders) */
 .img-slot{
   margin-top: 14px;
   border-radius: 14px;
@@ -222,7 +218,6 @@ body.sae-page{
   color: var(--muted);
 }
 
-/* Tags */
 .tags{
   display:flex;
   flex-wrap: wrap;
@@ -238,7 +233,6 @@ body.sae-page{
   background: rgba(168,230,207,.06);
 }
 
-/* FOOTER */
 .sae-footer{
   max-width: 1200px;
   margin: 0 auto;
@@ -264,7 +258,6 @@ body.sae-page{
   background: rgba(26,26,26,.35);
 }
 
-/* Responsive */
 @media (max-width: 980px){
   .sae-hero{ grid-template-columns: 1fr; }
   .grid-2{ grid-template-columns: 1fr; }
@@ -274,7 +267,6 @@ body.sae-page{
   .sae-hero h1{ font-size: 46px; }
 }
 
-/* ==== PDF "leak/peek" ==== */
 .pdf-leak{
   display:block;
   text-decoration:none;
@@ -323,25 +315,22 @@ body.sae-page{
   opacity:.95;
 }
 
-/* la zone "peek" : on ne montre qu'un morceau */
 .pdf-peek{
-  height: 170px;          /* <-- hauteur du "leak" visible */
+  height: 170px;        
   overflow: hidden;
   position: relative;
 }
 
-/* on embed le PDF, mais on le "décale" pour ne voir qu'un bout */
 .pdf-peek object{
   width: 100%;
-  height: 600px;          /* grand pour qu'il y ait de la matière à crop */
-  transform: translateY(-40px) scale(1.03);  /* <-- ajuste le crop ici */
+  height: 600px;          
+  transform: translateY(-40px) scale(1.03); 
   transform-origin: top left;
 
-  pointer-events: none;   /* IMPORTANT : le clic passe au <a> */
+  pointer-events: none; 
   filter: contrast(1.02) grayscale(10%);
 }
 
-/* effet "leak" : fade en bas */
 .pdf-peek::after{
   content:"";
   position:absolute;
@@ -350,7 +339,6 @@ body.sae-page{
   background: linear-gradient(to bottom, transparent, rgba(0,0,0,.55));
 }
 
-/* fallback */
 .pdf-fallback{
   padding: 18px 12px;
   font-size: 18px;
@@ -362,7 +350,6 @@ body.sae-page{
   height: auto;
   display: block;
 
-  /* effet "peek/leak" */
   transform: translateY(-40px) scale(1.03);
   transform-origin: top left;
 
