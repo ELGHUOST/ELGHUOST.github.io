@@ -16,7 +16,6 @@
   overflow-x:hidden;
 }
 
-/* Grain / noise */
 .raha-page::before{
   content:"";
   position:fixed;
@@ -30,7 +29,6 @@
   z-index:0;
 }
 
-/* Topbar */
 .raha-topbar{
   position:sticky;
   top:0;
@@ -72,7 +70,6 @@
   color:var(--muted);
 }
 
-/* HERO */
 .raha-hero{
   position:relative;
   z-index:1;
@@ -181,7 +178,6 @@
   transform: rotate(1.2deg);
 }
 
-/* Marquee */
 .raha-marquee{
   position:relative;
   z-index:1;
@@ -208,7 +204,6 @@
   to{ transform: translateX(-33.333%); }
 }
 
-/* Sections */
 .raha-section{
   position:relative;
   z-index:1;
@@ -239,7 +234,6 @@
   max-width:520px;
 }
 
-/* Cards grid */
 .raha-grid{
   display:grid;
   grid-template-columns: repeat(2, minmax(0,1fr));
@@ -276,13 +270,11 @@
   color:rgba(233,233,238,.78);
 }
 
-/* Wide card */
 .raha-card-wide{
   grid-column: 1 / -1;
 }
 .raha-card-wide img{ height:520px; }
 
-/* Collage */
 .raha-collage{
   display:grid;
   grid-template-columns: .8fr 1.2fr;
@@ -304,7 +296,6 @@
 .raha-collage-left img{ height:240px; }
 .raha-collage-right img{ height:496px; }
 
-/* Footer */
 .raha-footer{
   position:relative;
   z-index:1;
@@ -328,7 +319,6 @@
   text-align:right;
 }
 
-/* Cards cliquables (a) */
 .raha-card{
   display: block;
   color: inherit;
@@ -336,7 +326,6 @@
   cursor: pointer;
 }
 
-/* Responsive */
 @media (max-width: 980px){
   .raha-hero{ grid-template-columns: 1fr; }
   .raha-hero-right{ justify-content:flex-start; }
