@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>RAHA — Accès</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="gate.css">
+</head>
+
+<body class="gate-page">
+  <div class="gate-bg" aria-hidden="true"></div>
+
+  <main class="gate-wrap">
+    <header class="gate-head">
+      <div class="gate-brand">RAHA / R-A-7-A</div>
+      <div class="gate-sub">Site en construction — accès réservé</div>
+    </header>
+
+    <!-- Animation style "GIF" avec 2 images -->
+    <section class="duel-card" aria-label="Animation d'attente">
+      <div class="duel">
+        <img class="frame frame-1" src="assets/duel/duel-1.png" alt="Duel - pose 1">
+        <img class="frame frame-2" src="assets/duel/duel-2.png" alt="Duel - impact">
+      </div>
+      <div class="duel-caption">Chargement / vérification…</div>
+    </section>
+
+    <section class="login-card">
+      <h1 class="login-title">Connexion admin</h1>
+      <p class="login-desc">Entre un identifiant et un mot de passe pour accéder au site.</p>
+
+      <form id="loginForm" class="login-form" autocomplete="off">
+        <label class="field">
+          <span>Utilisateur</span>
+          <input id="username" type="text" placeholder="admin" required>
+        </label>
+
+        <label class="field">
+          <span>Mot de passe</span>
+          <input id="password" type="password" placeholder="••••••••" required>
+        </label>
+
+        <button class="btn" type="submit">Entrer</button>
+        <div id="msg" class="msg" role="status" aria-live="polite"></div>
+      </form>
+
+      <div class="hint">
+        <span>Tip :</span> si tu veux “vraiment” sécuriser en ligne, dis-moi où tu héberges (GitHub Pages / Netlify / Vercel).
+      </div>
+    </section>
+  </main>
+
+  <!-- Overlay loading -->
+  <div id="loading" class="loading" hidden>
+    <div class="loading-box">
+      <div class="loading-title">Validation…</div>
+      <div class="loading-sub">Merci de patienter</div>
+    </div>
+  </div>
+
+  <script src="gate.js"></script>
+</body>
+</html>
