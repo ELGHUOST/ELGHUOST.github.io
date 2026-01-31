@@ -1,21 +1,36 @@
 :root{
-  --ink:#0b0b0f;
+  --ink:#07070a;
   --txt:#e9e9ee;
   --muted:#b7b7c2;
+
+  /* accents */
   --neon:#a8e6cf;
   --vio:#b06cff;
+  --gold:#d2b26f;
+  --blood:#b84a5a;
+
+  /* surfaces */
+  --card: rgba(255,255,255,.03);
+  --line: rgba(255,255,255,.10);
 }
 
+/* =========================
+   Page background (dark JP + oriental)
+   ========================= */
 .raha-page{
   margin:0;
   font-family:'VT323', monospace;
   color:var(--txt);
-  background: radial-gradient(1200px 800px at 15% 10%, rgba(176,108,255,.20), transparent 60%),
-              radial-gradient(900px 700px at 90% 30%, rgba(168,230,207,.18), transparent 55%),
-              linear-gradient(180deg, #07070a 0%, #0a0a10 45%, #07070a 100%);
+  background:
+    radial-gradient(1200px 800px at 15% 10%, rgba(176,108,255,.22), transparent 60%),
+    radial-gradient(900px 700px at 90% 30%, rgba(168,230,207,.16), transparent 55%),
+    radial-gradient(800px 600px at 55% 85%, rgba(210,178,111,.10), transparent 65%),
+    linear-gradient(180deg, #050507 0%, #0a0a12 42%, #07070a 100%);
   overflow-x:hidden;
+  position: relative;
 }
 
+/* Grain / noise */
 .raha-page::before{
   content:"";
   position:fixed;
@@ -25,10 +40,38 @@
     repeating-linear-gradient(0deg, rgba(255,255,255,.03) 0, rgba(255,255,255,.03) 1px, transparent 2px, transparent 6px),
     repeating-linear-gradient(90deg, rgba(255,255,255,.02) 0, rgba(255,255,255,.02) 1px, transparent 2px, transparent 7px);
   mix-blend-mode: overlay;
-  opacity:.18;
+  opacity:.16;
   z-index:0;
 }
 
+/* Japanese wave pattern (subtle) + oriental geometry */
+.raha-page::after{
+  content:"";
+  position:fixed;
+  inset:-80px;
+  pointer-events:none;
+  z-index:0;
+  opacity:.22;
+
+  /* 1) seigaiha-like waves via radial gradients
+     2) oriental geometry via repeating conic
+  */
+  background:
+    radial-gradient(circle at 0 0, rgba(255,255,255,.05) 0 18px, transparent 19px 38px),
+    radial-gradient(circle at 38px 38px, rgba(168,230,207,.06) 0 18px, transparent 19px 38px),
+    repeating-conic-gradient(from 0deg, rgba(210,178,111,.045) 0 10deg, transparent 10deg 20deg);
+  background-size: 76px 76px, 76px 76px, 240px 240px;
+  filter: blur(.2px);
+  mix-blend-mode: soft-light;
+}
+
+/* vignette */
+.raha-hero-bg,
+.raha-page .vignette{ display:none; } /* (we'll do vignette directly on hero below) */
+
+/* =========================
+   Topbar
+   ========================= */
 .raha-topbar{
   position:sticky;
   top:0;
@@ -37,8 +80,8 @@
   justify-content:space-between;
   align-items:center;
   padding:14px 22px;
-  background: rgba(10,10,16,.65);
-  backdrop-filter: blur(10px);
+  background: rgba(12,12,18,.72);
+  backdrop-filter: blur(12px);
   border-bottom:1px solid rgba(255,255,255,.08);
 }
 
@@ -46,7 +89,7 @@
   color:var(--txt);
   text-decoration:none;
   font-size:22px;
-  opacity:.9;
+  opacity:.92;
 }
 .raha-back:hover{ opacity:1; text-decoration:underline; }
 
@@ -63,41 +106,51 @@
 }
 .raha-brand-text{
   font-size:24px;
-  letter-spacing:.5px;
+  letter-spacing:.7px;
 }
 .raha-tag{
   font-size:20px;
   color:var(--muted);
+  opacity:.95;
 }
 
+/* =========================
+   HERO
+   ========================= */
 .raha-hero{
   position:relative;
   z-index:1;
   display:grid;
   grid-template-columns: 1.05fr .95fr;
   gap:26px;
-  padding:38px 22px 28px;
+  padding:46px 22px 26px;
   max-width:1200px;
   margin:0 auto;
 }
 
-.raha-hero-bg{
+/* vignette + glow area */
+.raha-hero::before{
+  content:"";
   position:absolute;
   inset:-120px -60px -60px -60px;
-  background:
-    radial-gradient(600px 400px at 20% 30%, rgba(168,230,207,.18), transparent 60%),
-    radial-gradient(520px 360px at 65% 15%, rgba(176,108,255,.20), transparent 60%),
-    radial-gradient(900px 500px at 60% 85%, rgba(255,255,255,.06), transparent 70%);
-  filter: blur(2px);
-  opacity:.9;
   z-index:-1;
+  background:
+    radial-gradient(650px 420px at 18% 28%, rgba(168,230,207,.16), transparent 62%),
+    radial-gradient(560px 420px at 68% 16%, rgba(176,108,255,.20), transparent 60%),
+    radial-gradient(1000px 520px at 55% 88%, rgba(210,178,111,.09), transparent 70%),
+    radial-gradient(1300px 820px at 50% 50%, rgba(0,0,0,.35), rgba(0,0,0,.85));
+  filter: blur(1.5px);
+  opacity: .95;
 }
 
+/* Title with subtle “glitch” vibe */
 .raha-title{
-  margin:0 0 14px;
-  font-size:64px;
-  line-height: .95;
+  margin:0 0 12px;
+  font-size:66px;
+  line-height: .92;
   text-transform:uppercase;
+  letter-spacing: .6px;
+  text-shadow: 0 0 22px rgba(168,230,207,.08);
 }
 .raha-title span{
   display:block;
@@ -108,6 +161,18 @@
   text-transform:none;
 }
 
+/* underline accent (gold/oriental) */
+.raha-title::after{
+  content:"";
+  display:block;
+  width: 180px;
+  height: 3px;
+  margin-top: 14px;
+  background: linear-gradient(90deg, rgba(210,178,111,.85), rgba(168,230,207,.35), transparent);
+  border-radius: 99px;
+  opacity:.85;
+}
+
 .raha-desc{
   margin:0 0 18px;
   font-size:24px;
@@ -115,6 +180,7 @@
   opacity:.92;
 }
 
+/* Buttons */
 .raha-cta{
   display:flex;
   gap:12px;
@@ -131,12 +197,14 @@
   text-decoration:none;
   font-size:22px;
   background: rgba(168,230,207,.06);
-  transition: transform .18s, background .18s, border-color .18s;
+  transition: transform .18s, background .18s, border-color .18s, box-shadow .18s;
+  box-shadow: 0 0 0 rgba(0,0,0,0);
 }
 .raha-btn:hover{
   transform: translateY(-2px);
   background: rgba(168,230,207,.12);
   border-color: rgba(208,244,224,.95);
+  box-shadow: 0 0 26px rgba(168,230,207,.08);
 }
 .raha-btn-ghost{
   border-color: rgba(176,108,255,.75);
@@ -148,6 +216,7 @@
   border-color: rgba(176,108,255,.95);
 }
 
+/* Mini logos */
 .raha-mini-logos{
   display:flex;
   gap:12px;
@@ -164,177 +233,50 @@
   opacity:.95;
 }
 
+/* Stamps (JP + AR vibe) */
+.raha-stamps{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top: 16px;
+}
+.stamp{
+  font-size: 18px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(0,0,0,.22);
+  letter-spacing: .6px;
+  opacity:.95;
+}
+.stamp-jp{
+  border-color: rgba(176,108,255,.35);
+  box-shadow: 0 0 18px rgba(176,108,255,.08);
+}
+.stamp-ar{
+  border-color: rgba(210,178,111,.35);
+  box-shadow: 0 0 18px rgba(210,178,111,.08);
+}
+.stamp-tag{
+  border-color: rgba(168,230,207,.35);
+  box-shadow: 0 0 18px rgba(168,230,207,.08);
+}
+
+/* Poster */
 .raha-hero-right{
   display:flex;
   justify-content:flex-end;
   align-items:flex-start;
 }
 .raha-hero-poster{
-  width:min(420px, 92%);
+  width:min(430px, 92%);
   height:auto;
   border-radius:18px;
   border:1px solid rgba(255,255,255,.10);
   box-shadow: 0 20px 70px rgba(0,0,0,.55);
   transform: rotate(1.2deg);
+  animation: posterFloat 4.2s ease-in-out infinite;
 }
-
-.raha-marquee{
-  position:relative;
-  z-index:1;
-  border-top:1px solid rgba(255,255,255,.08);
-  border-bottom:1px solid rgba(255,255,255,.08);
-  background: rgba(255,255,255,.02);
-  overflow:hidden;
-}
-.raha-marquee-track{
-  display:flex;
-  gap:70px;
-  white-space:nowrap;
-  padding:10px 0;
-  font-size:24px;
-  color:rgba(233,233,238,.85);
-  animation: raha-scroll 14s linear infinite;
-}
-.raha-marquee-track span{
-  letter-spacing:2px;
-  text-transform:uppercase;
-}
-@keyframes raha-scroll{
-  from{ transform: translateX(0); }
-  to{ transform: translateX(-33.333%); }
-}
-
-.raha-section{
-  position:relative;
-  z-index:1;
-  padding:40px 22px;
-  max-width:1200px;
-  margin:0 auto;
-}
-
-.raha-section-head{
-  display:flex;
-  align-items:flex-end;
-  justify-content:space-between;
-  gap:18px;
-  margin-bottom:18px;
-  border-left:3px solid rgba(168,230,207,.55);
-  padding-left:12px;
-}
-
-.raha-h2{
-  margin:0;
-  font-size:44px;
-  letter-spacing:1px;
-}
-.raha-sub{
-  margin:0;
-  font-size:20px;
-  color:var(--muted);
-  max-width:520px;
-}
-
-.raha-grid{
-  display:grid;
-  grid-template-columns: repeat(2, minmax(0,1fr));
-  gap:16px;
-}
-.raha-card{
-  overflow:hidden;
-  border-radius:18px;
-  border:1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.02);
-  box-shadow: 0 18px 55px rgba(0,0,0,.45);
-  transition: transform .18s, border-color .18s;
-}
-.raha-card:hover{
-  transform: translateY(-3px);
-  border-color: rgba(168,230,207,.22);
-}
-.raha-card img{
-  width:100%;
-  height:420px;
-  object-fit:cover;
-  display:block;
-  filter: contrast(1.02);
-}
-.raha-card-footer{
-  padding:12px 14px 14px;
-}
-.raha-card-title{
-  font-size:26px;
-  color:var(--neon);
-}
-.raha-card-meta{
-  font-size:20px;
-  color:rgba(233,233,238,.78);
-}
-
-.raha-card-wide{
-  grid-column: 1 / -1;
-}
-.raha-card-wide img{ height:520px; }
-
-.raha-collage{
-  display:grid;
-  grid-template-columns: .8fr 1.2fr;
-  gap:16px;
-}
-.raha-collage-left{
-  display:grid;
-  gap:16px;
-}
-.raha-collage-left img,
-.raha-collage-right img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  border-radius:18px;
-  border:1px solid rgba(255,255,255,.10);
-  box-shadow: 0 18px 55px rgba(0,0,0,.45);
-}
-.raha-collage-left img{ height:240px; }
-.raha-collage-right img{ height:496px; }
-
-.raha-footer{
-  position:relative;
-  z-index:1;
-  padding:28px 22px 42px;
-  max-width:1200px;
-  margin:0 auto;
-}
-.raha-footer-line{
-  height:1px;
-  background: linear-gradient(90deg, transparent, rgba(168,230,207,.25), transparent);
-  margin-bottom:16px;
-}
-.raha-footer-inner{
-  display:flex;
-  justify-content:space-between;
-  gap:16px;
-  font-size:22px;
-}
-.raha-footer-small{
-  color:var(--muted);
-  text-align:right;
-}
-
-.raha-card{
-  display: block;
-  color: inherit;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-@media (max-width: 980px){
-  .raha-hero{ grid-template-columns: 1fr; }
-  .raha-hero-right{ justify-content:flex-start; }
-  .raha-hero-poster{ transform:none; width:min(520px, 100%); }
-  .raha-grid{ grid-template-columns: 1fr; }
-  .raha-card img{ height:380px; }
-  .raha-card-wide img{ height:420px; }
-  .raha-collage{ grid-template-columns: 1fr; }
-  .raha-collage-right img{ height:420px; }
-  .raha-footer-inner{ flex-direction:column; }
-  .raha-footer-small{ text-align:left; }
-}
+@keyframes posterFloat{
+  0%,100%{ transform: rotate(1.2deg) translateY(0); }
+  50%{ transform: rotate(1.2deg) translateY(-6px); }
