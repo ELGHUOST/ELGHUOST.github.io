@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>bouillon.run</title>
+  <style>
+    html, body {
+      margin: 0;
+      height: 100%;
+      background: #000;
+      font-family: system-ui, Arial, sans-serif;
+    }
+
+    ::selection { background: #eaeaea; color: #111; }
+    ::-moz-selection { background: #eaeaea; color: #111; }
+
+    .wrap {
+      height: 100%;
+      display: grid;
+      place-items: center;
+    }
+
+    .panel {
+      grid-template-rows: auto auto auto;
+      row-gap: 14px;
+        font-size: 0;
+      
+    }
+
+    .hint {
+      color: #fff;
+      font-size: 16px;
+      font-weight: 60;
+      user-select: none;
+      transform: translate(110px, -70px);
+    }
+
+    .logo {
+      width: 180px;
+      height: auto;
+      margin: 0 auto;
+      display: block;
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      pointer-events: none;
+      transform: translateY(-20px);    
+}
+
+    .ghost {
+      display: inline-block;
+      color: #000;
+      background: transparent;
+      border: none;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 14px;
+      text-decoration: none;
+      cursor: pointer;
+      user-select: text;
+      transform: translateY(-70px);
+    }
+
+    .msg {
+      color: #fff;
+      font-size: 14px;
+      min-height: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="panel" id="panel">
+      <img src="BOUILLON1.gif" alt="logo" class="logo" />
+
+      <div class="hint">Pour une expérience optimale, veuillez appuyer sur ALT + F4. Merci.</div>
+
+      <a class="ghost" href="https://git.bouillon.run/">git.bouillon.run</a>
+
+      <div class="msg" id="msg"></div>
+    </div>
+  </div>
+
+  <script>
+    const panel = document.getElementById("panel");
+    const msg = document.getElementById("msg");
+
+    panel.addEventListener("click", (e) => {
+      const a = e.target.closest("a.ghost");
+      if (!a) return;
+      if (!a.dataset.out) return;
+      e.preventDefault();
+      msg.textContent = a.dataset.out;
+      setTimeout(() => { msg.textContent = ""; }, 2000);
+    });
+  </script>
+</body>
+</html>
