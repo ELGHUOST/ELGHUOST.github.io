@@ -9,6 +9,12 @@
 </head>
 
 <body class="raha-page">
+  <script>
+  if (localStorage.getItem("raha_auth") !== "1") {
+    window.location.replace("gate.html");
+  }
+  </script>
+
 
   <header class="raha-topbar">
     <a class="raha-back" href="../index.html#projects">⟵ Retour</a>
