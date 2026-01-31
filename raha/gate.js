@@ -1,4 +1,3 @@
-// ⚠️ Front-end only, pas sécurisé, mais OK pour "site en construction"
 const ADMIN_USER = "admin";
 const ADMIN_PASS = "admin123";
 
