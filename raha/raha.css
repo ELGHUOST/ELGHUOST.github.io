@@ -280,3 +280,281 @@
 @keyframes posterFloat{
   0%,100%{ transform: rotate(1.2deg) translateY(0); }
   50%{ transform: rotate(1.2deg) translateY(-6px); }
+}
+
+/* =========================
+   Marquee (keep, but more underground)
+   ========================= */
+.raha-marquee{
+  position:relative;
+  z-index:1;
+  border-top:1px solid rgba(255,255,255,.08);
+  border-bottom:1px solid rgba(255,255,255,.08);
+  background: rgba(255,255,255,.02);
+  overflow:hidden;
+}
+.raha-marquee::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(90deg, rgba(210,178,111,.06), rgba(176,108,255,.06), rgba(168,230,207,.05));
+  opacity:.55;
+  mix-blend-mode: overlay;
+  pointer-events:none;
+}
+.raha-marquee-track{
+  position:relative;
+  display:flex;
+  gap:70px;
+  white-space:nowrap;
+  padding:10px 0;
+  font-size:24px;
+  color:rgba(233,233,238,.85);
+  animation: raha-scroll 14s linear infinite;
+}
+.raha-marquee-track span{
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+@keyframes raha-scroll{
+  from{ transform: translateX(0); }
+  to{ transform: translateX(-33.333%); }
+}
+
+/* =========================
+   Sections
+   ========================= */
+.raha-section{
+  position:relative;
+  z-index:1;
+  padding:44px 22px;
+  max-width:1200px;
+  margin:0 auto;
+}
+
+.raha-section-head{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:18px;
+  margin-bottom:18px;
+  border-left:3px solid rgba(168,230,207,.55);
+  padding-left:12px;
+}
+
+.raha-h2{
+  margin:0;
+  font-size:46px;
+  letter-spacing:1px;
+}
+.raha-sub{
+  margin:0;
+  font-size:20px;
+  color:var(--muted);
+  max-width:520px;
+}
+
+/* =========================
+   Cards grid (tap / hover)
+   ========================= */
+.raha-grid{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap:16px;
+}
+
+/* anchor card */
+.raha-card{
+  display:block;
+  color:inherit;
+  text-decoration:none;
+  cursor:pointer;
+
+  overflow:hidden;
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,.10);
+  background: var(--card);
+  box-shadow: 0 18px 55px rgba(0,0,0,.45);
+  transition: transform .18s, border-color .18s, box-shadow .18s;
+  position: relative;
+}
+
+.raha-card:hover{
+  transform: translateY(-3px);
+  border-color: rgba(168,230,207,.22);
+  box-shadow: 0 24px 70px rgba(0,0,0,.55);
+}
+
+/* tap feedback on mobile */
+.raha-card:active{
+  transform: translateY(0px) scale(.995);
+}
+
+/* media wrapper */
+.raha-card-media{
+  position: relative;
+  overflow: hidden;
+}
+
+.raha-card img{
+  width:100%;
+  height:420px;
+  object-fit:cover;
+  display:block;
+  filter: contrast(1.05) saturate(.95);
+  transform: scale(1.02);
+  transition: transform .28s ease, filter .28s ease;
+}
+
+.raha-card:hover img{
+  transform: scale(1.06);
+  filter: contrast(1.08) saturate(1.05);
+}
+
+/* Overlay with underground “TAP/VIEW” */
+.raha-card-overlay{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  padding:12px;
+  opacity:0;
+  transition: opacity .22s ease;
+  background:
+    radial-gradient(600px 250px at 40% 20%, rgba(176,108,255,.20), transparent 55%),
+    radial-gradient(600px 250px at 70% 80%, rgba(168,230,207,.14), transparent 60%),
+    linear-gradient(to top, rgba(0,0,0,.70), rgba(0,0,0,.10));
+}
+
+.raha-card:hover .raha-card-overlay{
+  opacity:1;
+}
+
+/* Always show overlay hint on touch devices */
+@media (hover: none){
+  .raha-card-overlay{ opacity:1; }
+}
+
+.raha-card-overlay-top{
+  display:flex;
+  gap:8px;
+  justify-content:flex-end;
+}
+
+.tag-mini{
+  font-size:18px;
+  padding:6px 10px;
+  border-radius:999px;
+  background: rgba(0,0,0,.45);
+  border: 1px solid rgba(168,230,207,.35);
+  color: var(--neon);
+  letter-spacing: 1px;
+}
+.tag-mini-vio{
+  border-color: rgba(176,108,255,.40);
+  color: #dfc4ff;
+}
+
+.raha-card-overlay-bottom{
+  font-size:18px;
+  color: rgba(233,233,238,.92);
+  letter-spacing: 1px;
+  opacity: .9;
+}
+
+/* footer of card */
+.raha-card-footer{
+  padding:12px 14px 14px;
+  position: relative;
+}
+.raha-card-footer::before{
+  content:"";
+  position:absolute;
+  left:0; right:0; top:0;
+  height:1px;
+  background: linear-gradient(90deg, transparent, rgba(210,178,111,.20), rgba(168,230,207,.18), transparent);
+  opacity:.9;
+}
+
+.raha-card-title{
+  font-size:26px;
+  color:var(--neon);
+}
+.raha-card-meta{
+  font-size:20px;
+  color:rgba(233,233,238,.78);
+}
+
+/* wide card */
+.raha-card-wide{
+  grid-column: 1 / -1;
+}
+.raha-card-wide img{ height:520px; }
+
+/* =========================
+   Collage
+   ========================= */
+.raha-collage{
+  display:grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap:16px;
+}
+.raha-collage-left{
+  display:grid;
+  gap:16px;
+}
+.raha-collage-left img,
+.raha-collage-right img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,.10);
+  box-shadow: 0 18px 55px rgba(0,0,0,.45);
+  filter: contrast(1.04);
+}
+.raha-collage-left img{ height:240px; }
+.raha-collage-right img{ height:496px; }
+
+/* =========================
+   Footer
+   ========================= */
+.raha-footer{
+  position:relative;
+  z-index:1;
+  padding:28px 22px 42px;
+  max-width:1200px;
+  margin:0 auto;
+}
+.raha-footer-line{
+  height:1px;
+  background: linear-gradient(90deg, transparent, rgba(168,230,207,.25), rgba(210,178,111,.20), transparent);
+  margin-bottom:16px;
+}
+.raha-footer-inner{
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  font-size:22px;
+}
+.raha-footer-small{
+  color:var(--muted);
+  text-align:right;
+}
+
+/* =========================
+   Responsive
+   ========================= */
+@media (max-width: 980px){
+  .raha-hero{ grid-template-columns: 1fr; }
+  .raha-hero-right{ justify-content:flex-start; }
+  .raha-hero-poster{ transform:none; width:min(520px, 100%); animation:none; }
+  .raha-grid{ grid-template-columns: 1fr; }
+  .raha-card img{ height:380px; }
+  .raha-card-wide img{ height:420px; }
+  .raha-collage{ grid-template-columns: 1fr; }
+  .raha-collage-right img{ height:420px; }
+  .raha-footer-inner{ flex-direction:column; }
+  .raha-footer-small{ text-align:left; }
+}
