@@ -210,3 +210,6 @@ body{
   color: rgba(233,233,238,.75);
   margin-top:6px;
 }
+.loading[hidden]{
+  display: none !important;
+}
