@@ -1,20 +1,20 @@
 /* Thème commun aux pages projets — même DA que la page d'accueil */
 :root{
-  /* Même palette que l'accueil (rice Hyprland) */
-  --bg:#0b0d12;
-  --panel: rgba(14, 17, 25, .82);
-  --panel-hover: rgba(18, 22, 32, .9);
-  --border: #262b38;
-  --border-hover: #33ccff;
-  --txt:#c9d1e6;
-  --hi:#eef2ff;
-  --muted:#6b7389;
-  --cyan:#33ccff;
-  --blue:#33ccff;
-  --violet:#b48cff;
-  --green:#00ff99;
-  --red:#ff4d5e;
-  --yellow:#ffcc4d;
+  /* Même palette monochrome que l'accueil */
+  --bg:#0a0a0a;
+  --panel: rgba(16, 16, 16, .85);
+  --panel-hover: rgba(22, 22, 22, .9);
+  --border: #262626;
+  --border-hover: #f5f5f5;
+  --txt:#cfcfcf;
+  --hi:#f5f5f5;
+  --muted:#6e6e6e;
+  --cyan:#ffffff;
+  --blue:#ffffff;
+  --violet:#8c8c8c;
+  --green:#d4d4d4;
+  --red:#a3a3a3;
+  --yellow:#e0e0e0;
   --accent: var(--cyan);
   --shadow: none;
   --radius: 10px;
@@ -32,8 +32,7 @@ body{
   line-height: 1.7;
   overflow-x: hidden;
   background:
-    radial-gradient(1000px 700px at 80% 0%, rgba(51,204,255,.07), transparent 60%),
-    radial-gradient(800px 600px at 0% 80%, rgba(0,255,153,.04), transparent 60%),
+    radial-gradient(1000px 700px at 80% 0%, rgba(255,255,255,.04), transparent 60%),
     var(--bg);
   background-attachment: fixed;
 }
@@ -52,7 +51,7 @@ body::before{
 }
 body > *{ position: relative; z-index: 1; }
 
-::selection{ background: rgba(34,211,238,.35); color: #fff; }
+::selection{ background: rgba(255,255,255,.35); color: #fff; }
 
 a{ color: var(--cyan); }
 b, strong{ color: var(--txt); font-weight: 600; }
@@ -89,7 +88,7 @@ img{ max-width: 100%; }
 }
 .ctf-back:hover, .sae-back:hover, .stage-back:hover, .stage-link:hover{
   color: var(--txt);
-  background: rgba(34,211,238,.10);
+  background: rgba(255,255,255,.10);
 }
 
 .ctf-brand, .sae-brand, .stage-brand{
@@ -169,7 +168,7 @@ img{ max-width: 100%; }
   font-size: 12px;
   padding: 4px 9px;
   border-radius: 6px;
-  color: #c3cde0;
+  color: #c8c8c8;
   background: rgba(255,255,255,.04);
   border: 1px solid var(--border);
   white-space: nowrap;
@@ -200,7 +199,7 @@ img{ max-width: 100%; }
   overflow: auto;
   font-family: var(--mono);
   font-size: 13px;
-  color: #c3cde0;
+  color: #c8c8c8;
 }
 .code pre{ font-family: inherit; white-space: pre-wrap; }
 
@@ -242,7 +241,7 @@ img{ max-width: 100%; }
   background: rgba(11,13,18,.85);
 }
 .ctf-back, .sae-back, .stage-back, .stage-link{ font-size: 12.5px; }
-.ctf-back:hover, .sae-back:hover, .stage-back:hover, .stage-link:hover{ color: var(--bg); background: linear-gradient(45deg, var(--cyan), var(--green)); }
+.ctf-back:hover, .sae-back:hover, .stage-back:hover, .stage-link:hover{ color: var(--bg); background: linear-gradient(45deg, #ffffff, #5c5c5c); }
 .ctf-brand-title, .sae-title, .stage-brand-title{ color: var(--hi); font-size: 13px; font-weight: 700; }
 
 .glass, .panel, .ctf-panel, .ctf-card, .ctf-box, .block, .stage-card, .stage-callout, .kpi, .pdf-leak{
@@ -259,7 +258,7 @@ img{ max-width: 100%; }
   inset: -2px;
   border-radius: inherit;
   padding: 2px;
-  background: linear-gradient(45deg, var(--cyan), var(--green));
+  background: linear-gradient(45deg, #ffffff, #5c5c5c);
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;

@@ -53,7 +53,7 @@
   border-left: 3px solid var(--cyan);
   background: var(--panel);
   font-size: 15.5px;
-  color: #c3cde0;
+  color: #c8c8c8;
 }
 
 .img-box{
@@ -84,16 +84,16 @@
 }
 .grid-2 .panel{ margin-bottom: 0; }
 .panel:hover{ border-color: var(--border-hover); }
-.panel.soft{ background: rgba(13,20,36,.35); }
+.panel.soft{ background: rgba(16,16,16,.5); }
 
 .panel h3{
   font-size: 19px;
   font-weight: 600;
   margin-bottom: 10px;
 }
-.panel p{ font-size: 15.5px; color: #c3cde0; margin-bottom: 8px; }
+.panel p{ font-size: 15.5px; color: #c8c8c8; margin-bottom: 8px; }
 .panel p.muted{ color: var(--muted); }
-.panel ul{ list-style: none; font-size: 15.5px; color: #c3cde0; margin-bottom: 8px; }
+.panel ul{ list-style: none; font-size: 15.5px; color: #c8c8c8; margin-bottom: 8px; }
 .panel li{ position: relative; padding-left: 22px; margin: 6px 0; }
 .panel li::before{
   content: "▹";

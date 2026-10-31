@@ -1,21 +1,23 @@
 /* Rice : Hyprland + kitty, touche racing.
-   Bordure active = dégradé Hyprland par défaut (33ccff → 00ff99). */
+   Bordure active = dégradé blanc → gris, version monochrome du style Hyprland. */
 :root{
-  --bg:#0b0d12;
-  --win: rgba(14, 17, 25, .78);
-  --win-solid:#0e1119;
-  --line:#262b38;
-  --line-2:#363c4d;
-  --txt:#c9d1e6;
-  --hi:#eef2ff;
-  --muted:#6b7389;
-  --cyan:#33ccff;
-  --green:#00ff99;
-  --red:#ff4d5e;
-  --yellow:#ffcc4d;
-  --purple:#b48cff;
-  --orange:#ff9e4d;
-  --hypr: linear-gradient(45deg, var(--cyan), var(--green));
+  /* Palette monochrome. Les noms reprennent les couleurs ANSI du terminal,
+     mais toutes sont des nuances de gris. */
+  --bg:#0a0a0a;
+  --win: rgba(16, 16, 16, .8);
+  --win-solid:#101010;
+  --line:#262626;
+  --line-2:#3a3a3a;
+  --txt:#cfcfcf;
+  --hi:#f5f5f5;
+  --muted:#6e6e6e;
+  --cyan:#ffffff;
+  --green:#d4d4d4;
+  --red:#a3a3a3;
+  --yellow:#e0e0e0;
+  --purple:#8c8c8c;
+  --orange:#b8b8b8;
+  --hypr: linear-gradient(45deg, #ffffff, #5c5c5c);
   --gap: 12px;
   --round: 10px;
   --mono: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
@@ -32,7 +34,7 @@ body{
   line-height: 1.65;
   overflow-x: hidden;
 }
-::selection{ background: var(--cyan); color: var(--bg); }
+::selection{ background: var(--hi); color: var(--bg); }
 a{ color: var(--cyan); text-decoration: none; }
 a:hover{ text-decoration: underline; }
 b{ color: var(--hi); font-weight: 700; }
@@ -52,12 +54,12 @@ b{ color: var(--hi); font-weight: 700; }
   z-index: 0;
   pointer-events: none;
   background:
-    radial-gradient(1000px 700px at 75% 40%, rgba(51,204,255,.08), transparent 60%),
-    radial-gradient(800px 600px at 10% 90%, rgba(0,255,153,.05), transparent 60%);
+    radial-gradient(1000px 700px at 75% 45%, rgba(255,255,255,.05), transparent 60%);
   will-change: transform, opacity;
 }
 .globe-container{ position: absolute; inset: 0; }
 .globe-container canvas{ display: block; }
+.globe-container{ filter: grayscale(1) contrast(1.1); }
 
 /* ---------- Waybar ---------- */
 .waybar{
@@ -103,12 +105,12 @@ b{ color: var(--hi); font-weight: 700; }
 .shift-lights i{
   width: 7px; height: 7px;
   border-radius: 50%;
-  background: #1d2230;
+  background: #222;
   transition: background .15s, box-shadow .15s;
 }
-.shift-lights i.on:nth-child(-n+4){ background: var(--green); box-shadow: 0 0 6px var(--green); }
-.shift-lights i.on:nth-child(n+5):nth-child(-n+7){ background: var(--red); box-shadow: 0 0 6px var(--red); }
-.shift-lights i.on:nth-child(n+8){ background: var(--purple); box-shadow: 0 0 6px var(--purple); }
+.shift-lights i.on{ background: var(--muted); }
+.shift-lights i.on:nth-child(n+5){ background: #a3a3a3; }
+.shift-lights i.on:nth-child(n+8){ background: var(--hi); box-shadow: 0 0 6px rgba(255,255,255,.6); }
 
 .bar-right{ display: flex; justify-content: flex-end; align-items: center; gap: 6px; }
 .mod{
@@ -152,7 +154,6 @@ main{ padding: 60px var(--gap) 0; }
 #experience, #projects{ padding-top: calc(var(--gap) * 2); }
 #about, #contact{ padding-top: calc(var(--gap) * 2); }
 
-.stack{ display: grid; grid-template-rows: auto 1fr; gap: var(--gap); }
 
 .win{
   position: relative;
@@ -171,7 +172,7 @@ main{ padding: 60px var(--gap) 0; }
   inset: -2px;
   border-radius: inherit;
   padding: 2px;
-  background: linear-gradient(var(--angle, 45deg), var(--cyan), var(--green));
+  background: var(--hypr);
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -231,7 +232,7 @@ main{ padding: 60px var(--gap) 0; }
 .ascii{
   font-family: var(--mono);
   font-size: 13px;
-  line-height: 1.25;
+  line-height: 1;
   color: var(--cyan);
   background: var(--hypr);
   -webkit-background-clip: text;
@@ -250,14 +251,14 @@ main{ padding: 60px var(--gap) 0; }
 .fi-sep{ color: var(--line-2); }
 .swatches{ display: flex; gap: 0; margin-top: 8px; }
 .swatches i{ width: 22px; height: 12px; }
-.swatches i:nth-child(1){ background: #1d2230; }
-.swatches i:nth-child(2){ background: var(--red); }
-.swatches i:nth-child(3){ background: var(--green); }
-.swatches i:nth-child(4){ background: var(--yellow); }
-.swatches i:nth-child(5){ background: var(--cyan); }
-.swatches i:nth-child(6){ background: var(--purple); }
-.swatches i:nth-child(7){ background: var(--orange); }
-.swatches i:nth-child(8){ background: var(--hi); }
+.swatches i:nth-child(1){ background: #1a1a1a; }
+.swatches i:nth-child(2){ background: #333; }
+.swatches i:nth-child(3){ background: #4d4d4d; }
+.swatches i:nth-child(4){ background: #666; }
+.swatches i:nth-child(5){ background: #808080; }
+.swatches i:nth-child(6){ background: #a6a6a6; }
+.swatches i:nth-child(7){ background: #cccccc; }
+.swatches i:nth-child(8){ background: #f5f5f5; }
 
 .motd-title{
   font-size: clamp(24px, 3.3vw, 40px);
@@ -284,65 +285,6 @@ main{ padding: 60px var(--gap) 0; }
 .ls-exec{ color: var(--green); }
 .ls-out a:hover{ text-decoration: none; background: var(--hi); color: var(--bg); }
 
-/* ---------- Télémétrie ---------- */
-.telemetry{ padding: 18px 22px 20px; }
-.tele-big{ display: flex; align-items: baseline; gap: 8px; }
-.tele-speed{
-  font-size: 64px;
-  font-weight: 800;
-  line-height: 1;
-  color: var(--hi);
-  font-variant-numeric: tabular-nums;
-  letter-spacing: -2px;
-}
-.tele-unit{ color: var(--muted); }
-.tele-bar{
-  height: 6px;
-  margin: 14px 0 16px;
-  background: #1d2230;
-  border-radius: 3px;
-  overflow: hidden;
-}
-.tele-bar span{
-  display: block;
-  height: 100%;
-  width: 0;
-  background: linear-gradient(90deg, var(--green) 0 55%, var(--yellow) 55% 75%, var(--red) 75% 90%, var(--purple) 90%);
-  background-size: 100vw 100%;
-  transition: width .12s linear;
-}
-.tele-grid{
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
-}
-.tele-grid div{
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: 6px;
-}
-.tele-grid .k, .tele-status .k{ display: block; font-size: 10.5px; color: var(--muted); letter-spacing: 1px; }
-.tele-grid b{ font-size: 16px; font-variant-numeric: tabular-nums; }
-.tele-status{ margin-top: 14px; }
-.tele-status .k{ display: inline; margin-right: 8px; }
-
-.win-ghost{
-  background: transparent;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  border-style: dashed;
-  min-height: 220px;
-  display: flex;
-  flex-direction: column;
-}
-.ghost-hint{
-  margin-top: auto;
-  padding: 12px 14px;
-  font-size: 11.5px;
-  color: var(--muted);
-  text-align: right;
-}
-
 /* ---------- about.md (nvim) ---------- */
 .md-h{ font-size: 20px; color: var(--hi); margin-bottom: 14px; }
 .md-hash{ color: var(--purple); }
@@ -355,7 +297,7 @@ main{ padding: 60px var(--gap) 0; }
   gap: 12px;
   align-items: center;
   font-size: 11.5px;
-  background: #151925;
+  background: #161616;
   padding: 3px 0;
   border-radius: 4px;
 }
@@ -482,7 +424,7 @@ main{ padding: 60px var(--gap) 0; }
   .ws-hero, .ws-split, #contact{ grid-template-columns: 1fr; }
   .win-flag{ min-height: 90px; }
   .ws-hero{ min-height: 0; }
-  .win-ghost{ min-height: 46vh; }
+  .ws-hero::after{ content: ""; min-height: 46vh; }
   .ws-l{ display: none; }
 }
 @media (max-width: 640px){
@@ -493,11 +435,9 @@ main{ padding: 60px var(--gap) 0; }
   .shift-lights{ display: none; }
   .bar-center{ justify-content: center; }
   .ws{ padding: 4px 8px; }
-  .term, .telemetry{ padding: 14px 14px 16px; }
+  .term{ padding: 14px 14px 16px; }
   .fetch{ flex-direction: column; align-items: flex-start; gap: 10px; }
   .ascii{ font-size: 11px; }
-  .tele-speed{ font-size: 48px; }
-  .tele-grid{ grid-template-columns: repeat(2, 1fr); }
   .tower-head{ display: none; }
   .row{ grid-template-columns: 40px 1fr; gap: 10px; }
   .thumb{ display: none; }

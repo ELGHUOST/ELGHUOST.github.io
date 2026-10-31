@@ -39,7 +39,7 @@ LINKS.push([byName['Montbéliard'], byName['Paris']], [byName['Montbéliard'], b
 const ARCS = LINKS.map(([a, b]) => ({
   startLat: a.lat, startLng: a.lng,
   endLat: b.lat, endLng: b.lng,
-  color: Math.random() < 0.5 ? ['rgba(51,204,255,.9)', 'rgba(0,255,153,.9)'] : ['rgba(0,255,153,.9)', 'rgba(51,204,255,.9)'],
+  color: Math.random() < 0.5 ? ['rgba(255,255,255,.9)', 'rgba(140,140,140,.6)'] : ['rgba(140,140,140,.6)', 'rgba(255,255,255,.9)'],
   dash: 2000 + Math.random() * 2500
 }));
 
@@ -55,10 +55,10 @@ if (globeEl && typeof Globe === 'function') {
     .globeImageUrl('assets/globe/earth-night.jpg')
     .bumpImageUrl('assets/globe/earth-topology.png')
     .showAtmosphere(true)
-    .atmosphereColor('#33ccff')
-    .atmosphereAltitude(0.2)
+    .atmosphereColor('#d4d4d4')
+    .atmosphereAltitude(0.16)
     .pointsData(NODES)
-    .pointColor(() => '#00ff99')
+    .pointColor(() => '#ffffff')
     .pointAltitude(0.01)
     .pointRadius(0.45)
     .arcsData(ARCS)
@@ -70,7 +70,7 @@ if (globeEl && typeof Globe === 'function') {
     .arcDashInitialGap(() => Math.random() * 2)
     .arcDashAnimateTime(d => (reduceMotion ? 0 : d.dash))
     .ringsData(reduceMotion ? [] : NODES.filter(n => HUBS.includes(n.name) || n.name === 'Montbéliard'))
-    .ringColor(() => t => `rgba(0,255,153,${1 - t})`)
+    .ringColor(() => t => `rgba(255,255,255,${1 - t})`)
     .ringMaxRadius(4)
     .ringPropagationSpeed(2.2)
     .ringRepeatPeriod(1400);
@@ -79,7 +79,7 @@ if (globeEl && typeof Globe === 'function') {
 
   const mat = globe.globeMaterial();
   mat.bumpScale = 6;
-  if (mat.emissive) { mat.emissive.set('#0a1626'); mat.emissiveIntensity = 0.6; }
+  if (mat.emissive) { mat.emissive.set('#141414'); mat.emissiveIntensity = 0.6; }
   if (mat.shininess !== undefined) mat.shininess = 8;
 
   // Le globe est purement décoratif : pas d'interaction souris
@@ -89,34 +89,23 @@ if (globeEl && typeof Globe === 'function') {
   controls.enablePan = false;
   controls.autoRotate = false;
 
-  document.getElementById('hudNodes').textContent = NODES.length;
-  document.getElementById('hudLinks').textContent = ARCS.length;
-
   window.addEventListener('resize', () => {
     globe.width(window.innerWidth).height(window.innerHeight);
   });
 }
 
-/* ---------- Boucle : rotation au scroll, télémétrie, shift lights ---------- */
+/* ---------- Boucle : rotation au scroll + shift lights ---------- */
 
 const BASE_LNG = 10;          // vue de départ centrée sur l'Europe
 const DEG_PER_PX = 0.09;      // degrés de rotation par pixel scrollé
 const AUTO_DEG_PER_SEC = reduceMotion ? 0 : 2.5;
-const MAX_KMH = 340;
 
 let currentLng = BASE_LNG;
 let currentLat = 25;
 let autoAngle = 0;
 let lastTime = performance.now();
-let lastY = window.scrollY;
-let speed = 0;
 
 const $ = id => document.getElementById(id);
-const hudRot = $('hudRot');
-const teleSpeed = $('teleSpeed');
-const teleRpm = $('teleRpm');
-const teleLap = $('teleLap');
-const teleGear = $('teleGear');
 const lights = document.querySelectorAll('#shiftLights i');
 
 function lerp(a, b, t) { return a + (b - a) * t; }
@@ -133,12 +122,6 @@ function tick(now) {
   const heroP = clamp01(y / vh);
   const pageP = clamp01(y / maxScroll);
 
-  // Vitesse de scroll → km/h (lissée)
-  const instant = Math.min(MAX_KMH, Math.abs(y - lastY) / dt * 0.12);
-  lastY = y;
-  speed = lerp(speed, instant, 1 - Math.pow(0.02, dt));
-  if (speed < 0.5) speed = 0;
-
   // Rotation de la Terre avec inertie
   const targetLng = BASE_LNG - y * DEG_PER_PX - autoAngle;
   const targetLat = lerp(25, -5, pageP);
@@ -149,16 +132,12 @@ function tick(now) {
   if (globe) {
     const mobile = isMobile();
     globe.pointOfView({ lat: currentLat, lng: currentLng, altitude: (mobile ? 3 : 2.3) + heroP * 0.4 }, 0);
-    const gx = mobile ? 0 : lerp(23, 0, heroP);
-    const gy = mobile ? lerp(28, 0, heroP) : lerp(16, 0, heroP);
+    const gx = mobile ? 0 : lerp(25, 0, heroP);
+    const gy = mobile ? lerp(28, 0, heroP) : 0;
     stage.style.transform = `translate3d(${gx}vw, ${gy}vh, 0)`;
     stage.style.opacity = lerp(1, 0.4, heroP);
   }
 
-  if (hudRot) hudRot.textContent = Math.round(((-currentLng % 360) + 360) % 360) + '°';
-  if (teleSpeed) teleSpeed.textContent = Math.round(speed);
-  if (teleRpm) teleRpm.style.width = (speed / MAX_KMH * 100).toFixed(1) + '%';
-  if (teleLap) teleLap.textContent = Math.round(pageP * 100) + '%';
   const lit = Math.round(pageP * lights.length);
   lights.forEach((l, i) => l.classList.toggle('on', i < lit));
 
@@ -235,7 +214,6 @@ const sectionObs = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (!entry.isIntersecting) return;
     wsLinks.forEach(a => a.classList.toggle('active', a.dataset.ws === entry.target.id));
-    if (teleGear) teleGear.textContent = sections.indexOf(entry.target) + 1;
   });
 }, { rootMargin: '-45% 0px -50% 0px' });
 sections.forEach(s => sectionObs.observe(s));
