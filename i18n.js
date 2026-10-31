@@ -1,5 +1,22 @@
 const translations = {
   en: {
+    nav_skills: "Skills",
+    hero_badge: "Open to internship opportunities",
+    scroll_hint: "Scroll",
+    typed_roles: ["network --admin", "sysadmin --linux", "cloud --virtualization", "security --ctf --offensive"],
+    skills_title: "DOMAINS",
+    skill_sec_title: "Cybersecurity",
+    skill_sec_desc: "Offensive security, CTFs, forensics and hardening of exposed services.",
+    skill_cloud_title: "Cloud & Virtualization",
+    skill_cloud_desc: "Virtualized infrastructures, service deployment and automation.",
+    skill_sys_title: "System Administration",
+    skill_sys_desc: "Linux servers, users, services and secure configuration.",
+    skill_net_title: "Networking",
+    skill_net_desc: "Routing, switching, VLAN segmentation and core network architecture.",
+    proj_open: "Open project →",
+    proj4_chip: "Side project",
+    contact_lead: "An internship, a project, a CTF? Let's talk.",
+
     nav_about: "About",
     nav_education: "Education",
     nav_projects: "Projects",
@@ -32,13 +49,30 @@ Passionate about cybersecurity, CTFs, and always learning new technologies.`,
     proj3_title: "Internship Search",
     proj3_desc: "Practical tips, method and organization to find an internship (even without a network).",
     proj4_title: "Raha (R-A-7-A) — Clothing brand",
-    proj4_desc: "Personal project: clothing brand in development.<br>Co-founded with Marwan Boulahdit.",
+    proj4_desc: "Personal project: clothing brand in development.<br>Co-founded with Marouane Boulahdit.",
 
     contact_email: "Email:",
     contact_github: "GitHub:"
   },
 
   fr: {
+    nav_skills: "Domaines",
+    hero_badge: "Ouvert aux opportunités de stage",
+    scroll_hint: "Défiler",
+    typed_roles: ["network --admin", "sysadmin --linux", "cloud --virtualisation", "security --ctf --offensive"],
+    skills_title: "DOMAINES",
+    skill_sec_title: "Cybersécurité",
+    skill_sec_desc: "Sécurité offensive, CTF, forensique et durcissement des services exposés.",
+    skill_cloud_title: "Cloud & Virtualisation",
+    skill_cloud_desc: "Infrastructures virtualisées, déploiement de services et automatisation.",
+    skill_sys_title: "Administration système",
+    skill_sys_desc: "Serveurs Linux, utilisateurs, services et configuration sécurisée.",
+    skill_net_title: "Réseau",
+    skill_net_desc: "Routage, commutation, segmentation VLAN et architecture réseau.",
+    proj_open: "Ouvrir le projet →",
+    proj4_chip: "Projet perso",
+    contact_lead: "Un stage, un projet, un CTF ? Parlons-en.",
+
     nav_about: "À propos",
     nav_education: "Études",
     nav_projects: "Projets",
@@ -71,13 +105,30 @@ Passionné par la cybersécurité, les CTF, et l’apprentissage continu.`,
     proj3_title: "En recherche de stage",
     proj3_desc: "Conseils concrets, méthode et organisation pour trouver un stage (même sans réseau).",
     proj4_title: "Raha (R-A-7-A) — Marque de vêtements",
-    proj4_desc: "Projet personnel : marque de vêtements en cours de développement.<br>Co-fondée avec Marwan Boulahdit.",
+    proj4_desc: "Projet personnel : marque de vêtements en cours de développement.<br>Co-fondée avec Marouane Boulahdit.",
 
     contact_email: "Email :",
     contact_github: "GitHub :"
   },
 
   es: {
+    nav_skills: "Áreas",
+    hero_badge: "Disponible para prácticas",
+    scroll_hint: "Desplazar",
+    typed_roles: ["network --admin", "sysadmin --linux", "cloud --virtualizacion", "security --ctf --offensive"],
+    skills_title: "ÁREAS",
+    skill_sec_title: "Ciberseguridad",
+    skill_sec_desc: "Seguridad ofensiva, CTF, forense y bastionado de servicios expuestos.",
+    skill_cloud_title: "Cloud & Virtualización",
+    skill_cloud_desc: "Infraestructuras virtualizadas, despliegue de servicios y automatización.",
+    skill_sys_title: "Administración de sistemas",
+    skill_sys_desc: "Servidores Linux, usuarios, servicios y configuración segura.",
+    skill_net_title: "Redes",
+    skill_net_desc: "Routing, switching, segmentación VLAN y arquitectura de red.",
+    proj_open: "Abrir proyecto →",
+    proj4_chip: "Proyecto personal",
+    contact_lead: "¿Prácticas, un proyecto, un CTF? Hablemos.",
+
     nav_about: "Sobre mí",
     nav_education: "Estudios",
     nav_projects: "Proyectos",
@@ -110,13 +161,30 @@ Apasionado por la ciberseguridad, los CTF y aprender nuevas tecnologías.`,
     proj3_title: "Búsqueda de prácticas",
     proj3_desc: "Consejos prácticos, método y organización para encontrar prácticas (incluso sin contactos).",
     proj4_title: "Raha (R-A-7-A) — Marca de ropa",
-    proj4_desc: "Proyecto personal: marca de ropa en desarrollo.<br>Cofundada con Marwan Boulahdit.",
+    proj4_desc: "Proyecto personal: marca de ropa en desarrollo.<br>Cofundada con Marouane Boulahdit.",
 
     contact_email: "Email:",
     contact_github: "GitHub:"
   },
 
   zh: {
+    nav_skills: "领域",
+    hero_badge: "正在寻找实习机会",
+    scroll_hint: "滚动",
+    typed_roles: ["network --admin", "sysadmin --linux", "cloud --virtualization", "security --ctf --offensive"],
+    skills_title: "专业领域",
+    skill_sec_title: "网络安全",
+    skill_sec_desc: "进攻性安全、CTF、取证以及对外服务加固。",
+    skill_cloud_title: "云与虚拟化",
+    skill_cloud_desc: "虚拟化基础设施、服务部署与自动化。",
+    skill_sys_title: "系统管理",
+    skill_sys_desc: "Linux 服务器、用户、服务与安全配置。",
+    skill_net_title: "网络",
+    skill_net_desc: "路由、交换、VLAN 划分与核心网络架构。",
+    proj_open: "打开项目 →",
+    proj4_chip: "个人项目",
+    contact_lead: "实习、项目或 CTF？欢迎联系。",
+
     nav_about: "关于我",
     nav_education: "教育经历",
     nav_projects: "项目",
@@ -149,7 +217,7 @@ Apasionado por la ciberseguridad, los CTF y aprender nuevas tecnologías.`,
     proj3_title: "实习求职",
     proj3_desc: "提供实用建议、方法与组织方式，帮助你找到实习（即使没有人脉）。",
     proj4_title: "Raha (R-A-7-A) — 服装品牌",
-    proj4_desc: "个人项目：正在开发中的服装品牌。<br>与 Marwan Boulahdit 共同创立。",
+    proj4_desc: "个人项目：正在开发中的服装品牌。<br>与 Marouane Boulahdit 共同创立。",
 
     contact_email: "邮箱：",
     contact_github: "GitHub："
@@ -169,12 +237,15 @@ function applyLanguage(lang) {
     else el.textContent = val;
   });
 
-  localStorage.setItem("lang", lang);
+  document.documentElement.lang = translations[lang] ? lang : "en";
+  try { localStorage.setItem("lang", lang); } catch (e) {}
+  document.dispatchEvent(new CustomEvent("langchange", { detail: { lang, roles: dict.typed_roles } }));
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   const select = document.getElementById("langSelect");
-  const saved = localStorage.getItem("lang") || "en";
+  let saved = "en";
+  try { saved = localStorage.getItem("lang") || "en"; } catch (e) {}
 
   if (select) {
     select.value = saved;
