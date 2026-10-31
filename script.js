@@ -39,7 +39,7 @@ LINKS.push([byName['Montbéliard'], byName['Paris']], [byName['Montbéliard'], b
 const ARCS = LINKS.map(([a, b]) => ({
   startLat: a.lat, startLng: a.lng,
   endLat: b.lat, endLng: b.lng,
-  color: Math.random() < 0.5 ? ['rgba(34,211,238,.9)', 'rgba(167,139,250,.9)'] : ['rgba(59,130,246,.9)', 'rgba(34,211,238,.9)'],
+  color: Math.random() < 0.5 ? ['rgba(51,204,255,.9)', 'rgba(0,255,153,.9)'] : ['rgba(0,255,153,.9)', 'rgba(51,204,255,.9)'],
   dash: 2000 + Math.random() * 2500
 }));
 
@@ -55,10 +55,10 @@ if (globeEl && typeof Globe === 'function') {
     .globeImageUrl('assets/globe/earth-night.jpg')
     .bumpImageUrl('assets/globe/earth-topology.png')
     .showAtmosphere(true)
-    .atmosphereColor('#22d3ee')
-    .atmosphereAltitude(0.22)
+    .atmosphereColor('#33ccff')
+    .atmosphereAltitude(0.2)
     .pointsData(NODES)
-    .pointColor(() => '#a5f3fc')
+    .pointColor(() => '#00ff99')
     .pointAltitude(0.01)
     .pointRadius(0.45)
     .arcsData(ARCS)
@@ -70,17 +70,16 @@ if (globeEl && typeof Globe === 'function') {
     .arcDashInitialGap(() => Math.random() * 2)
     .arcDashAnimateTime(d => (reduceMotion ? 0 : d.dash))
     .ringsData(reduceMotion ? [] : NODES.filter(n => HUBS.includes(n.name) || n.name === 'Montbéliard'))
-    .ringColor(() => t => `rgba(34,211,238,${1 - t})`)
+    .ringColor(() => t => `rgba(0,255,153,${1 - t})`)
     .ringMaxRadius(4)
     .ringPropagationSpeed(2.2)
     .ringRepeatPeriod(1400);
 
   globe.renderer().setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-  // Teinte bleutée sur la surface pour coller à la palette
   const mat = globe.globeMaterial();
   mat.bumpScale = 6;
-  if (mat.emissive) { mat.emissive.set('#0b1a33'); mat.emissiveIntensity = 0.6; }
+  if (mat.emissive) { mat.emissive.set('#0a1626'); mat.emissiveIntensity = 0.6; }
   if (mat.shininess !== undefined) mat.shininess = 8;
 
   // Le globe est purement décoratif : pas d'interaction souris
@@ -98,65 +97,78 @@ if (globeEl && typeof Globe === 'function') {
   });
 }
 
-/* ---------- Scroll-driven rotation + placement ---------- */
+/* ---------- Boucle : rotation au scroll, télémétrie, shift lights ---------- */
 
 const BASE_LNG = 10;          // vue de départ centrée sur l'Europe
 const DEG_PER_PX = 0.09;      // degrés de rotation par pixel scrollé
 const AUTO_DEG_PER_SEC = reduceMotion ? 0 : 2.5;
+const MAX_KMH = 340;
 
 let currentLng = BASE_LNG;
 let currentLat = 25;
 let autoAngle = 0;
 let lastTime = performance.now();
-const hudRot = document.getElementById('hudRot');
-const progressBar = document.getElementById('scrollProgress');
-const navbar = document.getElementById('navbar');
+let lastY = window.scrollY;
+let speed = 0;
+
+const $ = id => document.getElementById(id);
+const hudRot = $('hudRot');
+const teleSpeed = $('teleSpeed');
+const teleRpm = $('teleRpm');
+const teleLap = $('teleLap');
+const teleGear = $('teleGear');
+const lights = document.querySelectorAll('#shiftLights i');
 
 function lerp(a, b, t) { return a + (b - a) * t; }
 function clamp01(v) { return Math.max(0, Math.min(1, v)); }
 
 function tick(now) {
-  const dt = Math.min(0.1, (now - lastTime) / 1000);
+  const dt = Math.max(0.001, Math.min(0.1, (now - lastTime) / 1000));
   lastTime = now;
   autoAngle += AUTO_DEG_PER_SEC * dt;
 
   const y = window.scrollY;
   const vh = window.innerHeight;
   const maxScroll = Math.max(1, document.documentElement.scrollHeight - vh);
-  const heroP = clamp01(y / vh);            // 0 → 1 pendant la sortie du hero
-  const pageP = clamp01(y / maxScroll);     // 0 → 1 sur toute la page
+  const heroP = clamp01(y / vh);
+  const pageP = clamp01(y / maxScroll);
 
-  // Rotation : le scroll fait tourner la Terre, avec inertie
+  // Vitesse de scroll → km/h (lissée)
+  const instant = Math.min(MAX_KMH, Math.abs(y - lastY) / dt * 0.12);
+  lastY = y;
+  speed = lerp(speed, instant, 1 - Math.pow(0.02, dt));
+  if (speed < 0.5) speed = 0;
+
+  // Rotation de la Terre avec inertie
   const targetLng = BASE_LNG - y * DEG_PER_PX - autoAngle;
   const targetLat = lerp(25, -5, pageP);
-  const ease = reduceMotion ? 1 : 1 - Math.pow(0.001, dt);   // lissage indépendant du framerate
+  const ease = reduceMotion ? 1 : 1 - Math.pow(0.001, dt);
   currentLng = lerp(currentLng, targetLng, ease);
   currentLat = lerp(currentLat, targetLat, ease);
 
   if (globe) {
     const mobile = isMobile();
-    const baseAlt = mobile ? 2.9 : 2.1;
-    globe.pointOfView({ lat: currentLat, lng: currentLng, altitude: baseAlt + heroP * 0.5 }, 0);
-
-    // Placement : à droite dans le hero, puis reste en fond à droite, plus discret
-    const gx = mobile ? 0 : lerp(22, 18, heroP);
-    const gy = mobile ? lerp(18, 0, heroP) : 0;
-    const go = lerp(mobile ? 0.55 : 1, mobile ? 0.3 : 0.55, heroP);
+    globe.pointOfView({ lat: currentLat, lng: currentLng, altitude: (mobile ? 3 : 2.3) + heroP * 0.4 }, 0);
+    const gx = mobile ? 0 : lerp(23, 0, heroP);
+    const gy = mobile ? lerp(28, 0, heroP) : lerp(16, 0, heroP);
     stage.style.transform = `translate3d(${gx}vw, ${gy}vh, 0)`;
-    stage.style.opacity = go;
+    stage.style.opacity = lerp(1, 0.4, heroP);
   }
 
-  if (hudRot) hudRot.textContent = (((-currentLng % 360) + 360) % 360).toFixed(1) + '°';
-  if (progressBar) progressBar.style.transform = `scaleX(${pageP})`;
-  if (navbar) navbar.classList.toggle('scrolled', y > 20);
+  if (hudRot) hudRot.textContent = Math.round(((-currentLng % 360) + 360) % 360) + '°';
+  if (teleSpeed) teleSpeed.textContent = Math.round(speed);
+  if (teleRpm) teleRpm.style.width = (speed / MAX_KMH * 100).toFixed(1) + '%';
+  if (teleLap) teleLap.textContent = Math.round(pageP * 100) + '%';
+  const lit = Math.round(pageP * lights.length);
+  lights.forEach((l, i) => l.classList.toggle('on', i < lit));
 
   requestAnimationFrame(tick);
 }
 requestAnimationFrame(tick);
 
-/* ---------- Typing effect ---------- */
+/* ---------- Saisie au clavier dans le prompt ---------- */
 
-const typedEl = document.getElementById('typed');
+const typedEl = $('typed');
 let typedRoles = ['whoami'];
 let roleIdx = 0, charIdx = 0, deleting = false, typeTimer = null;
 
@@ -183,39 +195,58 @@ document.addEventListener('langchange', e => {
   if (typedEl) setTypedRoles(e.detail.roles);
 });
 
-/* ---------- Reveal, nav, misc ---------- */
+/* ---------- Fenêtres : popin + focus façon Hyprland ---------- */
 
-const revealObs = new IntersectionObserver(entries => {
+const wins = [...document.querySelectorAll('main .win')];
+
+const popObs = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      revealObs.unobserve(entry.target);
+      entry.target.classList.add('in');
+      popObs.unobserve(entry.target);
     }
   });
-}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('.reveal').forEach((el, i) => {
-  el.style.transitionDelay = (el.closest('.hero') ? i * 80 : 0) + 'ms';
-  revealObs.observe(el);
+}, { threshold: 0.1 });
+wins.forEach(w => {
+  if (!w.closest('#top')) { w.classList.add('pop'); popObs.observe(w); }
 });
 
-const navLinks = document.querySelectorAll('.navbar-right a[href^="#"]');
+// La fenêtre la plus proche du centre de l'écran prend le focus
+function focusWindow() {
+  const mid = window.innerHeight / 2;
+  let best = null, bestD = Infinity;
+  wins.forEach(w => {
+    const r = w.getBoundingClientRect();
+    if (r.bottom < 0 || r.top > window.innerHeight) return;
+    const d = Math.abs((r.top + r.bottom) / 2 - mid);
+    if (d < bestD) { bestD = d; best = w; }
+  });
+  wins.forEach(w => w.classList.toggle('active', w === best));
+}
+window.addEventListener('scroll', focusWindow, { passive: true });
+window.addEventListener('resize', focusWindow);
+focusWindow();
+
+/* ---------- Workspaces, horloge, rapport ---------- */
+
+const wsLinks = document.querySelectorAll('.ws');
+const sections = [...document.querySelectorAll('main section[id]')];
 const sectionObs = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (!entry.isIntersecting) return;
-    navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id));
+    wsLinks.forEach(a => a.classList.toggle('active', a.dataset.ws === entry.target.id));
+    if (teleGear) teleGear.textContent = sections.indexOf(entry.target) + 1;
   });
 }, { rootMargin: '-45% 0px -50% 0px' });
-document.querySelectorAll('main section[id]').forEach(s => sectionObs.observe(s));
+sections.forEach(s => sectionObs.observe(s));
 
-const navToggle = document.getElementById('navToggle');
-const navMenu = document.getElementById('navLinks');
-navToggle.addEventListener('click', () => {
-  const open = navMenu.classList.toggle('open');
-  navToggle.setAttribute('aria-expanded', open);
-});
-navLinks.forEach(a => a.addEventListener('click', () => {
-  navMenu.classList.remove('open');
-  navToggle.setAttribute('aria-expanded', 'false');
-}));
+const clock = $('clock');
+function updateClock() {
+  const d = new Date();
+  clock.textContent = d.toLocaleDateString('fr-FR', { weekday: 'short' }) + ' ' +
+    String(d.getHours()).padStart(2, '0') + ':' + String(d.getMinutes()).padStart(2, '0');
+}
+updateClock();
+setInterval(updateClock, 10000);
 
-document.getElementById('year').textContent = new Date().getFullYear();
+$('year').textContent = new Date().getFullYear();

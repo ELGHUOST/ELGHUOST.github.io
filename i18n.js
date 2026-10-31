@@ -54,7 +54,7 @@ Passionate about cybersecurity, CTFs, and always learning new technologies.`,
     proj3_title: "Internship Search",
     proj3_desc: "Practical tips, method and organization to find an internship (even without a network).",
     proj4_title: "Raha (R-A-7-A) — Clothing brand",
-    proj4_desc: "Personal project: clothing brand in development.<br>Co-founded with Marouane Boulahdit.",
+    proj4_desc: "Personal project: clothing brand in development. Co-founded with Marouane Boulahdit.",
 
     contact_email: "Email:",
     contact_github: "GitHub:"
@@ -115,7 +115,7 @@ Passionné par la cybersécurité, les CTF, et l’apprentissage continu.`,
     proj3_title: "En recherche de stage",
     proj3_desc: "Conseils concrets, méthode et organisation pour trouver un stage (même sans réseau).",
     proj4_title: "Raha (R-A-7-A) — Marque de vêtements",
-    proj4_desc: "Projet personnel : marque de vêtements en cours de développement.<br>Co-fondée avec Marouane Boulahdit.",
+    proj4_desc: "Projet personnel : marque de vêtements en cours de développement. Co-fondée avec Marouane Boulahdit.",
 
     contact_email: "Email :",
     contact_github: "GitHub :"
@@ -176,7 +176,7 @@ Apasionado por la ciberseguridad, los CTF y aprender nuevas tecnologías.`,
     proj3_title: "Búsqueda de prácticas",
     proj3_desc: "Consejos prácticos, método y organización para encontrar prácticas (incluso sin contactos).",
     proj4_title: "Raha (R-A-7-A) — Marca de ropa",
-    proj4_desc: "Proyecto personal: marca de ropa en desarrollo.<br>Cofundada con Marouane Boulahdit.",
+    proj4_desc: "Proyecto personal: marca de ropa en desarrollo. Cofundada con Marouane Boulahdit.",
 
     contact_email: "Email:",
     contact_github: "GitHub:"
@@ -237,7 +237,7 @@ Apasionado por la ciberseguridad, los CTF y aprender nuevas tecnologías.`,
     proj3_title: "实习求职",
     proj3_desc: "提供实用建议、方法与组织方式，帮助你找到实习（即使没有人脉）。",
     proj4_title: "Raha (R-A-7-A) — 服装品牌",
-    proj4_desc: "个人项目：正在开发中的服装品牌。<br>与 Marouane Boulahdit 共同创立。",
+    proj4_desc: "个人项目：正在开发中的服装品牌。 与 Marouane Boulahdit 共同创立。",
 
     contact_email: "邮箱：",
     contact_github: "GitHub："

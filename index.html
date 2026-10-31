@@ -2,304 +2,300 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Mohamed Salem — Network & Cybersecurity</title>
+    <title>mohamed@elghuost — Network & Cybersecurity</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio de Mohamed Salem — administration réseau & système, cloud et cybersécurité.">
-    <meta name="theme-color" content="#05070d">
+    <meta name="description" content="Portfolio de Mohamed Salem — administration réseau & système, cloud, DevOps et cybersécurité.">
+    <meta name="theme-color" content="#0b0d12">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;0,800;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/globe.gl@2.46.1/dist/globe.gl.min.js"></script>
 </head>
 <body>
 
-    <div class="scroll-progress" id="scrollProgress"></div>
-
-    <!-- Globe fixe en arrière-plan : tourne avec le scroll -->
-    <div class="globe-stage" id="globeStage" aria-hidden="true">
-        <div class="globe-glow"></div>
+    <!-- Fond d'écran : la Terre tourne avec le scroll -->
+    <div class="wallpaper" id="globeStage" aria-hidden="true">
         <div class="globe-container" id="globe"></div>
     </div>
-    <div class="bg-grid" aria-hidden="true"></div>
 
-    <header class="navbar" id="navbar">
-        <a href="#top" class="brand">
-            <span class="brand-mark">~/</span>
-            <span class="brand-name">Mohamed Salem</span>
-        </a>
+    <!-- Barre façon waybar -->
+    <header class="waybar">
+        <nav class="workspaces" aria-label="Sections">
+            <a href="#top" class="ws" data-ws="top"><span class="ws-n">1</span><span class="ws-l">~</span></a>
+            <a href="#about" class="ws" data-ws="about"><span class="ws-n">2</span><span class="ws-l" data-i18n="nav_about">about</span></a>
+            <a href="#experience" class="ws" data-ws="experience"><span class="ws-n">3</span><span class="ws-l" data-i18n="nav_experience">exp</span></a>
+            <a href="#projects" class="ws" data-ws="projects"><span class="ws-n">4</span><span class="ws-l" data-i18n="nav_projects">projects</span></a>
+            <a href="#contact" class="ws" data-ws="contact"><span class="ws-n">5</span><span class="ws-l" data-i18n="nav_contact">contact</span></a>
+        </nav>
 
-        <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
-            <span></span><span></span>
-        </button>
+        <div class="bar-center">
+            <span class="shift-lights" id="shiftLights" aria-hidden="true">
+                <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            </span>
+            <span class="clock" id="clock">--:--</span>
+        </div>
 
-        <nav class="navbar-right" id="navLinks">
-            <a href="#about" data-i18n="nav_about">About</a>
-            <a href="#skills" data-i18n="nav_skills">Skills</a>
-            <a href="#experience" data-i18n="nav_experience">Experience</a>
-            <a href="#education" data-i18n="nav_education">Education</a>
-            <a href="#projects" data-i18n="nav_projects">Projects</a>
-            <a href="#contact" data-i18n="nav_contact">Contact</a>
-
+        <div class="bar-right">
+            <span class="mod mod-net" title="network">▲ eth0</span>
+            <span class="mod mod-vpn" title="vpn">wg0 ●</span>
             <select id="langSelect" class="lang-select" aria-label="Language">
                 <option value="en">EN</option>
                 <option value="fr">FR</option>
                 <option value="es">ES</option>
                 <option value="zh">中文</option>
             </select>
-        </nav>
+        </div>
     </header>
 
-    <main id="top">
+    <main>
 
-        <section class="hero">
-            <div class="hero-content">
-                <p class="hero-status reveal">
-                    <span class="status-key">status:</span>
-                    <span class="status-val" data-i18n="hero_badge">open to opportunities</span>
-                </p>
+        <!-- ===== Workspace 1 ===== -->
+        <section class="workspace ws-hero" id="top">
 
-                <h1 class="hero-title reveal" data-i18n="hero_title" data-i18n-html="true">
-                    HI, I'M <span class="highlight">MOHAMED SALEM</span><br>
-                    NETWORK ADMIN<br>
-                    & CYBERSECURITY ENTHUSIAST
-                </h1>
+            <article class="win win-term win-main">
+                <div class="win-title"><span class="dot"></span>kitty — ~</div>
+                <div class="term">
+                    <p class="cmd"><span class="ps1">mohamed<span class="at">@</span>elghuost</span> <span class="path">~</span> <span class="arrow">❯</span> fastfetch</p>
 
-                <div class="terminal-line reveal" aria-live="polite">
-                    <span class="prompt">root@elghuost:~$</span>
-                    <span class="typed" id="typed"></span><span class="caret">▍</span>
-                </div>
-
-                <p class="hero-text reveal" data-i18n="hero_desc" data-i18n-html="true">
-                    I design and build reliable infrastructures — virtualization, routing, VLAN segmentation,<br>
-                    core network architecture, and secure deployments.<br>
-                    Passionate about cybersecurity, CTFs, and always learning new technologies.
-                </p>
-
-                <div class="btn-group reveal">
-                    <a href="#projects" class="btn btn-primary" data-i18n="btn_view_projects">View Projects</a>
-                    <a href="#contact" class="btn btn-ghost" data-i18n="btn_contact_me">Contact Me</a>
-                </div>
-
-                <div class="cv-buttons reveal">
-                    <a href="assets/cv.pdf" target="_blank" class="link-arrow" data-i18n="btn_cv_view">Voir mon CV</a>
-                    <a href="assets/cv.pdf" download="CV_Mohamed_Salem.pdf" class="link-arrow" data-i18n="btn_cv_download">Télécharger</a>
-                </div>
-            </div>
-
-            <div class="hero-hud reveal" aria-hidden="true">
-                <div class="hud-row"><span class="hud-key">STATUS</span><span class="hud-val ok">● ONLINE</span></div>
-                <div class="hud-row"><span class="hud-key">NODES</span><span class="hud-val" id="hudNodes">—</span></div>
-                <div class="hud-row"><span class="hud-key">LINKS</span><span class="hud-val" id="hudLinks">—</span></div>
-                <div class="hud-row"><span class="hud-key">TLS</span><span class="hud-val">1.3 / AES-256-GCM</span></div>
-                <div class="hud-row"><span class="hud-key">ROT</span><span class="hud-val" id="hudRot">0.0°</span></div>
-            </div>
-
-            <a href="#about" class="scroll-hint" aria-label="Scroll">
-                <span class="mouse"><span class="wheel"></span></span>
-                <span data-i18n="scroll_hint">Scroll</span>
-            </a>
-        </section>
-
-        <section class="section" id="about">
-            <div class="section-head reveal">
-                <span class="section-index">01</span>
-                <h2 data-i18n="about_title">ABOUT ME</h2>
-            </div>
-            <div class="glass about-box reveal">
-                <ul class="about-bullets">
-                    <li data-i18n="about_li_1">Network administrator passionate about building scalable and secure infrastructures</li>
-                    <li data-i18n="about_li_2">Mastery of Linux systems, routing protocols (OSPF, RIP, BGP), VLANs, VPNs, firewalls and server deployment</li>
-                    <li data-i18n="about_li_3">Deeply involved in offensive cybersecurity — I lead my own CTF team</li>
-                    <li data-i18n="about_li_4">Currently learning Chinese</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="section" id="skills">
-            <div class="section-head reveal">
-                <span class="section-index">02</span>
-                <h2 data-i18n="skills_title">DOMAINS</h2>
-            </div>
-
-            <div class="skills-grid">
-                <article class="glass skill-card reveal" style="--c: var(--red)">
-                    <div class="skill-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg>
+                    <div class="fetch">
+<pre class="ascii" aria-hidden="true">
+   .-""""""-.
+  /          \
+ |   ()  ()   |
+ |     __     |
+ |    '--'    |
+ |            |
+ |/\/\/\/\/\/\|
+</pre>
+                        <div class="fetch-info">
+                            <p class="fi-head"><span class="c-cyan">mohamed</span>@<span class="c-cyan">elghuost</span></p>
+                            <p class="fi-sep">────────────────────────</p>
+                            <p><span class="k">OS</span> BUT R&amp;T — Cybersécurité</p>
+                            <p><span class="k">Host</span> Université de Franche-Comté</p>
+                            <p><span class="k">Exp</span> DevOps @ DSI Besançon</p>
+                            <p><span class="k">Stack</span> Linux · OSPF · BGP · VLAN · VPN</p>
+                            <p><span class="k">CTF</span> team lead</p>
+                            <p><span class="k">WM</span> Hyprland</p>
+                            <p><span class="k">Hobby</span> motorsport 🏁</p>
+                            <p><span class="k">Learning</span> 中文</p>
+                            <p class="swatches"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></p>
+                        </div>
                     </div>
-                    <h3 data-i18n="skill_sec_title">Cybersecurity</h3>
-                    <p data-i18n="skill_sec_desc">Offensive security, CTFs, forensics and hardening of exposed services.</p>
-                    <div class="tags"><span>CTF</span><span>Forensics</span><span>Web</span><span>Firewall</span></div>
+
+                    <p class="cmd"><span class="ps1">mohamed<span class="at">@</span>elghuost</span> <span class="path">~</span> <span class="arrow">❯</span> cat motd.txt</p>
+                    <h1 class="motd-title" data-i18n="hero_title" data-i18n-html="true">
+                        HI, I'M <span class="highlight">MOHAMED SALEM</span><br>NETWORK ADMIN<br>& CYBERSECURITY ENTHUSIAST
+                    </h1>
+                    <p class="motd-text" data-i18n="hero_desc" data-i18n-html="true">
+                        I design and build reliable infrastructures — virtualization, routing, VLAN segmentation,
+                        core network architecture, and secure deployments.
+                        Passionate about cybersecurity, CTFs, and always learning new technologies.
+                    </p>
+
+                    <p class="cmd"><span class="ps1">mohamed<span class="at">@</span>elghuost</span> <span class="path">~</span> <span class="arrow">❯</span> ls</p>
+                    <div class="ls-out">
+                        <a href="#projects" class="ls-dir">projects/</a>
+                        <a href="#contact" class="ls-dir">contact/</a>
+                        <a href="assets/cv.pdf" target="_blank" class="ls-file">cv.pdf</a>
+                        <a href="assets/cv.pdf" download="CV_Mohamed_Salem.pdf" class="ls-exec">download_cv.sh</a>
+                    </div>
+
+                    <p class="cmd live"><span class="ps1">mohamed<span class="at">@</span>elghuost</span> <span class="path">~</span> <span class="arrow">❯</span> <span class="typed" id="typed"></span><span class="caret"></span></p>
+                </div>
+            </article>
+
+            <div class="stack">
+                <article class="win">
+                    <div class="win-title"><span class="dot"></span>telemetry</div>
+                    <div class="telemetry">
+                        <div class="tele-big">
+                            <span class="tele-speed" id="teleSpeed">0</span>
+                            <span class="tele-unit">km/h</span>
+                        </div>
+                        <div class="tele-bar"><span id="teleRpm"></span></div>
+                        <div class="tele-grid">
+                            <div><span class="k">GEAR</span><b id="teleGear">N</b></div>
+                            <div><span class="k">LAP</span><b id="teleLap">0%</b></div>
+                            <div><span class="k">ROT</span><b id="hudRot">0°</b></div>
+                            <div><span class="k">NODES</span><b id="hudNodes">—</b></div>
+                        </div>
+                        <p class="tele-status">
+                            <span class="k">status</span>
+                            <span class="c-green" data-i18n="hero_badge">open to opportunities</span>
+                        </p>
+                    </div>
                 </article>
 
-                <article class="glass skill-card reveal" style="--c: var(--cyan)">
-                    <div class="skill-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18h10a4 4 0 0 0 .5-7.97A6 6 0 0 0 6.1 9.5 4.25 4.25 0 0 0 7 18z"/><path d="M12 12v5M9.5 14.5L12 12l2.5 2.5"/></svg>
-                    </div>
-                    <h3 data-i18n="skill_cloud_title">Cloud & Virtualization</h3>
-                    <p data-i18n="skill_cloud_desc">Virtualized infrastructures, service deployment and automation.</p>
-                    <div class="tags"><span>Virtualisation</span><span>VM</span><span>Automation</span><span>Services</span></div>
-                </article>
-
-                <article class="glass skill-card reveal" style="--c: var(--green)">
-                    <div class="skill-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 9l3 3-3 3M12 15h5"/></svg>
-                    </div>
-                    <h3 data-i18n="skill_sys_title">System Administration</h3>
-                    <p data-i18n="skill_sys_desc">Linux servers, users, services and secure configuration.</p>
-                    <div class="tags"><span>Linux</span><span>Bash</span><span>SSH</span><span>DNS / DHCP</span></div>
-                </article>
-
-                <article class="glass skill-card reveal" style="--c: var(--violet)">
-                    <div class="skill-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M12 7v4M12 11l-6 6M12 11l6 6"/></svg>
-                    </div>
-                    <h3 data-i18n="skill_net_title">Networking</h3>
-                    <p data-i18n="skill_net_desc">Routing, switching, segmentation and core network architecture.</p>
-                    <div class="tags"><span>OSPF</span><span>BGP</span><span>VLAN</span><span>VPN</span></div>
+                <article class="win win-ghost" aria-hidden="true">
+                    <div class="win-title"><span class="dot"></span>earth.sh — <span id="hudLinks">0</span> links</div>
+                    <div class="ghost-hint">scroll ↓ rotate</div>
                 </article>
             </div>
         </section>
 
-        <section class="section" id="experience">
-            <div class="section-head reveal">
-                <span class="section-index">03</span>
-                <h2 data-i18n="exp_title">EXPERIENCE</h2>
-            </div>
-
-            <div class="timeline">
-                <div class="timeline-item reveal">
-                    <div class="timeline-dot"></div>
-                    <div class="glass timeline-content">
-                        <div class="timeline-date" data-i18n="exp1_type">Internship</div>
-                        <h3 data-i18n="exp1_role">DevOps Intern — IT Department (DSI), Besançon</h3>
-                        <p data-i18n="exp1_desc">Internship within the IT department (DSI) of Besançon, on the DevOps side: infrastructure, deployment and automation.</p>
-                    </div>
+        <!-- ===== Workspace 2 ===== -->
+        <section class="workspace ws-split" id="about">
+            <article class="win">
+                <div class="win-title"><span class="dot"></span>nvim — about.md</div>
+                <div class="term">
+                    <h2 class="md-h"><span class="md-hash">#</span> <span data-i18n="about_title">ABOUT ME</span></h2>
+                    <ul class="md-list">
+                        <li data-i18n="about_li_1">Network administrator passionate about building scalable and secure infrastructures</li>
+                        <li data-i18n="about_li_2">Mastery of Linux systems, routing protocols (OSPF, RIP, BGP), VLANs, VPNs, firewalls and server deployment</li>
+                        <li data-i18n="about_li_3">Deeply involved in offensive cybersecurity — I lead my own CTF team</li>
+                        <li data-i18n="about_li_4">Currently learning Chinese</li>
+                    </ul>
+                    <p class="nvim-status"><span class="mode">NORMAL</span> about.md <span class="muted">utf-8 · markdown</span></p>
                 </div>
-            </div>
+            </article>
+
+            <article class="win">
+                <div class="win-title"><span class="dot"></span>kitty — ~/skills</div>
+                <div class="term">
+                    <p class="cmd"><span class="arrow">❯</span> tree ~/skills <span class="muted">#</span> <span class="muted" data-i18n="skills_title">DOMAINS</span></p>
+                    <div class="tree">
+                        <p class="t-dir c-red"><span class="br">├──</span> <span data-i18n="skill_sec_title">Cybersecurity</span>/</p>
+                        <p class="t-com"><span class="br">│   </span># <span data-i18n="skill_sec_desc">Offensive security, CTFs, forensics.</span></p>
+                        <p><span class="br">│   └──</span> ctf · forensics · web · firewall</p>
+
+                        <p class="t-dir c-cyan"><span class="br">├──</span> <span data-i18n="skill_cloud_title">Cloud & Virtualization</span>/</p>
+                        <p class="t-com"><span class="br">│   </span># <span data-i18n="skill_cloud_desc">Virtualized infrastructures, deployment, automation.</span></p>
+                        <p><span class="br">│   └──</span> vm · devops · automation · services</p>
+
+                        <p class="t-dir c-green"><span class="br">├──</span> <span data-i18n="skill_sys_title">System Administration</span>/</p>
+                        <p class="t-com"><span class="br">│   </span># <span data-i18n="skill_sys_desc">Linux servers, services, secure configuration.</span></p>
+                        <p><span class="br">│   └──</span> linux · bash · ssh · dns/dhcp</p>
+
+                        <p class="t-dir c-purple"><span class="br">└──</span> <span data-i18n="skill_net_title">Networking</span>/</p>
+                        <p class="t-com"><span class="br">    </span># <span data-i18n="skill_net_desc">Routing, switching, VLAN segmentation.</span></p>
+                        <p><span class="br">    └──</span> ospf · bgp · vlan · vpn</p>
+                    </div>
+                    <p class="muted small">4 directories, 16 files</p>
+                </div>
+            </article>
         </section>
 
-        <section class="section" id="education">
-            <div class="section-head reveal">
-                <span class="section-index">04</span>
-                <h2 data-i18n="edu_title">EDUCATION</h2>
-            </div>
-
-            <div class="timeline">
-                <div class="timeline-item reveal">
-                    <div class="timeline-dot"></div>
-                    <div class="glass timeline-content">
-                        <div class="timeline-date">2025 – présent</div>
-                        <h3>Université de Franche-Comté</h3>
-                        <p>BUT Réseaux et Télécommunications<br><strong>Parcours Cybersécurité</strong></p>
+        <!-- ===== Workspace 3 ===== -->
+        <section class="workspace" id="experience">
+            <article class="win">
+                <div class="win-title"><span class="dot"></span>kitty — git log --graph</div>
+                <div class="term">
+                    <p class="cmd"><span class="arrow">❯</span> git log --graph --oneline career</p>
+                    <div class="gitlog">
+                        <div class="commit">
+                            <span class="graph">*</span>
+                            <div>
+                                <p><span class="hash">d3v0ps1</span> <span class="ref">(<span class="c-cyan">HEAD → main</span>, <span class="c-yellow">tag: <span data-i18n="exp1_type">stage</span></span>)</span></p>
+                                <h3 data-i18n="exp1_role">DevOps Intern — DSI de Besançon</h3>
+                                <p class="muted" data-i18n="exp1_desc">Internship within the IT department of Besançon: infrastructure, deployment and automation.</p>
+                            </div>
+                        </div>
+                        <div class="commit">
+                            <span class="graph">*</span>
+                            <div>
+                                <p><span class="hash">ufc2025</span> <span class="ref">(<span class="c-green">2025 – présent</span>)</span></p>
+                                <h3>Université de Franche-Comté</h3>
+                                <p class="muted">BUT Réseaux et Télécommunications — <b>Parcours Cybersécurité</b></p>
+                            </div>
+                        </div>
+                        <div class="commit">
+                            <span class="graph">*</span>
+                            <div>
+                                <p><span class="hash">iutm23</span> <span class="ref">(<span class="c-green">2023 – 2025</span>)</span></p>
+                                <h3>IUT Montbéliard</h3>
+                                <p class="muted">BUT Réseaux et Télécommunications — <b>Parcours Cybersécurité</b></p>
+                            </div>
+                        </div>
+                        <div class="commit">
+                            <span class="graph">*</span>
+                            <div>
+                                <p><span class="hash">bac2022</span> <span class="ref">(<span class="c-green">2021 – 2022</span>)</span></p>
+                                <h3>Académie de Bordeaux</h3>
+                                <p class="muted">Baccalauréat Général — NSI &amp; Mathématiques</p>
+                            </div>
+                        </div>
+                        <p class="muted small">(END)</p>
                     </div>
                 </div>
-
-                <div class="timeline-item reveal">
-                    <div class="timeline-dot"></div>
-                    <div class="glass timeline-content">
-                        <div class="timeline-date">2023 – 2025</div>
-                        <h3>IUT Montbéliard</h3>
-                        <p>BUT Réseaux et Télécommunications<br><strong>Parcours Cybersécurité</strong></p>
-                    </div>
-                </div>
-
-                <div class="timeline-item reveal">
-                    <div class="timeline-dot"></div>
-                    <div class="glass timeline-content">
-                        <div class="timeline-date">2021 – 2022</div>
-                        <h3>Académie de Bordeaux</h3>
-                        <p>Baccalauréat Général – Spécialités NSI et Mathématiques</p>
-                    </div>
-                </div>
-            </div>
+            </article>
         </section>
 
-        <section class="section" id="projects">
-            <div class="section-head reveal">
-                <span class="section-index">05</span>
-                <h2 data-i18n="projects_title">PROJECTS</h2>
-            </div>
-
-            <div class="projects-grid">
-
-                <a href="sae501/index.html" class="glass project-card reveal">
-                    <div class="project-thumb">
-                        <img src="assets/preview/sae501.PNG" alt="Aperçu SAÉ 501" loading="lazy">
-                        <span class="project-chip">SAÉ / AdminSys</span>
+        <!-- ===== Workspace 4 : classement façon timing tower ===== -->
+        <section class="workspace" id="projects">
+            <article class="win">
+                <div class="win-title"><span class="dot"></span>timing — ~/projects</div>
+                <div class="tower">
+                    <div class="tower-head">
+                        <span>POS</span><span></span><span data-i18n="projects_title">PROJECTS</span><span class="th-gap">SECTOR</span>
                     </div>
-                    <div class="project-body">
-                        <h3 class="card-title" data-i18n="proj1_title">SAÉ 501 — AdminSys Challenge (WorldSkills)</h3>
-                        <p data-i18n="proj1_desc">Intensive university project (1 week): network infrastructure + services + security + automation, completed in a team of 5.</p>
-                        <span class="project-open" data-i18n="proj_open">Open project →</span>
-                    </div>
-                </a>
 
-                <a href="ctf/index.html" class="glass project-card reveal">
-                    <div class="project-thumb">
-                        <img src="assets/preview/ctf.PNG" alt="Aperçu CTF" loading="lazy">
-                        <span class="project-chip">CTF / Writeups</span>
-                    </div>
-                    <div class="project-body">
-                        <h3 class="card-title" data-i18n="proj2_title">CTF Challenges & Writeups</h3>
-                        <p data-i18n="proj2_desc">Web, crypto, forensics, reverse engineering challenges.</p>
-                        <span class="project-open" data-i18n="proj_open">Open project →</span>
-                    </div>
-                </a>
-
-                <a href="stage/stage.html" class="glass project-card reveal">
-                    <div class="project-thumb">
-                        <img src="assets/preview/stage.PNG" alt="Aperçu Stage" loading="lazy">
-                        <span class="project-chip">Stage</span>
-                    </div>
-                    <div class="project-body">
-                        <h3 class="card-title" data-i18n="proj3_title">En recherche de stage</h3>
-                        <p data-i18n="proj3_desc">Conseils, organisation et méthode pour candidater efficacement.</p>
-                        <span class="project-open" data-i18n="proj_open">Open project →</span>
-                    </div>
-                </a>
-
-                <a href="raha/index.html" class="glass project-card reveal">
-                    <div class="project-thumb">
-                        <img src="assets/preview/raha.PNG" alt="Aperçu RAHA" loading="lazy">
-                        <span class="project-chip" data-i18n="proj4_chip">Projet perso</span>
-                    </div>
-                    <div class="project-body">
-                        <h3 class="card-title" data-i18n="proj4_title">Raha (R-A-7-A) — Marque de vêtements</h3>
-                        <p data-i18n="proj4_desc" data-i18n-html="true">Projet personnel : marque de vêtements en cours de développement.<br>
-                        Co-fondé avec Marouane Boulahdit.</p>
-                        <span class="project-open" data-i18n="proj_open">Open project →</span>
-                    </div>
-                </a>
-
-            </div>
-        </section>
-
-        <section class="section" id="contact">
-            <div class="section-head reveal">
-                <span class="section-index">06</span>
-                <h2 data-i18n="contact_title">CONTACT</h2>
-            </div>
-
-            <div class="glass contact-box reveal">
-                <p class="contact-lead" data-i18n="contact_lead">An internship, a project, a CTF? Let's talk.</p>
-                <div class="contact-links">
-                    <a class="contact-item" href="mailto:mohamedsalemfadili@proton.me">
-                        <span class="contact-label" data-i18n="contact_email">Email:</span>
-                        <span class="contact-val">mohamedsalemfadili@proton.me</span>
+                    <a href="sae501/index.html" class="row" style="--team: var(--purple)">
+                        <span class="pos">P1</span>
+                        <span class="thumb"><img src="assets/preview/sae501.PNG" alt="" loading="lazy"></span>
+                        <span class="row-body">
+                            <span class="row-title" data-i18n="proj1_title">SAÉ 501 — AdminSys Challenge (WorldSkills)</span>
+                            <span class="row-desc" data-i18n="proj1_desc">Intensive university project (1 week).</span>
+                        </span>
+                        <span class="gap">adminsys <span class="go">→</span></span>
                     </a>
-                    <a class="contact-item" href="https://github.com/ELGHUOST" target="_blank" rel="noopener">
-                        <span class="contact-label" data-i18n="contact_github">GitHub:</span>
-                        <span class="contact-val">github.com/ELGHUOST</span>
+
+                    <a href="ctf/index.html" class="row" style="--team: var(--red)">
+                        <span class="pos">P2</span>
+                        <span class="thumb"><img src="assets/preview/ctf.PNG" alt="" loading="lazy"></span>
+                        <span class="row-body">
+                            <span class="row-title" data-i18n="proj2_title">CTF Challenges & Writeups</span>
+                            <span class="row-desc" data-i18n="proj2_desc">Web, crypto, forensics, reverse engineering challenges.</span>
+                        </span>
+                        <span class="gap">ctf <span class="go">→</span></span>
+                    </a>
+
+                    <a href="stage/stage.html" class="row" style="--team: var(--green)">
+                        <span class="pos">P3</span>
+                        <span class="thumb"><img src="assets/preview/stage.PNG" alt="" loading="lazy"></span>
+                        <span class="row-body">
+                            <span class="row-title" data-i18n="proj3_title">En recherche de stage</span>
+                            <span class="row-desc" data-i18n="proj3_desc">Conseils, organisation et méthode pour candidater efficacement.</span>
+                        </span>
+                        <span class="gap">method <span class="go">→</span></span>
+                    </a>
+
+                    <a href="raha/index.html" class="row" style="--team: var(--yellow)">
+                        <span class="pos">P4</span>
+                        <span class="thumb"><img src="assets/preview/raha.PNG" alt="" loading="lazy"></span>
+                        <span class="row-body">
+                            <span class="row-title" data-i18n="proj4_title">Raha (R-A-7-A) — Marque de vêtements</span>
+                            <span class="row-desc" data-i18n="proj4_desc" data-i18n-html="true">Projet personnel : marque de vêtements en cours de développement.</span>
+                        </span>
+                        <span class="gap">brand <span class="go">→</span></span>
                     </a>
                 </div>
-            </div>
+            </article>
+        </section>
+
+        <!-- ===== Workspace 5 ===== -->
+        <section class="workspace ws-split" id="contact">
+            <article class="win">
+                <div class="win-title"><span class="dot"></span>kitty — ~/contact</div>
+                <div class="term">
+                    <p class="cmd"><span class="arrow">❯</span> cat contact.txt</p>
+                    <p class="contact-lead" data-i18n="contact_lead">An internship, a project, a CTF? Let's talk.</p>
+                    <p class="kv"><span class="k" data-i18n="contact_email">Email:</span> <a href="mailto:mohamedsalemfadili@proton.me">mohamedsalemfadili@proton.me</a></p>
+                    <p class="kv"><span class="k" data-i18n="contact_github">GitHub:</span> <a href="https://github.com/ELGHUOST" target="_blank" rel="noopener">github.com/ELGHUOST</a></p>
+                    <p class="cmd live"><span class="arrow">❯</span> <span class="caret"></span></p>
+                </div>
+            </article>
+
+            <article class="win win-flag" aria-hidden="true">
+                <div class="win-title"><span class="dot"></span>finish.png</div>
+                <div class="flag"></div>
+            </article>
         </section>
     </main>
 
     <footer class="footer">
-        <span class="mono">© <span id="year"></span> Mohamed Salem</span>
-        <span class="mono muted">ssh elghuost@portfolio — connection secured</span>
+        <span>© <span id="year"></span> mohamed salem</span>
+        <span class="muted">hyprland · kitty · <span class="c-red">🏁</span></span>
     </footer>
 
     <script src="script.js"></script>

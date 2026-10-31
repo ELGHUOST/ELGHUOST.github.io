@@ -2,196 +2,139 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Ra7a — Marque de vêtements</title>
+  <title>RA7A — راحة</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#050505">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-  <meta name="theme-color" content="#05070d">
-  <link rel="stylesheet" href="../assets/css/theme.css">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="raha.css">
 </head>
 
-<body class="raha-page">
-  <!-- <script>
-  if (localStorage.getItem("raha_auth") !== "1") {
-    window.location.replace("gate.html");
-  }
-  </script>-->
+<body class="r7">
+  <div class="grain" aria-hidden="true"></div>
 
-
-  <header class="raha-topbar">
-    <a class="raha-back" href="../index.html#projects">← Retour</a>
-
-    <div class="raha-brand">
-      <img class="raha-orbit" src="../assets/raha/logo-orbit.png" alt="RAHA (RA7A) logo">
-      <span class="raha-brand-text">RAHA / R-A-7-A</span>
-    </div>
-
-    <div class="raha-tag">UNDERGROUND CLOTHING</div>
+  <header class="r7-head">
+    <a href="#top" class="r7-logo">RA7A<sup>®</sup></a>
+    <nav class="r7-nav">
+      <a href="#drop">Drop 01</a>
+      <a href="#film">Film</a>
+      <a href="#archive">Archive</a>
+      <a href="#info">Info</a>
+    </nav>
+    <a href="../index.html#projects" class="r7-back">← Portfolio</a>
   </header>
 
-  <section class="raha-hero">
-    <div class="raha-hero-bg" aria-hidden="true"></div>
-
-    <div class="raha-hero-left">
-      <h1 class="raha-title">
-        RAHA (R-A-7-A)<br>
-        <span>Clothing / Personal Project</span>
-      </h1>
-
-      <p class="raha-desc">
-        Marque de vêtements en cours de développement.<br>
-        Fondée par Marouane Boulahdit & Mohamed Salem.
-      </p>
-
-      <div class="raha-cta">
-        <a class="raha-btn" href="#drop">Voir le drop</a>
-        <a class="raha-btn raha-btn-ghost" href="#gallery">Galerie</a>
-      </div>
-
-      <div class="raha-mini-logos">
-        <img src="../assets/raha/logo-ra7a-gothic.jpeg" alt="RA7A gothic logo">
-        <img src="../assets/raha/logo-kata.jpeg" alt="KATA logo">
-      </div>
-
-      <!-- petit tag underground -->
-      <div class="raha-stamps" aria-hidden="true">
-        <span class="stamp stamp-jp">東京 / underground</span>
-        <span class="stamp stamp-ar">راحة / RA7A</span>
-        <span class="stamp stamp-tag">limited drop</span>
-      </div>
+  <!-- HERO -->
+  <section class="r7-hero" id="top">
+    <h1 class="r7-word" aria-label="RA7A">RA7A</h1>
+    <img class="r7-duel" src="assets/duel-2.png" alt="Duel — RA7A">
+    <div class="r7-hero-meta">
+      <span>[ Drop 01 ]</span>
+      <span>Coming soon</span>
     </div>
-
-    <div class="raha-hero-right">
-      <img class="raha-hero-poster" src="../assets/raha/hero-wallpaper.jpeg" alt="Raha artwork">
+    <div class="r7-hero-foot">
+      <span>Underground clothing</span>
+      <span>Tokyo × Desert</span>
+      <span>Scroll ↓</span>
     </div>
   </section>
 
-  <div class="raha-marquee" aria-hidden="true">
-    <div class="raha-marquee-track">
-      <span>RAHA — RA7A — KATA — LIMITED DROP — UNDERGROUND —</span>
-      <span>RAHA — RA7A — KATA — LIMITED DROP — UNDERGROUND —</span>
-      <span>RAHA — RA7A — KATA — LIMITED DROP — UNDERGROUND —</span>
+  <div class="r7-ticker" aria-hidden="true">
+    <div class="r7-ticker-track">
+      <span>RA7A ✦ راحة ✦ KATA ✦ LIMITED DROP ✦ UNDERGROUND ✦ 東京 ✦ </span>
+      <span>RA7A ✦ راحة ✦ KATA ✦ LIMITED DROP ✦ UNDERGROUND ✦ 東京 ✦ </span>
     </div>
   </div>
 
-  <section class="raha-section" id="drop">
-    <div class="raha-section-head">
-      <h2 class="raha-h2">DROP / LOOKBOOK</h2>
-      <p class="raha-sub">Drop Soon</p>
+  <!-- DROP -->
+  <section class="r7-sec" id="drop">
+    <div class="r7-sec-head">
+      <h2>Drop 01</h2>
+      <span class="r7-count">05 pieces — <em>soon</em></span>
     </div>
 
-    <div class="raha-grid">
-      <a class="raha-card" href="drops/green.html">
-        <div class="raha-card-media">
-          <img src="../assets/raha/drop-green.jpeg" alt="T-shirt Raha vert">
-          <div class="raha-card-overlay">
-            <div class="raha-card-overlay-top">
-              <span class="tag-mini">TAP</span>
-              <span class="tag-mini tag-mini-vio">VIEW</span>
-            </div>
-            <div class="raha-card-overlay-bottom">→ Open product</div>
-          </div>
-        </div>
-        <div class="raha-card-footer">
-          <div class="raha-card-title">RAHA — Green</div>
-          <div class="raha-card-meta">Front/Back — Concept graphics</div>
-        </div>
+    <div class="r7-grid">
+      <a class="r7-item" href="drops/green.html">
+        <span class="r7-idx">001</span>
+        <span class="r7-media"><img src="../assets/raha/drop-green.jpeg" alt="RA7A Green" loading="lazy"></span>
+        <span class="r7-label"><b>Green</b><i>Concept graphics</i></span>
       </a>
-
-      <a class="raha-card" href="drops/blue.html">
-        <div class="raha-card-media">
-          <img src="../assets/raha/drop-blue.jpeg" alt="T-shirt Raha bleu">
-          <div class="raha-card-overlay">
-            <div class="raha-card-overlay-top">
-              <span class="tag-mini">TAP</span>
-              <span class="tag-mini tag-mini-vio">VIEW</span>
-            </div>
-            <div class="raha-card-overlay-bottom">→ Open product</div>
-          </div>
-        </div>
-        <div class="raha-card-footer">
-          <div class="raha-card-title">RAHA — Blue</div>
-          <div class="raha-card-meta">Front/Back — Stars signature</div>
-        </div>
+      <a class="r7-item" href="drops/blue.html">
+        <span class="r7-idx">002</span>
+        <span class="r7-media"><img src="../assets/raha/drop-blue.jpeg" alt="RA7A Blue" loading="lazy"></span>
+        <span class="r7-label"><b>Blue</b><i>Stars signature</i></span>
       </a>
-
-      <a class="raha-card" href="drops/lavender.html">
-        <div class="raha-card-media">
-          <img src="../assets/raha/drop-lavender.jpeg" alt="T-shirt Raha lavande">
-          <div class="raha-card-overlay">
-            <div class="raha-card-overlay-top">
-              <span class="tag-mini">TAP</span>
-              <span class="tag-mini tag-mini-vio">VIEW</span>
-            </div>
-            <div class="raha-card-overlay-bottom">→ Open product</div>
-          </div>
-        </div>
-        <div class="raha-card-footer">
-          <div class="raha-card-title">RAHA — Lavender</div>
-          <div class="raha-card-meta">Butterfly / Logo</div>
-        </div>
+      <a class="r7-item" href="drops/lavender.html">
+        <span class="r7-idx">003</span>
+        <span class="r7-media"><img src="../assets/raha/drop-lavender.jpeg" alt="RA7A Lavender" loading="lazy"></span>
+        <span class="r7-label"><b>Lavender</b><i>Butterfly / logo</i></span>
       </a>
-
-      <a class="raha-card" href="drops/beige.html">
-        <div class="raha-card-media">
-          <img src="../assets/raha/drop-beige.jpeg" alt="T-shirt Raha beige">
-          <div class="raha-card-overlay">
-            <div class="raha-card-overlay-top">
-              <span class="tag-mini">TAP</span>
-              <span class="tag-mini tag-mini-vio">VIEW</span>
-            </div>
-            <div class="raha-card-overlay-bottom">→ Open product</div>
-          </div>
-        </div>
-        <div class="raha-card-footer">
-          <div class="raha-card-title">RAHA — Beige</div>
-          <div class="raha-card-meta">Camel artwork / Arabic call</div>
-        </div>
+      <a class="r7-item" href="drops/beige.html">
+        <span class="r7-idx">004</span>
+        <span class="r7-media"><img src="../assets/raha/drop-beige.jpeg" alt="RA7A Beige" loading="lazy"></span>
+        <span class="r7-label"><b>Beige</b><i>Camel / Arabic call</i></span>
       </a>
-
-      <a class="raha-card raha-card-wide" href="drops/earth-tones.html">
-        <div class="raha-card-media">
-          <img src="../assets/raha/drop-brown.jpeg" alt="T-shirt Raha marron">
-          <div class="raha-card-overlay">
-            <div class="raha-card-overlay-top">
-              <span class="tag-mini">TAP</span>
-              <span class="tag-mini tag-mini-vio">VIEW</span>
-            </div>
-            <div class="raha-card-overlay-bottom">→ Open product</div>
-          </div>
-        </div>
-        <div class="raha-card-footer">
-          <div class="raha-card-title">RAHA — Brown</div>
-          <div class="raha-card-meta">Camel artwork / Earth tones</div>
-        </div>
+      <a class="r7-item" href="drops/earth-tones.html">
+        <span class="r7-idx">005</span>
+        <span class="r7-media"><img src="../assets/raha/drop-brown.jpeg" alt="RA7A Brown" loading="lazy"></span>
+        <span class="r7-label"><b>Brown</b><i>Earth tones</i></span>
       </a>
-    </div>
-  </section>
-
-  <section class="raha-section" id="gallery">
-    <div class="raha-section-head">
-      <h2 class="raha-h2">GALLERY</h2>
-      <p class="raha-sub">Zone collage.</p>
-    </div>
-
-    <div class="raha-collage">
-      <div class="raha-collage-left">
-        <img src="../assets/raha/logo-ra7a-gothic.jpeg" alt="RA7A">
-        <img src="../assets/raha/logo-kata.jpeg" alt="KATA">
-      </div>
-      <div class="raha-collage-right">
-        <img src="../assets/raha/hero-wallpaper.jpeg" alt="Artwork Raha">
+      <div class="r7-item r7-item-text">
+        <p>Chaque pièce mélange l'imaginaire du désert et celui du Japon underground : calligraphie arabe, étoiles, papillons, sabres.</p>
+        <p class="r7-small">Pas de restock. Pas de compromis.</p>
       </div>
     </div>
   </section>
 
-  <footer class="raha-footer">
-    <div class="raha-footer-line"></div>
-    <div class="raha-footer-inner">
-      <div>RAHA (R-A-7-A)</div>
-      <div class="raha-footer-small">Founders: Mohamed Salem / Marouane Boulahdit</div>
+  <!-- FILM -->
+  <section class="r7-sec r7-film" id="film">
+    <div class="r7-sec-head">
+      <h2>Film</h2>
+      <span class="r7-count">Presentation</span>
+    </div>
+    <div class="r7-video">
+      <video controls preload="none" playsinline poster="assets/duel-2.png">
+        <source src="assets/YTDown.com_YouTube_Ra7a-Presentation_Media_7DG7Dqp_nfQ_001_1080p.mp4" type="video/mp4">
+      </video>
+    </div>
+  </section>
+
+  <!-- ARCHIVE -->
+  <section class="r7-sec" id="archive">
+    <div class="r7-sec-head">
+      <h2>Archive</h2>
+      <span class="r7-count">Visuals / Logos</span>
+    </div>
+    <div class="r7-archive">
+      <figure class="a-wide"><img src="assets/duel-1.png" alt="Duel" loading="lazy"><figcaption>ARC—01 / Duel</figcaption></figure>
+      <figure><img src="../assets/raha/logo-ra7a-gothic.jpeg" alt="RA7A gothic" loading="lazy"><figcaption>ARC—02 / Gothic</figcaption></figure>
+      <figure><img src="../assets/raha/logo-kata.jpeg" alt="KATA" loading="lazy"><figcaption>ARC—03 / Kata</figcaption></figure>
+      <figure class="a-tall"><img src="../assets/raha/hero-wallpaper.jpeg" alt="Artwork RA7A" loading="lazy"><figcaption>ARC—04 / Chrome</figcaption></figure>
+      <figure class="a-wide3"><img src="drops/bg-split.png" alt="Désert / Japon" loading="lazy"><figcaption>ARC—05 / Split</figcaption></figure>
+      <figure class="a-logo"><img src="../assets/raha/logo-orbit.png" alt="Orbit" loading="lazy"><figcaption>ARC—06 / Orbit</figcaption></figure>
+      <figure class="a-wide"><img src="assets/duel-1.png" alt="Duel" loading="lazy" style="object-position: 80% 50%"><figcaption>ARC—07 / Stance</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- INFO -->
+  <section class="r7-sec r7-info" id="info">
+    <div class="r7-info-ar" aria-hidden="true">راحة</div>
+    <div class="r7-info-txt">
+      <p class="r7-big">RA7A est une marque de vêtements underground en cours de développement.</p>
+      <dl>
+        <dt>Founders</dt><dd>Marouane Boulahdit<br>Mohamed Salem</dd>
+        <dt>Status</dt><dd>Drop 01 — coming soon</dd>
+        <dt>Contact</dt><dd><a href="../index.html#contact">via portfolio →</a></dd>
+      </dl>
+    </div>
+  </section>
+
+  <footer class="r7-foot">
+    <div class="r7-foot-word" aria-hidden="true">RA7A</div>
+    <div class="r7-foot-row">
+      <span>© RA7A</span>
+      <a href="../index.html#projects">← Back to portfolio</a>
     </div>
   </footer>
 
