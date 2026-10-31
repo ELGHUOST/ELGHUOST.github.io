@@ -108,6 +108,8 @@
                 </div>
             </article>
 
+            <div class="globe-slot" aria-hidden="true"></div>
+
         </section>
 
         <!-- ===== Workspace 2 ===== -->
@@ -250,22 +252,34 @@
         </section>
 
         <!-- ===== Workspace 5 ===== -->
-        <section class="workspace ws-split" id="contact">
+        <section class="workspace" id="contact">
             <article class="win">
                 <div class="win-title"><span class="dot"></span>kitty — ~/contact</div>
                 <div class="term">
                     <p class="cmd"><span class="arrow">❯</span> cat contact.txt</p>
                     <p class="contact-lead" data-i18n="contact_lead">An internship, a project, a CTF? Let's talk.</p>
-                    <p class="kv"><span class="k" data-i18n="contact_email">Email:</span> <a href="mailto:mohamedsalemfadili@proton.me">mohamedsalemfadili@proton.me</a></p>
-                    <p class="kv"><span class="k" data-i18n="contact_github">GitHub:</span> <a href="https://github.com/ELGHUOST" target="_blank" rel="noopener">github.com/ELGHUOST</a></p>
+                    <div class="contact-grid">
+                        <a class="contact-item" href="mailto:mohamedsalemfadili@proton.me">
+                            <span class="k" data-i18n="contact_email">Email:</span>
+                            <span class="v">mohamedsalemfadili@proton.me</span>
+                        </a>
+                        <a class="contact-item" href="https://github.com/ELGHUOST" target="_blank" rel="noopener">
+                            <span class="k" data-i18n="contact_github">GitHub:</span>
+                            <span class="v">github.com/ELGHUOST</span>
+                        </a>
+                        <a class="contact-item" href="assets/cv.pdf" target="_blank">
+                            <span class="k">CV</span>
+                            <span class="v">cv.pdf ↗</span>
+                        </a>
+                        <a class="contact-item" href="assets/cv.pdf" download="CV_Mohamed_Salem.pdf">
+                            <span class="k">CV</span>
+                            <span class="v">download ↓</span>
+                        </a>
+                    </div>
                     <p class="cmd live"><span class="arrow">❯</span> <span class="caret"></span></p>
                 </div>
             </article>
 
-            <article class="win win-flag" aria-hidden="true">
-                <div class="win-title"><span class="dot"></span>finish.png</div>
-                <div class="flag"></div>
-            </article>
         </section>
     </main>
 

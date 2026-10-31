@@ -87,16 +87,15 @@
     </div>
   </section>
 
-  <!-- FILM -->
-  <section class="r7-sec r7-film" id="film">
-    <div class="r7-sec-head">
-      <h2>Film</h2>
-      <span class="r7-count">Presentation</span>
-    </div>
-    <div class="r7-video">
-      <video controls preload="none" playsinline poster="assets/duel-2.png">
-        <source src="assets/YTDown.com_YouTube_Ra7a-Presentation_Media_7DG7Dqp_nfQ_001_1080p.mp4" type="video/mp4">
-      </video>
+  <!-- FILM : plein écran, se lance tout seul quand il entre à l'écran -->
+  <section class="r7-film" id="film">
+    <video class="r7-film-video" muted loop playsinline preload="none" poster="assets/duel-2.png">
+      <source src="assets/YTDown.com_YouTube_Ra7a-Presentation_Media_7DG7Dqp_nfQ_001_1080p.mp4" type="video/mp4">
+    </video>
+    <div class="r7-film-ui">
+      <span>[ Film ]</span>
+      <span class="r7-film-title">RA7A — Presentation</span>
+      <button class="r7-sound" type="button" aria-pressed="false">Sound: off</button>
     </div>
   </section>
 
@@ -138,5 +137,20 @@
     </div>
   </footer>
 
+  <script>
+    // Film : lecture auto (muette) quand la section est visible, pause sinon
+    const film = document.querySelector('.r7-film-video');
+    const soundBtn = document.querySelector('.r7-sound');
+    new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) film.play().catch(() => {});
+      else film.pause();
+    }, { threshold: 0.35 }).observe(film);
+
+    soundBtn.addEventListener('click', () => {
+      film.muted = !film.muted;
+      soundBtn.textContent = 'Sound: ' + (film.muted ? 'off' : 'on');
+      soundBtn.setAttribute('aria-pressed', String(!film.muted));
+    });
+  </script>
 </body>
 </html>

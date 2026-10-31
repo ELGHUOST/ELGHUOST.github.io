@@ -17,6 +17,8 @@
   --yellow:#e0e0e0;
   --purple:#8c8c8c;
   --orange:#b8b8b8;
+  /* Seule vraie couleur : un rouge « racing », utilisé avec parcimonie */
+  --accent:#ff3b3b;
   --hypr: linear-gradient(45deg, #ffffff, #5c5c5c);
   --gap: 12px;
   --round: 10px;
@@ -110,7 +112,7 @@ b{ color: var(--hi); font-weight: 700; }
 }
 .shift-lights i.on{ background: var(--muted); }
 .shift-lights i.on:nth-child(n+5){ background: #a3a3a3; }
-.shift-lights i.on:nth-child(n+8){ background: var(--hi); box-shadow: 0 0 6px rgba(255,255,255,.6); }
+.shift-lights i.on:nth-child(n+8){ background: var(--accent); box-shadow: 0 0 6px var(--accent); }
 
 .bar-right{ display: flex; justify-content: flex-end; align-items: center; gap: 6px; }
 .mod{
@@ -146,11 +148,28 @@ main{ padding: 60px var(--gap) 0; }
   gap: var(--gap);
 }
 .ws-hero{
-  min-height: calc(100vh - 72px);
-  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  height: calc(100vh - 72px);
+  min-height: 560px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
+.globe-slot{ min-height: 0; }
+
+/* Le terminal d'accueil tient dans l'écran : tailles indexées sur la hauteur */
+.win-main{ display: flex; flex-direction: column; overflow: hidden; }
+.win-main .term{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: clamp(11.5px, 1.55vh, 14.5px);
+  padding: 2.2vh 26px;
+}
+.win-main .cmd{ margin: 1.3vh 0 .8vh; }
+.win-main .cmd:first-child{ margin-top: 0; }
+.win-main .fetch-info p{ font-size: .93em; line-height: 1.5; }
+.win-main .ascii{ font-size: .9em; }
+.win-main .motd-title{ font-size: clamp(20px, min(2.6vw, 4vh), 38px); margin-bottom: 1vh; }
 .ws-split{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
-#contact{ grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); }
 #experience, #projects{ padding-top: calc(var(--gap) * 2); }
 #about, #contact{ padding-top: calc(var(--gap) * 2); }
 
@@ -211,7 +230,7 @@ main{ padding: 60px var(--gap) 0; }
 .ps1{ color: var(--green); font-weight: 700; }
 .ps1 .at{ color: var(--muted); font-weight: 400; }
 .path{ color: var(--cyan); font-weight: 700; }
-.arrow{ color: var(--purple); font-weight: 700; }
+.arrow{ color: var(--accent); font-weight: 700; }
 .typed{ color: var(--yellow); }
 .caret{
   display: inline-block;
@@ -252,7 +271,7 @@ main{ padding: 60px var(--gap) 0; }
 .swatches{ display: flex; gap: 0; margin-top: 8px; }
 .swatches i{ width: 22px; height: 12px; }
 .swatches i:nth-child(1){ background: #1a1a1a; }
-.swatches i:nth-child(2){ background: #333; }
+.swatches i:nth-child(2){ background: var(--accent); }
 .swatches i:nth-child(3){ background: #4d4d4d; }
 .swatches i:nth-child(4){ background: #666; }
 .swatches i:nth-child(5){ background: #808080; }
@@ -287,7 +306,7 @@ main{ padding: 60px var(--gap) 0; }
 
 /* ---------- about.md (nvim) ---------- */
 .md-h{ font-size: 20px; color: var(--hi); margin-bottom: 14px; }
-.md-hash{ color: var(--purple); }
+.md-hash{ color: var(--accent); }
 .md-list{ list-style: none; display: grid; gap: 10px; }
 .md-list li{ position: relative; padding-left: 22px; }
 .md-list li::before{ content: "-"; position: absolute; left: 4px; color: var(--yellow); font-weight: 700; }
@@ -322,10 +341,10 @@ main{ padding: 60px var(--gap) 0; }
   position: absolute;
   left: 4px; top: 30px; bottom: -14px;
   width: 1px;
-  background: var(--red);
+  background: var(--accent);
 }
 .commit:nth-last-child(2)::before{ display: none; }
-.graph{ color: var(--red); font-weight: 800; }
+.graph{ color: var(--accent); font-weight: 800; }
 .hash{ color: var(--yellow); }
 .ref{ color: var(--muted); }
 .commit h3{ font-size: 16px; color: var(--hi); margin: 2px 0; }
@@ -394,20 +413,28 @@ main{ padding: 60px var(--gap) 0; }
 
 /* ---------- Contact ---------- */
 .contact-lead{ color: var(--hi); font-size: 18px; font-weight: 700; margin-bottom: 14px; }
-.kv{ margin: 4px 0; word-break: break-all; }
-.kv .k{ display: inline-block; min-width: 9ch; color: var(--muted); }
 
-.win-flag{ overflow: hidden; display: flex; flex-direction: column; min-height: 220px; }
-.flag{
-  flex: 1;
-  border-radius: 0 0 var(--round) var(--round);
-  background:
-    conic-gradient(#e8ecf5 25%, #0b0d12 0 50%, #e8ecf5 0 75%, #0b0d12 0) 0 0 / 36px 36px;
-  opacity: .18;
-  animation: wave 3s ease-in-out infinite alternate;
-  transform-origin: left center;
+.contact-grid{
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--gap);
+  margin: 6px 0 4px;
 }
-@keyframes wave{ to{ background-position: 18px 0; } }
+.contact-item{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--txt);
+  transition: border-color .2s, background .2s;
+  min-width: 0;
+}
+.contact-item:hover{ text-decoration: none; border-color: var(--hi); background: rgba(255,255,255,.03); }
+.contact-item .k{ font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+.contact-item .v{ color: var(--hi); font-weight: 700; overflow-wrap: anywhere; }
+.contact-item:hover .v{ color: var(--accent); }
 
 /* ---------- Footer ---------- */
 .footer{
@@ -422,12 +449,16 @@ main{ padding: 60px var(--gap) 0; }
 /* ---------- Responsive ---------- */
 @media (max-width: 1000px){
   .ws-hero, .ws-split, #contact{ grid-template-columns: 1fr; }
-  .win-flag{ min-height: 90px; }
-  .ws-hero{ min-height: 0; }
-  .ws-hero::after{ content: ""; min-height: 46vh; }
+  .ws-hero{ height: auto; min-height: 0; }
+  .globe-slot{ min-height: 52vh; }
+  .win-main .term{ font-size: inherit; padding: 18px 22px 22px; }
+  .win-main .cmd{ margin: 14px 0 8px; }
+  .win-main .motd-title{ font-size: clamp(22px, 6vw, 30px); }
+  .contact-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .ws-l{ display: none; }
 }
 @media (max-width: 640px){
+  .contact-grid{ grid-template-columns: 1fr; }
   :root{ --gap: 8px; }
   body{ font-size: 13.5px; }
   .waybar{ grid-template-columns: auto 1fr auto; padding: 0 4px; }

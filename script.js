@@ -1,5 +1,4 @@
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const isMobile = () => window.innerWidth < 860;
 
 /* ---------- Globe ---------- */
 
@@ -70,7 +69,7 @@ if (globeEl && typeof Globe === 'function') {
     .arcDashInitialGap(() => Math.random() * 2)
     .arcDashAnimateTime(d => (reduceMotion ? 0 : d.dash))
     .ringsData(reduceMotion ? [] : NODES.filter(n => HUBS.includes(n.name) || n.name === 'Montbéliard'))
-    .ringColor(() => t => `rgba(255,255,255,${1 - t})`)
+    .ringColor(() => t => `rgba(255,59,59,${1 - t})`)
     .ringMaxRadius(4)
     .ringPropagationSpeed(2.2)
     .ringRepeatPeriod(1400);
@@ -109,6 +108,26 @@ const $ = id => document.getElementById(id);
 const lights = document.querySelectorAll('#shiftLights i');
 
 function lerp(a, b, t) { return a + (b - a) * t; }
+
+// Emplacement réservé à la Terre dans le hero (coordonnées dans la page)
+const slotEl = document.querySelector('.globe-slot');
+const slot = { cx: 0, cy: 0, size: 400 };
+function measureSlot() {
+  const r = slotEl.getBoundingClientRect();
+  slot.cx = r.left + r.width / 2;
+  slot.cy = r.top + window.scrollY + r.height / 2;
+  slot.size = Math.min(r.width, r.height);
+}
+measureSlot();
+window.addEventListener('resize', measureSlot);
+window.addEventListener('load', measureSlot);
+
+// Altitude de caméra pour que le globe (rayon 100) fasse `radiusPx` à l'écran
+function altitudeFor(radiusPx) {
+  const halfFov = globe.camera().fov * Math.PI / 360;
+  const angle = Math.atan(radiusPx / (window.innerHeight / 2) * Math.tan(halfFov));
+  return 1 / Math.sin(angle) - 1;
+}
 function clamp01(v) { return Math.max(0, Math.min(1, v)); }
 
 function tick(now) {
@@ -130,11 +149,14 @@ function tick(now) {
   currentLat = lerp(currentLat, targetLat, ease);
 
   if (globe) {
-    const mobile = isMobile();
-    globe.pointOfView({ lat: currentLat, lng: currentLng, altitude: (mobile ? 3 : 2.3) + heroP * 0.4 }, 0);
-    const gx = mobile ? 0 : lerp(25, 0, heroP);
-    const gy = mobile ? lerp(28, 0, heroP) : 0;
-    stage.style.transform = `translate3d(${gx}vw, ${gy}vh, 0)`;
+    // Dans le hero : la Terre suit l'emplacement .globe-slot (moitié droite).
+    // Ensuite : elle glisse au centre de l'écran, en fond, plus discrète.
+    const W = window.innerWidth;
+    const radius = lerp(slot.size * 0.46, Math.min(W, vh) * 0.42, heroP);
+    globe.pointOfView({ lat: currentLat, lng: currentLng, altitude: altitudeFor(radius) }, 0);
+    const gx = lerp(slot.cx - W / 2, 0, heroP);
+    const gy = lerp(slot.cy - y - vh / 2, 0, heroP);
+    stage.style.transform = `translate3d(${gx}px, ${gy}px, 0)`;
     stage.style.opacity = lerp(1, 0.4, heroP);
   }
 
