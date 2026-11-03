@@ -250,3 +250,11 @@ updateClock();
 setInterval(updateClock, 10000);
 
 $('year').textContent = new Date().getFullYear();
+
+// « Last login » au format macOS, à l'heure du visiteur
+const now = new Date();
+$('lastLogin').textContent = 'Last login: ' +
+  now.toLocaleDateString('en-US', { weekday: 'short' }) + ' ' +
+  now.toLocaleDateString('en-US', { month: 'short' }) + ' ' +
+  String(now.getDate()).padStart(2, ' ') + ' ' +
+  now.toTimeString().slice(0, 8) + ' on ttys001';
