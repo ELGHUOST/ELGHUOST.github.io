@@ -18,8 +18,8 @@
   --purple:#8c8c8c;
   --orange:#b8b8b8;
   /* Seule vraie couleur : le vert phosphore (Matrix / Green Lantern) */
-  --accent:#00ff66;
-  --hypr: linear-gradient(45deg, #00ff66, #0b5e2e);
+  --accent:#3ddc84;
+  --hypr: linear-gradient(45deg, #ffffff, #5c5c5c);
   --gap: 12px;
   --round: 10px;
   --mono: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
@@ -192,7 +192,7 @@ main{ padding: 60px var(--gap) 0; }
   inset: -2px;
   border-radius: inherit;
   padding: 2px;
-  background: var(--hypr);
+  background: linear-gradient(45deg, var(--accent), #1f3d2b);
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -513,25 +513,12 @@ main{ padding: 60px var(--gap) 0; }
   .win.pop{ opacity: 1; transform: none; }
 }
 
-/* ---------- Terminaux phosphore (Matrix / Green Lantern) ---------- */
-.win{
-  --txt:#8fe6a8;
-  --hi:#d9ffe6;
-  --muted:#3f7a54;
-  --cyan:#00ff66;
-  --green:#5dff9a;
-  --yellow:#b6ffcf;
-  --purple:#2fa860;
-  --line:#13301f;
-  --line-2:#1d4a30;
-  background: rgba(4, 10, 6, .9);
-  border-color: #102a1a;
-}
-.win-main, .win-term{ background: rgba(3, 8, 5, .95); }
-.win .term, .win .tower{ text-shadow: 0 0 6px rgba(0, 255, 102, .28); }
-.win-title{ background: rgba(0, 255, 102, .03); }
+/* ---------- Terminaux : base neutre, vert en touches (Matrix / Green Lantern) ---------- */
+.win{ --cyan:#ffffff; }
+.win-main, .win-term{ background: rgba(8, 9, 8, .95); }
+.ps1, .fetch-info .k, .ls-dir, .ls-exec{ color: var(--accent); }
 
-/* Lignes de balayage CRT */
+/* Lignes de balayage, très légères */
 .win::after{
   content: "";
   position: absolute;
@@ -539,7 +526,7 @@ main{ padding: 60px var(--gap) 0; }
   border-radius: inherit;
   pointer-events: none;
   z-index: 2;
-  background: repeating-linear-gradient(0deg, rgba(0,0,0,.22) 0 1px, transparent 1px 3px);
+  background: repeating-linear-gradient(0deg, rgba(0,0,0,.12) 0 1px, transparent 1px 3px);
 }
 
 .rain{
@@ -547,14 +534,12 @@ main{ padding: 60px var(--gap) 0; }
   inset: 0;
   width: 100%;
   height: 100%;
-  opacity: .14;
+  opacity: .06;
   pointer-events: none;
   border-radius: inherit;
 }
 .win-main .win-title, .win-main .term{ position: relative; z-index: 1; }
 
-.caret{ background: var(--accent); box-shadow: 0 0 8px var(--accent); }
-.nvim-status{ background: #0a1a10; }
+.caret{ background: var(--accent); }
 .nvim-status .mode{ background: var(--accent); }
 .contact-item:hover{ border-color: var(--accent); }
-.thumb img{ filter: grayscale(1) brightness(.8) sepia(1) hue-rotate(80deg) saturate(2.2); }
