@@ -69,7 +69,7 @@ if (globeEl && typeof Globe === 'function') {
     .arcDashInitialGap(() => Math.random() * 2)
     .arcDashAnimateTime(d => (reduceMotion ? 0 : d.dash))
     .ringsData(reduceMotion ? [] : NODES.filter(n => HUBS.includes(n.name) || n.name === 'Montbéliard'))
-    .ringColor(() => t => `rgba(255,59,59,${1 - t})`)
+    .ringColor(() => t => `rgba(0,255,102,${1 - t})`)
     .ringMaxRadius(4)
     .ringPropagationSpeed(2.2)
     .ringRepeatPeriod(1400);
@@ -228,17 +228,61 @@ window.addEventListener('scroll', focusWindow, { passive: true });
 window.addEventListener('resize', focusWindow);
 focusWindow();
 
+/* ---------- Pluie « Matrix » derrière le terminal d'accueil ---------- */
+
+const rain = document.getElementById('rain');
+if (rain && !reduceMotion) {
+  const ctx = rain.getContext('2d');
+  const GLYPHS = 'ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ0123456789<>/{}$#';
+  const SIZE = 14;
+  let drops = [];
+
+  function resizeRain() {
+    const r = rain.parentElement.getBoundingClientRect();
+    rain.width = r.width;
+    rain.height = r.height;
+    drops = Array.from({ length: Math.ceil(r.width / SIZE) }, () => Math.random() * -50);
+  }
+  resizeRain();
+  window.addEventListener('resize', resizeRain);
+
+  let lastDraw = 0;
+  (function drawRain(now) {
+    if (now - lastDraw > 55) {
+      lastDraw = now;
+      ctx.fillStyle = 'rgba(5, 8, 6, 0.12)';
+      ctx.fillRect(0, 0, rain.width, rain.height);
+      ctx.font = SIZE + 'px monospace';
+      drops.forEach((y, i) => {
+        const ch = GLYPHS[Math.floor(Math.random() * GLYPHS.length)];
+        ctx.fillStyle = Math.random() < 0.04 ? '#d9ffe6' : '#00ff66';
+        ctx.fillText(ch, i * SIZE, y * SIZE);
+        drops[i] = y * SIZE > rain.height && Math.random() > 0.975 ? 0 : y + 1;
+      });
+    }
+    requestAnimationFrame(drawRain);
+  })(0);
+}
+
 /* ---------- Workspaces, horloge, rapport ---------- */
 
 const wsLinks = document.querySelectorAll('.ws');
 const sections = [...document.querySelectorAll('main section[id]')];
-const sectionObs = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    wsLinks.forEach(a => a.classList.toggle('active', a.dataset.ws === entry.target.id));
-  });
-}, { rootMargin: '-45% 0px -50% 0px' });
-sections.forEach(s => sectionObs.observe(s));
+// Workspace actif = dernière section dont le haut a passé 40 % de l'écran.
+// En bas de page, la dernière section (contact) gagne même si elle est courte.
+function setWorkspace(id) {
+  wsLinks.forEach(a => a.classList.toggle('active', a.dataset.ws === id));
+}
+function updateWorkspace() {
+  const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
+  let current = sections[0];
+  if (atBottom) current = sections[sections.length - 1];
+  else sections.forEach(sec => { if (sec.getBoundingClientRect().top <= window.innerHeight * 0.4) current = sec; });
+  setWorkspace(current.id);
+}
+window.addEventListener('scroll', updateWorkspace, { passive: true });
+wsLinks.forEach(a => a.addEventListener('click', () => setWorkspace(a.dataset.ws)));
+updateWorkspace();
 
 const clock = $('clock');
 function updateClock() {
