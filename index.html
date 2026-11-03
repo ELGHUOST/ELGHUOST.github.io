@@ -10,13 +10,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;0,800;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script src="https://unpkg.com/globe.gl@2.46.1/dist/globe.gl.min.js"></script>
 </head>
 <body>
 
-    <!-- Fond d'écran : la Terre tourne avec le scroll -->
-    <div class="wallpaper" id="globeStage" aria-hidden="true">
-        <div class="globe-container" id="globe"></div>
+    <!-- Fond d'écran : topologie réseau 3D (cloud → firewall → core → VLANs) qui tourne au scroll -->
+    <div class="wallpaper" id="netStage" aria-hidden="true">
+        <canvas id="net"></canvas>
     </div>
 
     <!-- Barre façon waybar -->
@@ -37,6 +36,7 @@
         </div>
 
         <div class="bar-right">
+            <span class="mod mod-fw" title="firewall">fw01 <b id="fwBlocked">0</b> blocked</span>
             <span class="mod mod-net" title="network">▲ eth0</span>
             <span class="mod mod-vpn" title="vpn">wg0 ●</span>
             <select id="langSelect" class="lang-select" aria-label="Language">
@@ -106,11 +106,14 @@
                         <a href="assets/cv.pdf" download="CV_Mohamed_Salem.pdf" class="ls-exec">download_cv.sh</a>
                     </div>
 
-                    <p class="cmd live"><span class="ps1">mohamed<span class="at">@</span>elghuost</span> <span class="path">~</span> <span class="arrow">❯</span> <span class="typed" id="typed"></span><span class="caret"></span></p>
+                    <div id="scrollback"></div>
+
+                    <p class="cmd live" id="promptLine"><span class="ps1">mohamed<span class="at">@</span>elghuost</span> <span class="path">~</span> <span class="arrow">❯</span> <span class="typed" id="typed"></span><span class="caret"></span><input id="termInput" class="term-input" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Terminal"></p>
+                    <p class="hint" id="termHint">↳ click here and type <b>help</b></p>
                 </div>
             </article>
 
-            <div class="globe-slot" aria-hidden="true"></div>
+            <div class="net-slot" aria-hidden="true"></div>
 
         </section>
 
@@ -201,54 +204,54 @@
             </article>
         </section>
 
-        <!-- ===== Workspace 4 : classement façon timing tower ===== -->
+        <!-- ===== Workspace 4 : projets façon btop (chaque projet = un processus) ===== -->
         <section class="workspace" id="projects">
-            <article class="win">
-                <div class="win-title"><span class="lights"><i class="l-close" title="close"></i><i class="l-min" title="minimize"></i><i class="l-max" title="zoom"></i></span><span class="wt">timing — ~/projects</span></div>
-                <div class="tower">
-                    <div class="tower-head">
-                        <span>POS</span><span></span><span data-i18n="projects_title">PROJECTS</span><span class="th-gap">SECTOR</span>
+            <article class="win win-btop">
+                <div class="win-title"><span class="lights"><i class="l-close" title="close"></i><i class="l-min" title="minimize"></i><i class="l-max" title="zoom"></i></span><span class="wt">btop — ~/projects</span></div>
+                <div class="btop">
+                    <div class="bt-box bt-cpu">
+                        <span class="bt-label">¹cpu</span>
+                        <span class="bt-info" id="cpuTotal">0%</span>
+                        <canvas class="bt-graph" id="cpuGraph"></canvas>
+                        <div class="bt-cores" id="cpuCores"></div>
                     </div>
-
-                    <a href="sae501/index.html" class="row" style="--team: var(--purple)">
-                        <span class="pos">P1</span>
-                        <span class="thumb"><img src="assets/preview/sae501.PNG" alt="" loading="lazy"></span>
-                        <span class="row-body">
-                            <span class="row-title" data-i18n="proj1_title">SAÉ 501 — AdminSys Challenge (WorldSkills)</span>
-                            <span class="row-desc" data-i18n="proj1_desc">Intensive university project (1 week).</span>
-                        </span>
-                        <span class="gap">adminsys <span class="go">→</span></span>
-                    </a>
-
-                    <a href="ctf/index.html" class="row" style="--team: var(--red)">
-                        <span class="pos">P2</span>
-                        <span class="thumb"><img src="assets/preview/ctf.PNG" alt="" loading="lazy"></span>
-                        <span class="row-body">
-                            <span class="row-title" data-i18n="proj2_title">CTF Challenges & Writeups</span>
-                            <span class="row-desc" data-i18n="proj2_desc">Web, crypto, forensics, reverse engineering challenges.</span>
-                        </span>
-                        <span class="gap">ctf <span class="go">→</span></span>
-                    </a>
-
-                    <a href="stage/stage.html" class="row" style="--team: var(--green)">
-                        <span class="pos">P3</span>
-                        <span class="thumb"><img src="assets/preview/stage.PNG" alt="" loading="lazy"></span>
-                        <span class="row-body">
-                            <span class="row-title" data-i18n="proj3_title">En recherche de stage</span>
-                            <span class="row-desc" data-i18n="proj3_desc">Conseils, organisation et méthode pour candidater efficacement.</span>
-                        </span>
-                        <span class="gap">method <span class="go">→</span></span>
-                    </a>
-
-                    <a href="raha/index.html" class="row" style="--team: var(--yellow)">
-                        <span class="pos">P4</span>
-                        <span class="thumb"><img src="assets/preview/raha.PNG" alt="" loading="lazy"></span>
-                        <span class="row-body">
-                            <span class="row-title" data-i18n="proj4_title">Raha (R-A-7-A) — Marque de vêtements</span>
-                            <span class="row-desc" data-i18n="proj4_desc" data-i18n-html="true">Projet personnel : marque de vêtements en cours de développement.</span>
-                        </span>
-                        <span class="gap">brand <span class="go">→</span></span>
-                    </a>
+                    <div class="bt-box bt-mem">
+                        <span class="bt-label">²mem</span>
+                        <div class="bt-meters" id="memMeters"></div>
+                        <span class="bt-label bt-sub">³net</span>
+                        <canvas class="bt-graph bt-net" id="netGraph"></canvas>
+                        <p class="bt-netinfo"><span>↓ <b id="netDown">0</b> Mb/s</span><span>↑ <b id="netUp">0</b> Mb/s</span></p>
+                    </div>
+                    <div class="bt-box bt-proc">
+                        <span class="bt-label">⁴proc <em data-i18n="projects_title">PROJECTS</em></span>
+                        <div class="proc-head"><span>PID</span><span>USER</span><span>CPU%</span><span>MEM%</span><span>COMMAND</span></div>
+                        <div class="proc-list" id="procList">
+                            <a class="proc" href="sae501/index.html" data-img="assets/preview/sae501.PNG">
+                                <span class="c-pid">501</span><span class="c-user">root</span><span class="c-cpu">0.0</span><span class="c-mem">0.0</span><span class="c-cmd"><b class="p-title" data-i18n="proj1_title">SAÉ 501 — AdminSys Challenge (WorldSkills)</b><i>./adminsys --worldskills --team=5</i></span>
+                                <span class="p-desc" data-i18n="proj1_desc" hidden>Intensive university project (1 week).</span>
+                            </a>
+                            <a class="proc" href="ctf/index.html" data-img="assets/preview/ctf.PNG">
+                                <span class="c-pid">1337</span><span class="c-user">elghuost</span><span class="c-cpu">0.0</span><span class="c-mem">0.0</span><span class="c-cmd"><b class="p-title" data-i18n="proj2_title">CTF Challenges & Writeups</b><i>./ctf --writeups web forensics stega</i></span>
+                                <span class="p-desc" data-i18n="proj2_desc" hidden>Web, crypto, forensics, reverse engineering challenges.</span>
+                            </a>
+                            <a class="proc" href="stage/stage.html" data-img="assets/preview/stage.PNG">
+                                <span class="c-pid">2025</span><span class="c-user">elghuost</span><span class="c-cpu">0.0</span><span class="c-mem">0.0</span><span class="c-cmd"><b class="p-title" data-i18n="proj3_title">En recherche de stage</b><i>./internship --method --no-network</i></span>
+                                <span class="p-desc" data-i18n="proj3_desc" hidden>Conseils, organisation et méthode pour candidater efficacement.</span>
+                            </a>
+                            <a class="proc" href="raha/index.html" data-img="assets/preview/raha.PNG">
+                                <span class="c-pid">7</span><span class="c-user">elghuost</span><span class="c-cpu">0.0</span><span class="c-mem">0.0</span><span class="c-cmd"><b class="p-title" data-i18n="proj4_title">Raha (R-A-7-A) — Marque de vêtements</b><i>./ra7a --drop=01 --underground</i></span>
+                                <span class="p-desc" data-i18n="proj4_desc" data-i18n-html="true" hidden>Projet personnel : marque de vêtements en cours de développement.</span>
+                            </a>
+                        </div>
+                        <p class="bt-keys"><b>↑↓</b> select <b>enter</b> open <b>click</b> open</p>
+                    </div>
+                    <div class="bt-box bt-detail">
+                        <span class="bt-label">⁵info</span>
+                        <div class="bt-preview"><img id="procImg" src="assets/preview/sae501.PNG" alt=""></div>
+                        <h3 id="procTitle"></h3>
+                        <p id="procDesc" class="muted"></p>
+                        <a id="procOpen" class="bt-open" href="sae501/index.html">[ enter ] open project →</a>
+                    </div>
                 </div>
             </article>
         </section>
