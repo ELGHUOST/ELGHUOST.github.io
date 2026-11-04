@@ -6,6 +6,8 @@
   --line:rgba(239,237,230,.14);
   --chrome:#c9b6ff;
   --hot:#ff2b2b;
+  --sand:#d2b26f;
+  --sakura:#ffb4dc;
   --display: 'Anton', Impact, 'Arial Narrow', sans-serif;
   --mono: 'Space Mono', ui-monospace, Menlo, monospace;
 }
@@ -84,6 +86,7 @@ img{ display: block; max-width: 100%; }
 .r7-word{
   position: absolute;
   inset: 0;
+  z-index: 2;
   display: grid;
   place-items: center;
   font-family: var(--display);
@@ -97,12 +100,80 @@ img{ display: block; max-width: 100%; }
 }
 .r7-duel{
   position: relative;
-  width: min(900px, 96vw);
-  mix-blend-mode: screen;
-  filter: contrast(1.1);
+  z-index: 3;
+  width: min(900px, 92vw);
+  filter: drop-shadow(0 0 28px rgba(0,0,0,.85));
+  pointer-events: none;
 }
+
+/* Deux mondes : désert (gauche) et Japon (droite). raha.js règle --jp / --ds et la découpe. */
+.h-world{
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: filter .4s;
+}
+.h-world::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(5,5,5,.55), rgba(5,5,5,.35) 40%, rgba(5,5,5,.85));
+}
+.h-desert{
+  background-image: url("assets/world-desert.jpg");
+  background-position: left center;
+  filter: grayscale(calc(1 - var(--ds, .5))) brightness(calc(.35 + var(--ds, .5) * .6)) saturate(calc(.6 + var(--ds, .5) * .9));
+}
+.h-japan{
+  background-image: url("assets/world-japan.jpg");
+  background-position: right center;
+  filter: grayscale(calc(1 - var(--jp, .5))) brightness(calc(.35 + var(--jp, .5) * .6)) saturate(calc(.6 + var(--jp, .5) * .9));
+  clip-path: polygon(58% 0, 100% 0, 100% 100%, 42% 100%);
+}
+/* La couture lumineuse entre les deux mondes */
+.h-seam{
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+.h-seam::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,.85);
+  clip-path: polygon(calc(var(--top, 58%) - 1px) 0, calc(var(--top, 58%) + 1px) 0, calc(var(--bottom, 42%) + 1px) 100%, calc(var(--bottom, 42%) - 1px) 100%);
+  filter: drop-shadow(0 0 12px #fff);
+}
+.h-glyph{
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  transform: translateY(-50%);
+  font-family: serif;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: none;
+  pointer-events: none;
+}
+.h-desert .h-glyph{ left: 4vw; font-size: 15vw; color: var(--sand); opacity: calc(.12 + var(--ds, .5) * .5); }
+.h-japan .h-glyph{ right: 5vw; font-size: 24vw; color: var(--sakura); opacity: calc(.12 + var(--jp, .5) * .5); }
+.h-tag{
+  position: absolute;
+  top: 78px;
+  z-index: 1;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: none;
+}
+.h-tag b{ font-weight: 700; text-transform: uppercase; }
+.h-desert .h-tag{ left: 22px; color: var(--sand); opacity: calc(.35 + var(--ds, .5) * .65); }
+.h-japan .h-tag{ right: 22px; color: var(--sakura); opacity: calc(.35 + var(--jp, .5) * .65); }
+.h-hint{ color: var(--paper); }
 .r7-hero-meta{
   position: absolute;
+  z-index: 4;
   top: 50%;
   left: 22px; right: 22px;
   transform: translateY(-50%);
@@ -113,6 +184,7 @@ img{ display: block; max-width: 100%; }
 }
 .r7-hero-foot{
   position: absolute;
+  z-index: 4;
   left: 22px; right: 22px; bottom: 20px;
   display: flex;
   justify-content: space-between;
@@ -168,6 +240,8 @@ img{ display: block; max-width: 100%; }
 }
 .r7-item{
   position: relative;
+  transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition: transform .25s;
   display: flex;
   flex-direction: column;
   border-right: 1px solid var(--line);
@@ -268,9 +342,7 @@ img{ display: block; max-width: 100%; }
   font-size: 11px;
 }
 .a-wide{ grid-column: span 2; }
-.a-tall{ grid-row: span 2; }
 .a-wide3{ grid-column: span 3; }
-.a-logo img{ object-fit: contain; padding: 24px; }
 
 /* Info */
 .r7-info{
@@ -369,10 +441,68 @@ img{ display: block; max-width: 100%; }
 @media (max-width: 560px){
   .r7-grid{ grid-template-columns: 1fr; }
   .r7-hero-foot span:nth-child(2), .r7-film-title{ display: none; }
+  .h-tag{ top: 66px; font-size: 10px; }
+  .h-tag span, .r7-hero-meta{ display: none; }
+  .lab-grid{ grid-template-columns: 1fr; }
   .r7-film{ height: 62vh; }
   .r7-ticker-track span{ font-size: 26px; }
   .a-wide, .a-wide3{ grid-column: span 2; }
 }
+
+/* ---------- Curseur ---------- */
+.r7-cursor{ display: none; }
+.has-cursor, .has-cursor a, .has-cursor button{ cursor: none; }
+.has-cursor .r7-cursor{
+  display: grid;
+  place-items: center;
+  position: fixed;
+  top: -9px; left: -9px;
+  z-index: 100;
+  width: 18px; height: 18px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  mix-blend-mode: difference;
+  pointer-events: none;
+  transition: width .25s, height .25s, top .25s, left .25s, background .25s;
+}
+.r7-cursor span{ font-size: 10px; color: #000; font-weight: 700; }
+.r7-cursor.big{ width: 70px; height: 70px; top: -35px; left: -35px; background: #fff; }
+
+/* ---------- LAB ---------- */
+.lab-grid{
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 40px;
+  align-items: center;
+}
+.lab-canvas{
+  width: 100%;
+  max-width: 560px;
+  aspect-ratio: 4 / 5;
+  height: auto;
+  justify-self: center;
+  border: 1px solid var(--line);
+  background: #0d0d0d;
+}
+.lab-side{ display: flex; flex-direction: column; gap: 22px; }
+.lab-text{ text-transform: none; font-size: 15px; max-width: 46ch; color: #cfccc4; }
+.lab-meta{ display: grid; grid-template-columns: 90px 1fr; gap: 8px 16px; border-top: 1px solid var(--line); padding-top: 16px; }
+.lab-meta dt{ color: var(--dim); }
+.lab-meta dd{ text-transform: none; }
+.lab-actions{ display: flex; gap: 10px; flex-wrap: wrap; }
+.lab-btn{
+  font: inherit;
+  text-transform: uppercase;
+  padding: 14px 22px;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--paper);
+  cursor: pointer;
+  transition: background .2s, color .2s;
+}
+.lab-btn:hover{ background: var(--hot); border-color: var(--hot); color: #fff; }
+.lab-btn-ghost{ background: transparent; color: var(--paper); }
+.r7-small b{ color: var(--paper); }
 
 @media (prefers-reduced-motion: reduce){
   html{ scroll-behavior: auto; }

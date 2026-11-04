@@ -18,6 +18,7 @@
     <a href="#top" class="r7-logo">RA7A<sup>®</sup></a>
     <nav class="r7-nav">
       <a href="#drop">Drop 01</a>
+      <a href="#lab">Lab</a>
       <a href="#film">Film</a>
       <a href="#archive">Archive</a>
       <a href="#info">Info</a>
@@ -25,17 +26,27 @@
     <a href="../index.html#projects" class="r7-back">← Portfolio</a>
   </header>
 
-  <!-- HERO -->
+  <!-- HERO : deux mondes, la ligne de séparation suit la souris -->
   <section class="r7-hero" id="top">
+    <div class="h-world h-desert" aria-hidden="true">
+      <span class="h-glyph" lang="ar">صحراء</span>
+      <span class="h-tag"><b>Middle East</b><span> — الشرق الأوسط · فارس</span></span>
+    </div>
+    <div class="h-world h-japan" aria-hidden="true">
+      <span class="h-glyph" lang="ja">侍</span>
+      <span class="h-tag"><b>Japan / Asia</b><span> — 日本 · サムライ</span></span>
+    </div>
+    <div class="h-seam" aria-hidden="true"></div>
+
     <h1 class="r7-word" aria-label="RA7A">RA7A</h1>
-    <img class="r7-duel" src="assets/duel-2.png" alt="Duel — RA7A">
+    <img class="r7-duel" src="assets/duel-cut.png" alt="Duel : guerrier arabe contre samouraï — RA7A">
     <div class="r7-hero-meta">
       <span>[ Drop 01 ]</span>
       <span>Coming soon</span>
     </div>
     <div class="r7-hero-foot">
       <span>Underground clothing</span>
-      <span>Tokyo × Desert</span>
+      <span class="h-hint">← move →</span>
       <span>Scroll ↓</span>
     </div>
   </section>
@@ -50,7 +61,7 @@
   <!-- DROP -->
   <section class="r7-sec" id="drop">
     <div class="r7-sec-head">
-      <h2>Drop 01</h2>
+      <h2 data-scramble>Drop 01</h2>
       <span class="r7-count">05 pieces — <em>soon</em></span>
     </div>
 
@@ -87,6 +98,30 @@
     </div>
   </section>
 
+  <!-- LAB : générateur d'affiches RA7A -->
+  <section class="r7-sec r7-lab" id="lab">
+    <div class="r7-sec-head">
+      <h2 data-scramble>Lab</h2>
+      <span class="r7-count">Generate your poster — <em>no two alike</em></span>
+    </div>
+    <div class="lab-grid">
+      <canvas class="lab-canvas" id="labCanvas" width="800" height="1000" aria-label="Affiche RA7A générée"></canvas>
+      <div class="lab-side">
+        <p class="lab-text">Chaque clic génère une affiche unique : désert, Japon ou les deux, calligraphie, kanji, étoiles, grain. Garde celle qui te parle.</p>
+        <dl class="lab-meta">
+          <dt>Seed</dt><dd id="labSeed">—</dd>
+          <dt>World</dt><dd id="labWorld">—</dd>
+          <dt>Glyph</dt><dd id="labGlyph">—</dd>
+        </dl>
+        <div class="lab-actions">
+          <button type="button" class="lab-btn" id="labGen">Generate ↻</button>
+          <button type="button" class="lab-btn lab-btn-ghost" id="labSave">Download .png ↓</button>
+        </div>
+        <p class="r7-small">Astuce : clique directement sur l'affiche · touche <b>G</b></p>
+      </div>
+    </div>
+  </section>
+
   <!-- FILM : plein écran, se lance tout seul quand il entre à l'écran -->
   <section class="r7-film" id="film">
     <video class="r7-film-video" muted loop playsinline preload="none" poster="assets/duel-2.png">
@@ -102,17 +137,15 @@
   <!-- ARCHIVE -->
   <section class="r7-sec" id="archive">
     <div class="r7-sec-head">
-      <h2>Archive</h2>
+      <h2 data-scramble>Archive</h2>
       <span class="r7-count">Visuals / Logos</span>
     </div>
     <div class="r7-archive">
       <figure class="a-wide"><img src="assets/duel-1.png" alt="Duel" loading="lazy"><figcaption>ARC—01 / Duel</figcaption></figure>
       <figure><img src="../assets/raha/logo-ra7a-gothic.jpeg" alt="RA7A gothic" loading="lazy"><figcaption>ARC—02 / Gothic</figcaption></figure>
       <figure><img src="../assets/raha/logo-kata.jpeg" alt="KATA" loading="lazy"><figcaption>ARC—03 / Kata</figcaption></figure>
-      <figure class="a-tall"><img src="../assets/raha/hero-wallpaper.jpeg" alt="Artwork RA7A" loading="lazy"><figcaption>ARC—04 / Chrome</figcaption></figure>
+      <figure><img src="../assets/raha/hero-wallpaper.jpeg" alt="Artwork RA7A" loading="lazy"><figcaption>ARC—04 / Chrome</figcaption></figure>
       <figure class="a-wide3"><img src="drops/bg-split.png" alt="Désert / Japon" loading="lazy"><figcaption>ARC—05 / Split</figcaption></figure>
-      <figure class="a-logo"><img src="../assets/raha/logo-orbit.png" alt="Orbit" loading="lazy"><figcaption>ARC—06 / Orbit</figcaption></figure>
-      <figure class="a-wide"><img src="assets/duel-1.png" alt="Duel" loading="lazy" style="object-position: 80% 50%"><figcaption>ARC—07 / Stance</figcaption></figure>
     </div>
   </section>
 
@@ -137,20 +170,7 @@
     </div>
   </footer>
 
-  <script>
-    // Film : lecture auto (muette) quand la section est visible, pause sinon
-    const film = document.querySelector('.r7-film-video');
-    const soundBtn = document.querySelector('.r7-sound');
-    new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) film.play().catch(() => {});
-      else film.pause();
-    }, { threshold: 0.35 }).observe(film);
-
-    soundBtn.addEventListener('click', () => {
-      film.muted = !film.muted;
-      soundBtn.textContent = 'Sound: ' + (film.muted ? 'off' : 'on');
-      soundBtn.setAttribute('aria-pressed', String(!film.muted));
-    });
-  </script>
+  <div class="r7-cursor" aria-hidden="true"><span></span></div>
+  <script src="raha.js"></script>
 </body>
 </html>
