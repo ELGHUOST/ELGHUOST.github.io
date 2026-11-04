@@ -158,7 +158,31 @@ img{ display: block; max-width: 100%; }
   pointer-events: none;
 }
 .h-desert .h-glyph{ left: 4vw; font-size: 15vw; color: var(--sand); opacity: calc(.12 + var(--ds, .5) * .5); }
-.h-japan .h-glyph{ right: 5vw; font-size: 24vw; color: var(--sakura); opacity: calc(.12 + var(--jp, .5) * .5); }
+/* « 休息 » (kyūsoku, repos) : la traduction de راحة, écrite à la verticale */
+.h-japan .h-glyph{
+  right: 6vw;
+  display: flex;
+  flex-direction: column;
+  font-size: min(17vw, 36vh);
+  color: var(--sakura);
+  opacity: calc(.12 + var(--jp, .5) * .55);
+}
+.h-japan .h-glyph i{ font-style: normal; display: block; line-height: 1; }
+.h-reading{
+  position: absolute;
+  top: 50%;
+  right: 2vw;
+  z-index: 1;
+  transform: translateY(-50%);
+  writing-mode: vertical-rl;
+  font-family: serif;
+  font-size: 18px;
+  letter-spacing: .35em;
+  text-transform: none;
+  color: var(--sakura);
+  opacity: calc(var(--jp, .5) * .9);
+  pointer-events: none;
+}
 .h-tag{
   position: absolute;
   top: 78px;
@@ -439,6 +463,7 @@ img{ display: block; max-width: 100%; }
   .p-info{ padding-top: 28px; }
 }
 @media (max-width: 560px){
+  .h-reading{ display: none; }
   .r7-grid{ grid-template-columns: 1fr; }
   .r7-hero-foot span:nth-child(2), .r7-film-title{ display: none; }
   .h-tag{ top: 66px; font-size: 10px; }

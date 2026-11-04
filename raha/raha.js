@@ -101,7 +101,7 @@
 
   const WORLDS = {
     desert: { name: 'Desert / الشرق', bg: ['#2b1c0b', '#0b0805'], ink: '#d2b26f', glyphs: ['راحة', 'صبر', 'نور', 'حلم', 'فارس', 'صحراء'], font: 'serif' },
-    japan: { name: 'Japan / 日本', bg: ['#2a1630', '#08050a'], ink: '#ffb4dc', glyphs: ['侍', '風', '夢', '魂', '桜', '刀', '静'], font: 'serif' },
+    japan: { name: 'Japan / 日本', bg: ['#2a1630', '#08050a'], ink: '#ffb4dc', glyphs: ['休息', '安らぎ', '侍', '風', '夢', '魂', '桜', '刀', '静'], font: 'serif' },
     split: { name: 'Split / 二', bg: ['#151515', '#050505'], ink: '#efede6', glyphs: ['راحة', '侍', '刀', 'فارس', '夢'], font: 'serif' },
   };
   let seed = '';
@@ -146,7 +146,7 @@
     ctx.save();
     ctx.translate(W / 2, H * 0.46);
     ctx.rotate(rand(-0.12, 0.12));
-    const size = glyph.length > 2 ? rand(170, 230) : rand(380, 520);
+    const size = glyph.length > 2 ? rand(170, 230) : glyph.length === 2 ? rand(290, 340) : rand(380, 520);
     ctx.font = `700 ${size}px ${w.font}`;
     ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
     if (Math.random() < 0.5) {
