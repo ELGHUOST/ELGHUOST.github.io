@@ -11,6 +11,10 @@
   /* ---------- Hero : désert (gauche) / Japon (droite) ---------- */
   // La couture diagonale suit la souris ; le monde survolé s'allume, l'autre s'éteint.
   const hero = $('.r7-hero');
+  if (!reduceMotion) {
+    hero.classList.add('is-intro');
+    setTimeout(() => hero.classList.remove('is-intro'), 2000);
+  }
   const japan = $('.h-japan');
   const seam = $('.h-seam');
   let target = 0.5, current = 0.5, pointerInside = false;
@@ -77,18 +81,18 @@
   }, { threshold: 0.6 });
   document.querySelectorAll('[data-scramble]').forEach(el => {
     scrambleObs.observe(el);
-    el.addEventListener('pointerenter', () => scramble(el));
   });
 
   /* ---------- Produits : inclinaison 3D au survol ---------- */
   if (finePointer && !reduceMotion) {
     document.querySelectorAll('.r7-item:not(.r7-item-text)').forEach(item => {
+      const media = item.querySelector('.r7-media');
       item.addEventListener('pointermove', e => {
         const r = item.getBoundingClientRect();
-        item.style.setProperty('--rx', (((e.clientY - r.top) / r.height - 0.5) * -8).toFixed(2) + 'deg');
-        item.style.setProperty('--ry', (((e.clientX - r.left) / r.width - 0.5) * 8).toFixed(2) + 'deg');
+        media.style.setProperty('--rx', (((e.clientY - r.top) / r.height - 0.5) * -8).toFixed(2) + 'deg');
+        media.style.setProperty('--ry', (((e.clientX - r.left) / r.width - 0.5) * 8).toFixed(2) + 'deg');
       });
-      item.addEventListener('pointerleave', () => { item.style.setProperty('--rx', '0deg'); item.style.setProperty('--ry', '0deg'); });
+      item.addEventListener('pointerleave', () => { media.style.setProperty('--rx', '0deg'); media.style.setProperty('--ry', '0deg'); });
     });
   }
 
@@ -205,9 +209,15 @@
     a.click();
   }
 
-  $('#labGen').addEventListener('click', generate);
+  // Au clic : un court flou masque le changement d'affiche. Au clavier (G), pas d'animation.
+  function regenerate() {
+    if (reduceMotion) { generate(); return; }
+    canvas.classList.add('regen');
+    setTimeout(() => { generate(); canvas.classList.remove('regen'); }, 140);
+  }
+  $('#labGen').addEventListener('click', regenerate);
   $('#labSave').addEventListener('click', save);
-  canvas.addEventListener('click', generate);
+  canvas.addEventListener('click', regenerate);
   document.addEventListener('keydown', e => {
     if ((e.key === 'g' || e.key === 'G') && !e.target.closest('input, textarea')) generate();
   });

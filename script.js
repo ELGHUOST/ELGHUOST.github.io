@@ -210,6 +210,8 @@ function drawNet(dt, R, now) {
 
 const lights = document.querySelectorAll('#shiftLights i');
 let lastTime = performance.now();
+const NET_INTRO_DELAY = reduceMotion ? 0 : 900;   // ms : laisse le terminal démarrer d'abord
+const NET_INTRO_LEN = reduceMotion ? 1 : 1100;
 
 function tick(now) {
   const dt = Math.min(0.05, (now - lastTime) / 1000);
@@ -230,7 +232,9 @@ function tick(now) {
   stageOffset.x = lerp(slot.cx - W / 2, 0, heroP);
   stageOffset.y = lerp(slot.cy - y - H / 2, 0, heroP);
   stage.style.transform = `translate3d(${stageOffset.x}px, ${stageOffset.y}px, 0)`;
-  stage.style.opacity = lerp(1, 0.32, heroP);
+  const intro = clamp01((now - NET_INTRO_DELAY) / NET_INTRO_LEN);
+  const introEased = 1 - Math.pow(1 - intro, 3);
+  stage.style.opacity = lerp(1, 0.32, heroP) * introEased;
 
   spawnClock -= dt;
   if (spawnClock <= 0 && packets.length < 40) { spawnPacket(); spawnClock = reduceMotion ? 1 : rand(0.08, 0.25); }
@@ -253,6 +257,21 @@ const scrollback = $('scrollback');
 const hint = $('termHint');
 const mainWin = document.querySelector('.win-main');
 const termEl = mainWin.querySelector('.term');
+
+// Démarrage : chaque commande se tape, puis sa sortie apparaît. Purement visuel :
+// le contenu existe déjà et reste cliquable ; sans JS ou en mouvement réduit, tout est visible.
+if (!reduceMotion && window.scrollY < window.innerHeight / 2) {
+  let t = 120;
+  [...termEl.children].forEach(el => {
+    if (el.matches('#scrollback, .term-input')) return;
+    const isCmd = el.matches('.cmd');
+    el.classList.add(isCmd ? 'boot-cmd' : 'boot-out');
+    el.style.setProperty('--d', t + 'ms');
+    t += isCmd ? 300 : 80;
+  });
+  mainWin.classList.add('booting');
+  setTimeout(() => mainWin.classList.remove('booting'), t + 600);
+}
 let typedRoles = ['whoami'];
 let roleIdx = 0, charIdx = 0, deleting = false, typeTimer = null;
 let userMode = false;
@@ -410,27 +429,30 @@ if (rain && !reduceMotion) {
   const GLYPHS = 'ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ0123456789<>/{}$#';
   const SIZE = 14;
   let drops = [];
+  let rw = 0, rh = 0;
 
   function resizeRain() {
     const r = rain.parentElement.getBoundingClientRect();
-    rain.width = r.width;
-    rain.height = r.height;
-    drops = Array.from({ length: Math.ceil(r.width / SIZE) }, () => Math.random() * -50);
+    rw = r.width; rh = r.height;
+    rain.width = rw * dpr;
+    rain.height = rh * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    drops = Array.from({ length: Math.ceil(rw / SIZE) }, () => Math.random() * -50);
   }
   resizeRain();
   window.addEventListener('resize', resizeRain);
 
   let lastDraw = 0;
   (function drawRain(t) {
-    if (t - lastDraw > 55) {
+    if (t - lastDraw > 55 && window.scrollY < window.innerHeight) {
       lastDraw = t;
       ctx.fillStyle = 'rgba(8, 8, 8, 0.12)';
-      ctx.fillRect(0, 0, rain.width, rain.height);
+      ctx.fillRect(0, 0, rw, rh);
       ctx.font = SIZE + 'px monospace';
       drops.forEach((y, i) => {
         ctx.fillStyle = Math.random() < 0.04 ? '#ffffff' : ACCENT;
         ctx.fillText(pick(GLYPHS), i * SIZE, y * SIZE);
-        drops[i] = y * SIZE > rain.height && Math.random() > 0.975 ? 0 : y + 1;
+        drops[i] = y * SIZE > rh && Math.random() > 0.975 ? 0 : y + 1;
       });
     }
     requestAnimationFrame(drawRain);
