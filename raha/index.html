@@ -2,176 +2,258 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>RA7A — راحة</title>
+  <title>RA7A — Drop 01</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#050505">
+  <meta name="description" content="RA7A — marque de vêtements entre le désert et le Japon. Drop 01, bientôt.">
+  <meta name="theme-color" content="#f2f0eb">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Noto+Naskh+Arabic:wght@600;700&family=Noto+Serif+JP:wght@600;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="raha.css">
 </head>
 
-<body class="r7">
-  <div class="grain" aria-hidden="true"></div>
+<body class="shop">
 
-  <header class="r7-head">
-    <a href="#top" class="r7-logo">RA7A<sup>®</sup></a>
-    <nav class="r7-nav">
-      <a href="#drop">Drop 01</a>
-      <a href="#lab">Lab</a>
-      <a href="#film">Film</a>
-      <a href="#archive">Archive</a>
-      <a href="#info">Info</a>
-    </nav>
-    <a href="../index.html#projects" class="r7-back">← Portfolio</a>
-  </header>
-
-  <!-- HERO : deux mondes, la ligne de séparation suit la souris -->
-  <section class="r7-hero" id="top">
-    <div class="h-world h-desert" aria-hidden="true">
-      <span class="h-glyph" lang="ar">صحراء</span>
-      <span class="h-tag"><b>Middle East</b><span> — الشرق الأوسط · فارس</span></span>
-    </div>
-    <div class="h-world h-japan" aria-hidden="true">
-      <span class="h-glyph" lang="ja" aria-label="休息"><i>休</i><i>息</i></span>
-      <span class="h-reading" lang="ja">きゅうそく · 心の安らぎ</span>
-      <span class="h-tag"><b>Japan / Asia</b><span> — 休息 · kyūsoku · repos</span></span>
-    </div>
-    <div class="h-seam" aria-hidden="true"></div>
-
-    <h1 class="r7-word" aria-label="RA7A">RA7A</h1>
-    <img class="r7-duel" src="assets/duel-cut.png" alt="Duel : guerrier arabe contre samouraï — RA7A">
-    <div class="r7-hero-meta">
-      <span>[ Drop 01 ]</span>
-      <span>Coming soon</span>
-    </div>
-    <div class="r7-hero-foot">
-      <span>Underground clothing</span>
-      <span class="h-hint">← move →</span>
-      <span>Scroll ↓</span>
-    </div>
-  </section>
-
-  <div class="r7-ticker" aria-hidden="true">
-    <div class="r7-ticker-track">
-      <span>RA7A ✦ راحة ✦ KATA ✦ LIMITED DROP ✦ UNDERGROUND ✦ 東京 ✦ </span>
-      <span>RA7A ✦ راحة ✦ KATA ✦ LIMITED DROP ✦ UNDERGROUND ✦ 東京 ✦ </span>
+  <!-- Bandeau d'annonce -->
+  <div class="announce" aria-label="Annonce">
+    <div class="announce-track">
+      <span>Drop 01 — bientôt</span><span lang="ar">راحة</span><span>Pièces limitées</span><span lang="ja">休息</span><span>Pas de restock</span>
+      <span aria-hidden="true">Drop 01 — bientôt</span><span aria-hidden="true" lang="ar">راحة</span><span aria-hidden="true">Pièces limitées</span><span aria-hidden="true" lang="ja">休息</span><span aria-hidden="true">Pas de restock</span>
     </div>
   </div>
 
-  <!-- DROP -->
-  <section class="r7-sec" id="drop">
-    <div class="r7-sec-head">
-      <h2 data-scramble>Drop 01</h2>
-      <span class="r7-count">05 pieces — <em>soon</em></span>
+  <header class="hdr" id="hdr">
+    <nav class="hdr-nav" aria-label="Boutique">
+      <a href="#shop">Shop</a>
+      <a href="#worlds">Collections</a>
+      <a href="#film">Film</a>
+      <a href="#lab">Lab</a>
+      <a href="#archive">Archive</a>
+    </nav>
+    <a href="#top" class="hdr-logo" aria-label="RA7A — accueil">RA7A</a>
+    <div class="hdr-right">
+      <a href="../index.html#projects" class="hdr-link">Portfolio</a>
+      <button type="button" class="hdr-link hdr-wish" id="wishOpen">Wishlist <span class="wish-count" id="wishCount">0</span></button>
     </div>
+  </header>
 
-    <div class="r7-grid">
-      <a class="r7-item" href="drops/green.html">
-        <span class="r7-idx">001</span>
-        <span class="r7-media"><img src="../assets/raha/drop-green.jpeg" alt="RA7A Green" loading="lazy"></span>
-        <span class="r7-label"><b>Green</b><i>Concept graphics</i></span>
-      </a>
-      <a class="r7-item" href="drops/blue.html">
-        <span class="r7-idx">002</span>
-        <span class="r7-media"><img src="../assets/raha/drop-blue.jpeg" alt="RA7A Blue" loading="lazy"></span>
-        <span class="r7-label"><b>Blue</b><i>Stars signature</i></span>
-      </a>
-      <a class="r7-item" href="drops/lavender.html">
-        <span class="r7-idx">003</span>
-        <span class="r7-media"><img src="../assets/raha/drop-lavender.jpeg" alt="RA7A Lavender" loading="lazy"></span>
-        <span class="r7-label"><b>Lavender</b><i>Butterfly / logo</i></span>
-      </a>
-      <a class="r7-item" href="drops/beige.html">
-        <span class="r7-idx">004</span>
-        <span class="r7-media"><img src="../assets/raha/drop-beige.jpeg" alt="RA7A Beige" loading="lazy"></span>
-        <span class="r7-label"><b>Beige</b><i>Camel / Arabic call</i></span>
-      </a>
-      <a class="r7-item" href="drops/earth-tones.html">
-        <span class="r7-idx">005</span>
-        <span class="r7-media"><img src="../assets/raha/drop-brown.jpeg" alt="RA7A Brown" loading="lazy"></span>
-        <span class="r7-label"><b>Brown</b><i>Earth tones</i></span>
-      </a>
-      <div class="r7-item r7-item-text">
-        <p>Chaque pièce mélange l'imaginaire du désert et celui du Japon underground : calligraphie arabe, étoiles, papillons, sabres.</p>
-        <p class="r7-small">Pas de restock. Pas de compromis.</p>
+  <main>
+
+    <!-- HERO : deux mondes, la couture suit la souris -->
+    <section class="hero" id="top" aria-label="Drop 01">
+      <div class="h-world h-desert" aria-hidden="true">
+        <span class="h-script h-script-ar" lang="ar">صحراء</span>
       </div>
-    </div>
-  </section>
+      <div class="h-world h-japan" aria-hidden="true">
+        <span class="h-script h-script-ja" lang="ja">休息</span>
+      </div>
+      <div class="h-seam" aria-hidden="true"></div>
+      <img class="h-duel" src="assets/duel-cut.png" alt="Un guerrier du désert face à un samouraï">
 
-  <!-- LAB : générateur d'affiches RA7A -->
-  <section class="r7-sec r7-lab" id="lab">
-    <div class="r7-sec-head">
-      <h2 data-scramble>Lab</h2>
-      <span class="r7-count">Generate your poster — <em>no two alike</em></span>
-    </div>
-    <div class="lab-grid">
-      <canvas class="lab-canvas" id="labCanvas" width="800" height="1000" aria-label="Affiche RA7A générée"></canvas>
-      <div class="lab-side">
-        <p class="lab-text">Chaque clic génère une affiche unique : désert, Japon ou les deux, calligraphie, kanji, étoiles, grain. Garde celle qui te parle.</p>
+      <div class="hero-copy">
+        <p class="hero-season">Drop 01 · Bientôt</p>
+        <h1 class="hero-title">Deux mondes.<br>Un seul repos.</h1>
+        <div class="hero-cta">
+          <a href="#shop" class="btn btn-light">Découvrir le drop</a>
+          <a href="#worlds" class="btn btn-ghost-light">Les collections</a>
+        </div>
+      </div>
+      <p class="hero-legend" aria-hidden="true"><span class="lg-ds">Désert</span><span class="lg-sep"></span><span class="lg-jp">Japon</span></p>
+    </section>
+
+    <!-- SHOP -->
+    <section class="shop-sec" id="shop">
+      <div class="sec-head">
+        <div>
+          <h2 class="sec-title">Drop 01</h2>
+          <p class="sec-sub">T-shirts oversize, imprimés avant et dos. Cinq coloris.</p>
+        </div>
+        <div class="filters" role="toolbar" aria-label="Filtrer">
+          <button type="button" class="chip is-on" data-filter="all">Tout <span>5</span></button>
+          <button type="button" class="chip" data-filter="desert">Désert <span>2</span></button>
+          <button type="button" class="chip" data-filter="stars">Étoiles <span>2</span></button>
+          <button type="button" class="chip" data-filter="butterfly">Papillon <span>1</span></button>
+        </div>
+      </div>
+
+      <ul class="grid" id="grid">
+        <li class="card" data-line="stars" data-id="green">
+          <a href="drops/green.html" class="card-media">
+            <img src="assets/shop/green-front.jpg" alt="T-shirt RA7A vert, avant" loading="lazy" width="800" height="1000">
+            <img src="assets/shop/green-back.jpg" alt="" class="card-back" loading="lazy" width="800" height="1000">
+          </a>
+          <button type="button" class="wish" aria-pressed="false" aria-label="Ajouter Green à la wishlist"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></button>
+          <div class="card-info">
+            <a href="drops/green.html" class="card-name">Tee Étoiles — Green</a>
+            <p class="card-meta"><i class="sw" style="--c:#2b3a32"></i>Bientôt</p>
+          </div>
+        </li>
+        <li class="card" data-line="stars" data-id="blue">
+          <a href="drops/blue.html" class="card-media">
+            <img src="assets/shop/blue-front.jpg" alt="T-shirt RA7A bleu, avant" loading="lazy" width="800" height="1000">
+            <img src="assets/shop/blue-back.jpg" alt="" class="card-back" loading="lazy" width="800" height="1000">
+          </a>
+          <button type="button" class="wish" aria-pressed="false" aria-label="Ajouter Blue à la wishlist"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></button>
+          <div class="card-info">
+            <a href="drops/blue.html" class="card-name">Tee Étoiles — Blue</a>
+            <p class="card-meta"><i class="sw" style="--c:#5b7799"></i>Bientôt</p>
+          </div>
+        </li>
+        <li class="card" data-line="butterfly" data-id="lavender">
+          <a href="drops/lavender.html" class="card-media">
+            <img src="assets/shop/lavender-front.jpg" alt="T-shirt RA7A lavande, avant" loading="lazy" width="800" height="1000">
+            <img src="assets/shop/lavender-back.jpg" alt="" class="card-back" loading="lazy" width="800" height="1000">
+          </a>
+          <button type="button" class="wish" aria-pressed="false" aria-label="Ajouter Lavender à la wishlist"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></button>
+          <div class="card-info">
+            <a href="drops/lavender.html" class="card-name">Tee Papillon — Lavender</a>
+            <p class="card-meta"><i class="sw" style="--c:#cfb3dd"></i>Bientôt</p>
+          </div>
+        </li>
+        <li class="card" data-line="desert" data-id="beige">
+          <a href="drops/beige.html" class="card-media">
+            <img src="assets/shop/beige-front.jpg" alt="T-shirt RA7A beige, avant" loading="lazy" width="800" height="1000">
+            <img src="assets/shop/beige-back.jpg" alt="" class="card-back" loading="lazy" width="800" height="1000">
+          </a>
+          <button type="button" class="wish" aria-pressed="false" aria-label="Ajouter Beige à la wishlist"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></button>
+          <div class="card-info">
+            <a href="drops/beige.html" class="card-name">Tee Désert — Beige</a>
+            <p class="card-meta"><i class="sw" style="--c:#d6d4c8"></i>Bientôt</p>
+          </div>
+        </li>
+        <li class="card" data-line="desert" data-id="brown">
+          <a href="drops/earth-tones.html" class="card-media">
+            <img src="assets/shop/brown-front.jpg" alt="T-shirt RA7A marron, avant" loading="lazy" width="800" height="1000">
+            <img src="assets/shop/brown-back.jpg" alt="" class="card-back" loading="lazy" width="800" height="1000">
+          </a>
+          <button type="button" class="wish" aria-pressed="false" aria-label="Ajouter Brown à la wishlist"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></button>
+          <div class="card-info">
+            <a href="drops/earth-tones.html" class="card-name">Tee Désert — Brown</a>
+            <p class="card-meta"><i class="sw" style="--c:#6b5d52"></i>Bientôt</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- COLLECTIONS : les deux mondes -->
+    <section class="worlds" id="worlds" aria-label="Collections">
+      <a href="#shop" class="world world-desert" data-go="desert">
+        <img src="assets/world-desert.jpg" alt="Désert, minarets et dunes" loading="lazy">
+        <div class="world-copy">
+          <span class="world-script" lang="ar">صحراء</span>
+          <h3>Le désert</h3>
+          <p>Calligraphie, sable, la route à dos de chameau.</p>
+          <span class="world-cta">Voir la ligne Désert</span>
+        </div>
+      </a>
+      <a href="#shop" class="world world-japan" data-go="butterfly">
+        <img src="assets/world-japan.jpg" alt="Japon, pagode et cerisiers" loading="lazy">
+        <div class="world-copy">
+          <span class="world-script" lang="ja">休息</span>
+          <h3>Le Japon</h3>
+          <p>Sakura, papillons, le calme avant le sabre.</p>
+          <span class="world-cta">Voir la ligne Papillon</span>
+        </div>
+      </a>
+    </section>
+
+    <!-- MANIFESTE -->
+    <section class="manifest" aria-label="La marque">
+      <p class="manifest-text">
+        <span lang="ar" class="m-ar">راحة</span> veut dire repos. <span lang="ja" class="m-ja">休息</span> aussi.
+        RA7A coud ensemble deux cultures qui ne se croisent jamais, sur des pièces faites pour durer.
+      </p>
+      <p class="manifest-sign">Marouane Boulahdit &amp; Mohamed Salem, fondateurs</p>
+    </section>
+
+    <!-- FILM : plein écran, lecture auto muette -->
+    <section class="film" id="film" aria-label="Film de présentation">
+      <video class="film-video" muted loop playsinline preload="none" poster="assets/duel-2.png">
+        <source src="assets/YTDown.com_YouTube_Ra7a-Presentation_Media_7DG7Dqp_nfQ_001_1080p.mp4" type="video/mp4">
+      </video>
+      <div class="film-ui">
+        <span>RA7A — Le film</span>
+        <button class="film-sound" type="button" aria-pressed="false">Son : off</button>
+      </div>
+    </section>
+
+    <!-- LAB : générateur d'affiches -->
+    <section class="lab" id="lab">
+      <div class="lab-copy">
+        <h2 class="sec-title">Lab</h2>
+        <p>Une affiche RA7A unique à chaque clic : désert, Japon ou les deux. Garde celle qui te parle.</p>
         <dl class="lab-meta">
-          <dt>Seed</dt><dd id="labSeed">—</dd>
-          <dt>World</dt><dd id="labWorld">—</dd>
-          <dt>Glyph</dt><dd id="labGlyph">—</dd>
+          <dt>N°</dt><dd id="labSeed">—</dd>
+          <dt>Monde</dt><dd id="labWorld">—</dd>
+          <dt>Signe</dt><dd id="labGlyph">—</dd>
         </dl>
         <div class="lab-actions">
-          <button type="button" class="lab-btn" id="labGen">Generate ↻</button>
-          <button type="button" class="lab-btn lab-btn-ghost" id="labSave">Download .png ↓</button>
+          <button type="button" class="btn btn-light" id="labGen">Générer</button>
+          <button type="button" class="btn btn-ghost-light" id="labSave">Télécharger</button>
         </div>
-        <p class="r7-small">Astuce : clique directement sur l'affiche · touche <b>G</b></p>
+      </div>
+      <canvas class="lab-canvas" id="labCanvas" width="800" height="1000" aria-label="Affiche RA7A générée"></canvas>
+    </section>
+
+    <!-- ARCHIVE : bande défilante -->
+    <section class="archive" id="archive">
+      <div class="sec-head">
+        <h2 class="sec-title">Archive</h2>
+        <div class="arc-nav">
+          <button type="button" class="arc-btn" data-dir="-1" aria-label="Précédent"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <button type="button" class="arc-btn" data-dir="1" aria-label="Suivant"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+      <div class="arc-rail" id="arcRail">
+        <figure class="arc arc-wide"><img src="assets/duel-1.png" alt="Le duel, version originale" loading="lazy"><figcaption>Duel</figcaption></figure>
+        <figure class="arc"><img src="../assets/raha/logo-ra7a-gothic.jpeg" alt="Logo RA7A gothique" loading="lazy"><figcaption>Gothic</figcaption></figure>
+        <figure class="arc"><img src="../assets/raha/logo-kata.jpeg" alt="Logo RA7A Kata" loading="lazy"><figcaption>Kata</figcaption></figure>
+        <figure class="arc"><img src="../assets/raha/hero-wallpaper.jpeg" alt="Logo RA7A chrome" loading="lazy"><figcaption>Chrome</figcaption></figure>
+        <figure class="arc arc-wide"><img src="assets/shop/campaign-split.jpg" alt="Le désert et le Japon, côte à côte" loading="lazy"><figcaption>Split</figcaption></figure>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="ftr">
+    <div class="ftr-cols">
+      <div>
+        <h4>Shop</h4>
+        <a href="#shop">Drop 01</a>
+        <a href="#worlds">Collections</a>
+        <a href="#lab">Lab</a>
+      </div>
+      <div>
+        <h4>Marque</h4>
+        <a href="#film">Le film</a>
+        <a href="#archive">Archive</a>
+        <a href="../index.html#contact">Contact</a>
+      </div>
+      <div>
+        <h4>Fondateurs</h4>
+        <p>Marouane Boulahdit</p>
+        <p>Mohamed Salem</p>
       </div>
     </div>
-  </section>
-
-  <!-- FILM : plein écran, se lance tout seul quand il entre à l'écran -->
-  <section class="r7-film" id="film">
-    <video class="r7-film-video" muted loop playsinline preload="none" poster="assets/duel-2.png">
-      <source src="assets/YTDown.com_YouTube_Ra7a-Presentation_Media_7DG7Dqp_nfQ_001_1080p.mp4" type="video/mp4">
-    </video>
-    <div class="r7-film-ui">
-      <span>[ Film ]</span>
-      <span class="r7-film-title">RA7A — Presentation</span>
-      <button class="r7-sound" type="button" aria-pressed="false">Sound: off</button>
-    </div>
-  </section>
-
-  <!-- ARCHIVE -->
-  <section class="r7-sec" id="archive">
-    <div class="r7-sec-head">
-      <h2 data-scramble>Archive</h2>
-      <span class="r7-count">Visuals / Logos</span>
-    </div>
-    <div class="r7-archive">
-      <figure class="a-wide"><img src="assets/duel-1.png" alt="Duel" loading="lazy"><figcaption>ARC—01 / Duel</figcaption></figure>
-      <figure><img src="../assets/raha/logo-ra7a-gothic.jpeg" alt="RA7A gothic" loading="lazy"><figcaption>ARC—02 / Gothic</figcaption></figure>
-      <figure><img src="../assets/raha/logo-kata.jpeg" alt="KATA" loading="lazy"><figcaption>ARC—03 / Kata</figcaption></figure>
-      <figure><img src="../assets/raha/hero-wallpaper.jpeg" alt="Artwork RA7A" loading="lazy"><figcaption>ARC—04 / Chrome</figcaption></figure>
-      <figure class="a-wide3"><img src="drops/bg-split.png" alt="Désert / Japon" loading="lazy"><figcaption>ARC—05 / Split</figcaption></figure>
-    </div>
-  </section>
-
-  <!-- INFO -->
-  <section class="r7-sec r7-info" id="info">
-    <div class="r7-info-ar" aria-hidden="true">راحة</div>
-    <div class="r7-info-txt">
-      <p class="r7-big">RA7A est une marque de vêtements underground en cours de développement.</p>
-      <dl>
-        <dt>Founders</dt><dd>Marouane Boulahdit<br>Mohamed Salem</dd>
-        <dt>Status</dt><dd>Drop 01 — coming soon</dd>
-        <dt>Contact</dt><dd><a href="../index.html#contact">via portfolio →</a></dd>
-      </dl>
-    </div>
-  </section>
-
-  <footer class="r7-foot">
-    <div class="r7-foot-word" aria-hidden="true">RA7A</div>
-    <div class="r7-foot-row">
-      <span>© RA7A</span>
-      <a href="../index.html#projects">← Back to portfolio</a>
+    <p class="ftr-word" aria-hidden="true">RA7A</p>
+    <div class="ftr-row">
+      <span>© <span id="year">2026</span> RA7A</span>
+      <a href="../index.html#projects">← Retour au portfolio</a>
     </div>
   </footer>
 
-  <div class="r7-cursor" aria-hidden="true"><span></span></div>
+  <!-- Wishlist (panneau latéral) -->
+  <div class="drawer-scrim" id="scrim" hidden></div>
+  <aside class="drawer" id="drawer" aria-label="Wishlist" aria-hidden="true" inert>
+    <div class="drawer-head">
+      <h2>Wishlist</h2>
+      <button type="button" class="drawer-close" id="wishClose" aria-label="Fermer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <ul class="drawer-list" id="wishList"></ul>
+    <p class="drawer-empty" id="wishEmpty">Aucune pièce pour l'instant. Touche le cœur d'un produit pour la garder ici.</p>
+    <p class="drawer-note">Le Drop 01 n'est pas encore en vente. Ta wishlist est gardée sur cet appareil.</p>
+  </aside>
+
   <script src="raha.js"></script>
 </body>
 </html>

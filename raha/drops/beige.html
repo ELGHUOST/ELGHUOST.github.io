@@ -2,60 +2,161 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>RA7A — Beige</title>
+  <title>Tee Désert — Beige — RA7A</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#050505">
+  <meta name="theme-color" content="#f2f0eb">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Noto+Naskh+Arabic:wght@600;700&family=Noto+Serif+JP:wght@600;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../raha.css">
 </head>
 
-<body class="r7">
-  <div class="grain" aria-hidden="true"></div>
+<body class="shop" data-base="../">
 
-  <header class="r7-head">
-    <a href="../index.html" class="r7-logo">RA7A<sup>®</sup></a>
-    <nav class="r7-nav">
-      <a href="../index.html#drop">Drop 01</a>
+  <div class="announce" aria-label="Annonce">
+    <div class="announce-track">
+      <span>Drop 01 — bientôt</span><span lang="ar">راحة</span><span>Pièces limitées</span><span lang="ja">休息</span><span>Pas de restock</span>
+      <span aria-hidden="true">Drop 01 — bientôt</span><span aria-hidden="true" lang="ar">راحة</span><span aria-hidden="true">Pièces limitées</span><span aria-hidden="true" lang="ja">休息</span><span aria-hidden="true">Pas de restock</span>
+    </div>
+  </div>
+
+  <header class="hdr" id="hdr">
+    <nav class="hdr-nav" aria-label="Boutique">
+      <a href="../index.html#shop">Shop</a>
+      <a href="../index.html#worlds">Collections</a>
+      <a href="../index.html#film">Film</a>
+      <a href="../index.html#lab">Lab</a>
       <a href="../index.html#archive">Archive</a>
-      <a href="../index.html#info">Info</a>
     </nav>
-    <a href="../../index.html#projects" class="r7-back">← Portfolio</a>
+    <a href="../index.html" class="hdr-logo" aria-label="RA7A — accueil">RA7A</a>
+    <div class="hdr-right">
+      <a href="../../index.html#projects" class="hdr-link">Portfolio</a>
+      <button type="button" class="hdr-link hdr-wish" id="wishOpen">Wishlist <span class="wish-count" id="wishCount">0</span></button>
+    </div>
   </header>
 
-  <main class="p-wrap">
-    <div class="p-img">
-      <img src="../../assets/raha/drop-beige.jpeg" alt="RA7A Beige">
-    </div>
-
-    <div class="p-info">
-      <span class="p-idx">004 / 005 — Drop 01</span>
-      <h1 class="p-title">Beige</h1>
-      <p class="p-sub">Colorway: Beige — RAHA (R-A-7-A)</p>
-
-      <p class="p-text">
-        Le <strong>Beige</strong> met l’accent sur l’esthétique “desert / earth”.<br><br> Les lignes et l’écriture donnent un côté brut et authentique : une pièce claire, minimaliste, mais avec une vraie présence.
-      </p>
-
-      <div class="p-tags">
-        <span>Desert vibe</span>
-        <span>Minimal</span>
-        <span>Earth lines</span>
+  <main>
+    <p class="crumbs" style="padding: 18px var(--pad) 0"><a href="../index.html#shop">Drop 01</a> / Désert / Beige</p>
+    <section class="pdp">
+      <div class="pdp-gallery">
+        <img src="../assets/shop/beige-front.jpg" alt="Tee Désert — Beige, avant" width="800" height="1000">
+        <img src="../assets/shop/beige-back.jpg" alt="Tee Désert — Beige, dos" width="800" height="1000">
       </div>
 
-      <dl class="p-meta">
-        <dt>Piece</dt><dd>T-shirt — front / back</dd>
-        <dt>Status</dt><dd><em>Coming soon</em></dd>
-      </dl>
+      <div class="pdp-info">
+        <h1 class="p-title">Tee Désert<br>Beige</h1>
+        <p class="p-status">Bientôt disponible <span>· Drop 01</span></p>
 
-      <div class="p-nav">
-        <a href="lavender.html">← Lavender</a>
-        <a href="../index.html#drop">All</a>
-        <a href="earth-tones.html">Earth Tones →</a>
+        <p class="p-label">Coloris <span>Beige</span></p>
+        <div class="p-colors">
+          <a href="green.html" style="--c:#2b3a32" aria-label="Tee Étoiles — Green"></a>
+          <a href="blue.html" style="--c:#5b7799" aria-label="Tee Étoiles — Blue"></a>
+          <a href="lavender.html" style="--c:#cfb3dd" aria-label="Tee Papillon — Lavender"></a>
+          <a href="beige.html" style="--c:#d6d4c8" aria-label="Tee Désert — Beige" aria-current="true"></a>
+          <a href="earth-tones.html" style="--c:#6b5d52" aria-label="Tee Désert — Brown"></a>
+        </div>
+
+        <p class="p-label">Taille <span id="sizeLabel">Choisir</span></p>
+        <div class="sizes" role="group" aria-label="Taille">
+          <button type="button" class="size" aria-pressed="false">S</button>
+          <button type="button" class="size" aria-pressed="false">M</button>
+          <button type="button" class="size" aria-pressed="false">L</button>
+          <button type="button" class="size" aria-pressed="false">XL</button>
+          <button type="button" class="size" aria-pressed="false">XXL</button>
+        </div>
+
+        <div class="p-actions">
+          <button type="button" class="btn btn-dark" disabled>Bientôt disponible</button>
+          <button type="button" class="wish" data-id="beige" aria-pressed="false" aria-label="Ajouter à la wishlist"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></button>
+        </div>
+
+        <details class="acc" open>
+          <summary>Description</summary>
+          <div class="acc-body"><p>Le <strong>Beige</strong> met l’accent sur l’esthétique “desert / earth”.</p><p>Les lignes et l’écriture donnent un côté brut et authentique : une pièce claire, minimaliste, mais avec une vraie présence.</p></div>
+        </details>
+        <details class="acc">
+          <summary>Détails</summary>
+          <div class="acc-body">
+            <ul><li>Desert vibe</li><li>Minimal</li><li>Earth lines</li><li>Imprimé avant et dos</li></ul>
+          </div>
+        </details>
+        <details class="acc">
+          <summary>Disponibilité</summary>
+          <div class="acc-body"><p>Le Drop 01 n'est pas encore en vente. Ajoute la pièce à ta wishlist pour la retrouver le jour de la sortie.</p></div>
+        </details>
       </div>
-    </div>
+    </section>
+
+    <section class="p-more" aria-label="Du même drop">
+      <h2 class="sec-title">Du même drop</h2>
+      <ul class="grid">
+        <li class="card" data-id="green">
+          <a href="green.html" class="card-media">
+            <img src="../assets/shop/green-front.jpg" alt="Tee Étoiles — Green, avant" loading="lazy" width="800" height="1000">
+            <img src="../assets/shop/green-back.jpg" alt="" class="card-back" loading="lazy" width="800" height="1000">
+          </a>
+          <button type="button" class="wish" aria-pressed="false" aria-label="Ajouter Tee Étoiles — Green à la wishlist"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></button>
+          <div class="card-info">
+            <a href="green.html" class="card-name">Tee Étoiles — Green</a>
+            <p class="card-meta"><i class="sw" style="--c:#2b3a32"></i>Bientôt</p>
+          </div>
+        </li>
+        <li class="card" data-id="blue">
+          <a href="blue.html" class="card-media">
+            <img src="../assets/shop/blue-front.jpg" alt="Tee Étoiles — Blue, avant" loading="lazy" width="800" height="1000">
+            <img src="../assets/shop/blue-back.jpg" alt="" class="card-back" loading="lazy" width="800" height="1000">
+          </a>
+          <button type="button" class="wish" aria-pressed="false" aria-label="Ajouter Tee Étoiles — Blue à la wishlist"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></button>
+          <div class="card-info">
+            <a href="blue.html" class="card-name">Tee Étoiles — Blue</a>
+            <p class="card-meta"><i class="sw" style="--c:#5b7799"></i>Bientôt</p>
+          </div>
+        </li>
+        <li class="card" data-id="lavender">
+          <a href="lavender.html" class="card-media">
+            <img src="../assets/shop/lavender-front.jpg" alt="Tee Papillon — Lavender, avant" loading="lazy" width="800" height="1000">
+            <img src="../assets/shop/lavender-back.jpg" alt="" class="card-back" loading="lazy" width="800" height="1000">
+          </a>
+          <button type="button" class="wish" aria-pressed="false" aria-label="Ajouter Tee Papillon — Lavender à la wishlist"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></button>
+          <div class="card-info">
+            <a href="lavender.html" class="card-name">Tee Papillon — Lavender</a>
+            <p class="card-meta"><i class="sw" style="--c:#cfb3dd"></i>Bientôt</p>
+          </div>
+        </li>
+        <li class="card" data-id="brown">
+          <a href="earth-tones.html" class="card-media">
+            <img src="../assets/shop/brown-front.jpg" alt="Tee Désert — Brown, avant" loading="lazy" width="800" height="1000">
+            <img src="../assets/shop/brown-back.jpg" alt="" class="card-back" loading="lazy" width="800" height="1000">
+          </a>
+          <button type="button" class="wish" aria-pressed="false" aria-label="Ajouter Tee Désert — Brown à la wishlist"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></button>
+          <div class="card-info">
+            <a href="earth-tones.html" class="card-name">Tee Désert — Brown</a>
+            <p class="card-meta"><i class="sw" style="--c:#6b5d52"></i>Bientôt</p>
+          </div>
+        </li>
+      </ul>
+    </section>
   </main>
 
+  <footer class="ftr">
+    <p class="ftr-word" aria-hidden="true">RA7A</p>
+    <div class="ftr-row">
+      <span>© RA7A</span>
+      <a href="../../index.html#projects">← Retour au portfolio</a>
+    </div>
+  </footer>
+
+  <div class="drawer-scrim" id="scrim" hidden></div>
+  <aside class="drawer" id="drawer" aria-label="Wishlist" aria-hidden="true" inert>
+    <div class="drawer-head">
+      <h2>Wishlist</h2>
+      <button type="button" class="drawer-close" id="wishClose" aria-label="Fermer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <ul class="drawer-list" id="wishList"></ul>
+    <p class="drawer-empty" id="wishEmpty">Aucune pièce pour l'instant. Touche le cœur d'un produit pour la garder ici.</p>
+    <p class="drawer-note">Le Drop 01 n'est pas encore en vente. Ta wishlist est gardée sur cet appareil.</p>
+  </aside>
+
+  <script src="../raha.js"></script>
 </body>
 </html>
